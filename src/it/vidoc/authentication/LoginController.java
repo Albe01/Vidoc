@@ -1,8 +1,12 @@
 package it.vidoc.authentication;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
@@ -94,6 +98,18 @@ public class LoginController extends GenericForwardComposer {
 		datiSessione.setUser(user);
 		datiSessione.setLstUserabilitazioni(lstUserabilitazioni);
 		sess.setAttribute("datisessione",datiSessione);
+		
+		
+//		try {
+//			Execution exec = Executions.getCurrent();
+//		    HttpServletResponse response = (HttpServletResponse)exec.getNativeResponse();
+//			response.sendRedirect(response.encodeRedirectURL("/home.zul"));
+//			exec.setVoided(true);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		
 		Executions.sendRedirect("/zulpages/home.zul");
 		
 	}

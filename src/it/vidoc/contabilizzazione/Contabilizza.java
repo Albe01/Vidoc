@@ -12,6 +12,9 @@ import it.vidoc.mybatis.sqlquery.SqlAccount;
 import it.vidoc.mybatis.sqlquery.SqlListino;
 import it.vidoc.utils.DatiSessione;
 
+// prova
+
+
 public class Contabilizza {
 	private Session session = null;
 	private DatiSessione datiSessione = null;
