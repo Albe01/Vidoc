@@ -1,6 +1,5 @@
 package it.vidoc.win.controller;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -63,8 +62,8 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 		
 		Account account = new Account();
 		account.setUsername(datiSessione.getUser().getUsername());
-		account.setData(dt1.format(dataDa.getValue()));
-		List<Account> lstAccount = new SqlAccount().selectByExample(account, "data");
+		//account.setData(dt1.format(dataDa.getValue()));
+		List<Account> lstAccount = new SqlAccount().selectByExample(account, dt1.format(dataDa.getValue()), dt1.format(dataA.getValue()), "data");
 		riempiLbLogOper(lstAccount);
 	}
 	
