@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="RegistroProtesti" type="RegistroProtestiType"/>
+	<xsd:complexType name="RegistroProtestiType">
+		<xsd:choice>
+			<xsd:element name="ListaAnagraficheProtesti" type="ListaAnagraficheProtestiType"/>
+			<xsd:element name="VisuraEffetto" type="VisuraEffettoType"/>
+			<xsd:element name="VisuraEffettoPdf" type="VisuraEffettoPdfType"/>
+			<xsd:element name="VisuraEffettoTesto" type="VisuraEffettoTestoType"/>
+			<xsd:element name="VisuraEffettoHtml" type="VisuraEffettoHtmlType"/>
+			<xsd:element name="ListaUfficialiLevatori" type="ListaUfficialiLevatoriType"/>
+			<xsd:element name="ListaAnagraficheProtestiDiff" type="ListaAnagraficheProtestiDiffType"/>
+			<xsd:element name="VisuraEffettoDiff" type="VisuraEffettoDiffType"/>
+			<xsd:element name="DtAggPosizioneAnagrafica" type="DtAggPosizioneAnagraficaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="ListaAnagraficheProtestiType">
+		<xsd:choice>
+			<xsd:element name="PerNominativoNazionaleOProvinciale" type="PerNominativoNazionaleOProvincialeType"/>
+			<xsd:element name="PerNominativoSuProvincie" type="PerNominativoSuProvincieType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="VisuraEffettoType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveAnagrafica" type="PerChiaveAnagraficaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="VisuraEffettoPdfType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveAnagraficaPdf" type="PerChiaveAnagraficaPdfType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="VisuraEffettoTestoType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveAnagraficaTesto" type="PerChiaveAnagraficaTestoType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="VisuraEffettoHtmlType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveAnagraficaHtml" type="PerChiaveAnagraficaHtmlType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="ListaUfficialiLevatoriType">
+		<xsd:choice>
+			<xsd:element name="PerElencoUfficialiLevatori" type="PerElencoUfficialiLevatoriType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="ListaAnagraficheProtestiDiffType">
+		<xsd:choice>
+			<xsd:element name="DaFileGuidaPerNominativo" type="DaFileGuidaPerNominativoType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="VisuraEffettoDiffType">
+		<xsd:choice>
+			<xsd:element name="DaFileGuidaPerNominativo" type="DaFileGuidaPerNominativoType"/>
+			<xsd:element name="DaFileGuidaPerChiaveAnagrafica" type="DaFileGuidaPerChiaveAnagraficaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="DtAggPosizioneAnagraficaType">
+		<xsd:choice>
+			<xsd:element name="DaFileGuidaPerChiaveAnagrafica" type="DaFileGuidaPerChiaveAnagraficaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="PerNominativoNazionaleOProvincialeType">
+		<xsd:sequence>
+			<xsd:element name="ParolaNominativo" type="ParolaNominativoType" maxOccurs="4"/>
+			<xsd:element name="SglPrvRes" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="CodComRes" type="CodComType" minOccurs="0"/>
+			<xsd:element name="ParolaIndirizzoRes" type="ParolaIndirizzoType" minOccurs="0" maxOccurs="3"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerNominativoSuProvincieType">
+		<xsd:sequence>
+			<xsd:element name="ParolaNominativo" type="ParolaNominativoType" maxOccurs="4"/>
+			<xsd:element name="SglPrvRes" type="CciaaType" maxOccurs="15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveAnagraficaType">
+		<xsd:sequence>
+			<xsd:element name="KAnagrafica" type="KAnagraficaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveAnagraficaPdfType">
+		<xsd:sequence>
+			<xsd:element name="KAnagrafica" type="KAnagraficaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveAnagraficaTestoType">
+		<xsd:sequence>
+			<xsd:element name="KAnagrafica" type="KAnagraficaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveAnagraficaHtmlType">
+		<xsd:sequence>
+			<xsd:element name="KAnagrafica" type="KAnagraficaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerElencoUfficialiLevatoriType">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0" maxOccurs="11"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DaFileGuidaPerNominativoType">
+		<xsd:sequence>
+			<xsd:element name="NomeFileGuida" type="NomeFileGuidaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DaFileGuidaPerChiaveAnagraficaType">
+		<xsd:sequence>
+			<xsd:element name="NomeFileGuida" type="NomeFileGuidaType"/>
+			<xsd:element name="DtAgg" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Se presente DtAgg, l'output di una data posizione verrà estratto soltanto se la posizione è stata movimentata dopo tale data.
+					Se DtAgg non è valorizzata l'output richiesto verrà sempre restituito.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ParolaNominativoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="34"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodComType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ParolaIndirizzoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="34"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="KAnagraficaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IdeRichType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="19"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CciaaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NomeFileGuidaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,66 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="winRiRicNrea" apply="it.vidoc.win.controller.WinRiRicNreaController" border="none" style="border-top: 2px #DB9A00 solid;" contentStyle="overflow:auto">
+<include src="/zulpages/styles.zul"/>
+<space></space>
+	<space></space>
+	<div align="Center">
+		<label value="-- Registro Imprese - Ricerca per Numero R.E.A. --"
+		 style="font-weight:bold; color:green; font-size:1.0em; border:2px outset #A0A0A0; background-color:yellow;"/>
+	</div>
+	<space></space>
+	<grid >
+		<columns >
+			<column width="10%"/>
+			<column width="90%"/>
+		</columns>
+		<rows>
+			<row>
+				<label value="Numero R.E.A.: (*)" sclass="label"/>
+				<textbox id="txbNrea" width="20%"/>
+			</row>
+			<row>
+				<label value="Provincia:" sclass="label"/>
+				<grid>
+					<columns>
+						<column/>
+						<column width="13%" />
+						<column/>
+					</columns>
+					<rows>
+						<row>
+							<combobox id="cmbPrv" readonly="true" width="99%"/>
+							<label value="Sigla Provincia:"  sclass="label"/>
+							<textbox id="txbSprv" width="15%"/>
+						</row>
+					</rows>				 					
+				</grid>
+			</row>
+			<row>
+				<label value="Tipo Documento:"  sclass="label"/>
+				<grid>
+					<columns>
+						<column/>
+						<column width="14%" />
+						<column/>
+					</columns>
+					<rows>
+						<row>
+							<combobox id="cmbTipDoc" readonly="true" width="99%"/>
+						</row>
+					</rows>				 					
+				</grid>
+			</row>
+		</rows>
+	</grid>
+	<space></space>
+	<label value="(*) Campi obbligatori" sclass="label"/>
+	<div>
+		<space></space>
+		Attraverso questa pagive è possibile effettuare la ricerca indicando il numero R.E.A. dell'impresa che ti interessa.
+	</div>
+	<div align="Center">
+		<button id="btnIniRic" label="Inizia Ricerca" />
+	</div>		        				  
+</window>
+</zk>

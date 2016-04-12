@@ -1,0 +1,905 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="6.2">
+	<xsd:element name="OutputRI" type="OutputRIType"/>
+	<xsd:complexType name="OutputRIType">
+		<xsd:choice>
+			<xsd:element name="ListaOutputRI" type="ListaOutputRIType"/>
+			<xsd:element name="InformazioniImpresaXml" type="InformazioniImpresaXmlType"/>
+			<xsd:element name="InformazioniImpresaPdf" type="InformazioniImpresaPdfType"/>
+			<xsd:element name="InformazioniImpresaTesto" type="InformazioniImpresaTestoType"/>
+			<xsd:element name="InformazioniImpresaHtml" type="InformazioniImpresaHtmlType"/>
+			<xsd:element name="DocumentoBilancio" type="DocumentoBilancioType"/>
+			<xsd:element name="Statuto" type="StatutoType"/>
+			<xsd:element name="InformazioniImpresaXmlDiff" type="InformazioniImpresaXmlDiffType"/>
+			<xsd:element name="InformazioniImpresaTestoDiff" type="InformazioniImpresaTestoDiffType"/>
+			<xsd:element name="InformazioniImpresaHtmlDiff" type="InformazioniImpresaHtmlDiffType"/>
+			<xsd:element name="VisureXmlDiff" type="VisureXmlDiffType"/>
+			<xsd:element name="VisureTestoDiff" type="VisureTestoDiffType"/>
+			<xsd:element name="BlocchiXmlDiff" type="BlocchiXmlDiffType"/>
+			<xsd:element name="BlocchiTestoDiff" type="BlocchiTestoDiffType"/>
+			<xsd:element name="RicercaContrattoReteXml" type="RicercaContrattoReteXmlType"/>
+			<xsd:element name="InformazioniReteImpresaXml" type="InformazioniReteImpresaXmlType"/>
+			<xsd:element name="InformazioniReteImpresaPdf" type="InformazioniReteImpresaPdfType"/>
+			<xsd:element name="InformazioniReteImpresaHtml" type="InformazioniReteImpresaHtmlType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="ListaOutputRIType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaLista" type="PerChiaveReaListaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniImpresaXmlType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaXml" type="PerChiaveReaXmlType"/>
+			<xsd:element name="PerCodFiscSedeXml" type="PerCodFiscSedeXmlType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniImpresaPdfType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaPdf" type="PerChiaveReaPdfType"/>
+			<xsd:element name="PerCodFiscSedePdf" type="PerCodFiscSedePdfType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniImpresaTestoType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaTesto" type="PerChiaveReaTestoType"/>
+			<xsd:element name="PerCodFiscSedeTesto" type="PerCodFiscSedeTestoType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniImpresaHtmlType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaHtml" type="PerChiaveReaHtmlType"/>
+			<xsd:element name="PerCodFiscSedeHtml" type="PerCodFiscSedeHtmlType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="DocumentoBilancioType">
+		<xsd:choice>
+			<xsd:element name="RichiestaPerChiaveBilancio" type="RichiestaPerChiaveBilancioType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="StatutoType">
+		<xsd:choice>
+			<xsd:element name="RichiestaPerChiaveRea" type="RichiestaPerChiaveReaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniImpresaXmlDiffType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaXmlDiff" type="PerChiaveReaXmlDiffType"/>
+			<xsd:element name="PerCodFiscSedeXmlDiff" type="PerCodFiscSedeXmlDiffType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniImpresaTestoDiffType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaTestoDiff" type="PerChiaveReaTestoDiffType"/>
+			<xsd:element name="PerCodFiscSedeTestoDiff" type="PerCodFiscSedeTestoDiffType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniImpresaHtmlDiffType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveReaHtmlDiff" type="PerChiaveReaHtmlDiffType"/>
+			<xsd:element name="PerCodFiscSedeHtmlDiff" type="PerCodFiscSedeHtmlDiffType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:element name="PerCodFiscSedeDiff" type="PerCodFiscSedeDiffType"/>
+	<xsd:complexType name="PerCodFiscSedeDiffType">
+		<xsd:sequence>
+			<xsd:element name="CodFisc" type="CodFiscType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PerCodFiscSedePdf" type="PerCodFiscSedePdfType"
+		substitutionGroup="PerCodFiscSedeDiff"/>
+	<xsd:complexType name="PerCodFiscSedePdfType">
+		<xsd:complexContent>
+			<xsd:extension base="PerCodFiscSedeDiffType">
+				<xsd:sequence>
+					<xsd:choice>
+						<xsd:element name="Documento" type="DocumentoVisuType"/>
+						<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="PerCodFiscSedeXmlDiff" type="PerCodFiscSedeXmlDiffType"
+		substitutionGroup="PerCodFiscSedeDiff"/>
+	<xsd:complexType name="PerCodFiscSedeXmlDiffType">
+		<xsd:complexContent>
+			<xsd:extension base="PerCodFiscSedeDiffType">
+				<xsd:sequence>
+					<xsd:choice>
+						<xsd:element name="Documento" type="DocumentoVisuXmlType"/>
+						<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+		<!-- Per le specifiche si rimanda all'etichetta PerCodFiscSedeXmlType -->
+	</xsd:complexType>
+	<xsd:element name="PerCodFiscSedeTestoDiff" type="PerCodFiscSedeTestoDiffType"
+		substitutionGroup="PerCodFiscSedeDiff"/>
+	<xsd:complexType name="PerCodFiscSedeTestoDiffType">
+		<xsd:complexContent>
+			<xsd:extension base="PerCodFiscSedeDiffType">
+				<xsd:sequence>
+					<xsd:choice>
+						<xsd:element name="Documento" type="DocumentoVisuType"/>
+						<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+		<!-- Per le specifiche si rimanda all'etichetta PerCodFiscSedeTestoType -->
+	</xsd:complexType>
+	<xsd:element name="PerCodFiscSedeHtmlDiff" type="PerCodFiscSedeHtmlDiffType"
+		substitutionGroup="PerCodFiscSedeDiff"/>
+	<xsd:complexType name="PerCodFiscSedeHtmlDiffType">
+		<xsd:complexContent>
+			<xsd:extension base="PerCodFiscSedeDiffType">
+				<xsd:sequence>
+					<xsd:choice>
+						<xsd:element name="Documento" type="DocumentoVisuType"/>
+						<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+		<!-- Per le specifiche si rimanda all'etichetta PerCodFiscSedeHtmlType -->
+	</xsd:complexType>
+	<xsd:complexType name="VisureXmlDiffType">
+		<xsd:choice>
+			<xsd:element name="DaFileGuidaPerChiaveRea" type="DaFileGuidaPerChiaveReaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="VisureTestoDiffType">
+		<xsd:choice>
+			<xsd:element name="DaFileGuidaPerChiaveRea" type="DaFileGuidaPerChiaveReaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="BlocchiXmlDiffType">
+		<xsd:choice>
+			<xsd:element name="DaFileGuidaPerChiaveRea" type="DaFileGuidaPerChiaveReaBlocchiType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="BlocchiTestoDiffType">
+		<xsd:choice>
+			<xsd:element name="DaFileGuidaPerChiaveRea" type="DaFileGuidaPerChiaveReaBlocchiType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="RicercaContrattoReteXmlType">
+		<xsd:choice>
+			<xsd:element name="RicPerChiaveContrattoXml" type="RicPerChiaveContrattoXmlType"/>
+			<xsd:element name="RicPerCodFiscContrattoXml" type="RicPerCodFiscContrattoXmlType"/>
+			<xsd:element name="RicPerDenomContrattoXml" type="RicPerDenomContrattoXmlType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniReteImpresaXmlType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveContrattoXml" type="PerChiaveContrattoXmlType"/>
+			<xsd:element name="PerCodFiscContrattoXml" type="PerCodFiscContrattoXmlType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniReteImpresaHtmlType">
+		<xsd:choice>
+			<xsd:choice>
+				<xsd:element name="PerChiaveContrattoHtml" type="PerChiaveContrattoHtmlType"/>
+				<xsd:element name="PerCodFiscContrattoHtml" type="PerCodFiscContrattoHtmlType"/>
+			</xsd:choice>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniReteImpresaPdfType">
+		<xsd:choice>
+			<xsd:choice>
+				<xsd:element name="PerChiaveContrattoPdf" type="PerChiaveContrattoPdfType"/>
+				<xsd:element name="PerCodFiscContrattoPdf" type="PerCodFiscContrattoPdfType"/>
+			</xsd:choice>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaListaType">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaXmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Questo tipo di richiesta fornisce la possibilita' di ottenere documenti o insiemi di blocchi relativi ad una impresa individuata tramite Cciaa ed NRea.
+Il parametro FUlCessate permette di ottenere nei documenti o blocchi di tipo storico anche le informazioni relative alle Unita Locali Cessate.
+I parametri DtInfoStoriche permettono di delimitare al periodo di interesse le informazioni storiche. Sono significativi soltanto se abbinati alla scelta di una delle visure storiche, dei fascicoli storici o del blocco storico. 
+Il parametro DtAtto va utilizzato nella richiesta di blocco SOS, in questo caso e' obbligatorio e serve ad indicare quale sia l'elenco soci richiesto. Anche se il parametro mantiene lo stesso nome di prima, il suo significato cambia: potrà contenere una qualsiasi data scelta dall'utente e verrà estratta la compagine sociale in essere a quella data, secondo quanto risulta dagli estremi dell'ultimo adempimento che precede la data di riferimento richiesta. 
+Si possono richiedere le visure o i fascicoli utilizzando i codici documento generici VATTU, VSTOR, FATTU o FSTOR , in questo caso il sistema eroghera' la visura/fascicolo Anche se il parametro congruente con le caratteristiche della posizione; oppure si possono indicare i codici documento specifici ed in questo caso il sistema eroghera' le visure/fascicoli solo se le caratteristiche della posizione sono congruenti con il documento scelto. Esclusivamente per output in formato XML e' possibile utilizzare i codici documento generico VARID, VSRID, in questo caso il sistema eroghera' la visura congruente con le caratteristiche della posizione; visura, che nel caso di sedi di societa' di capitale, sara' priva dell'elenco soci.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtAtto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoXmlType"/>
+			</xsd:choice>
+			<!--data DtAtto utilizzata solo per la richiesta di SOS -->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaPdfType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Questo tipo di richiesta fornisce la possibilita' di ottenere documenti o insiemi di blocchi relativi ad una impresa individuata tramite Cciaa ed NRea.
+Il parametro FUlCessate permette di ottenere nei documenti o blocchi di tipo storico anche le informazioni relative alle Unita Locali Cessate.
+I parametri DtInfoStoriche permettono di delimitare al periodo di interesse le informazioni storiche. Sono significativi soltanto se abbinati alla scelta di una delle visure storiche, dei fascicoli storici o del blocco storico. 
+Il parametro DtAtto va utilizzato nella richiesta di blocco SOS, in questo caso e' obbligatorio e serve ad indicare quale sia l'elenco soci richiesto. Anche se il parametro mantiene lo stesso nome di prima, il suo significato cambia: potrà contenere una qualsiasi data scelta dall'utente e verrà estratta la compagine sociale in essere a quella data, secondo quanto risulta dagli estremi dell'ultimo adempimento che precede la data di riferimento richiesta. 
+Si possono richiedere le visure o i fascicoli utilizzando i codici documento generici VATTU, VSTOR, FATTU o FSTOR , in questo caso il sistema eroghera' la visura/fascicolo congruente con le caratteristiche della posizione; oppure si possono indicare i codici documento specifici ed in questo caso il sistema eroghera' le visure/fascicoli solo se le caratteristiche della posizione sono congruenti con il documento scelto. Esclusivamente per output in formato XML e' possibile utilizzare i codici documento generico VARID, VSRID, in questo caso il sistema eroghera' la visura congruente con le caratteristiche della posizione; visura, che nel caso di sedi di societa' di capitale, sara' priva dell'elenco soci.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtAtto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoType"/>
+			</xsd:choice>
+			<!--data DtAtto utilizzata solo per la richiesta di SOS -->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaTestoType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Questo tipo di richiesta fornisce la possibilita' di ottenere documenti o insiemi di blocchi relativi ad una impresa individuata tramite Cciaa ed NRea.
+Il parametro FUlCessate permette di ottenere nei documenti o blocchi di tipo storico anche le informazioni relative alle Unita Locali Cessate.
+I parametri DtInfoStoriche permettono di delimitare al periodo di interesse le informazioni storiche. Sono significativi soltanto se abbinati alla scelta di una delle visure storiche, dei fascicoli storici o del blocco storico. 
+Il parametro DtAtto va utilizzato nella richiesta di blocco SOS, in questo caso e' obbligatorio e serve ad indicare quale sia l'elenco soci richiesto. Anche se il parametro mantiene lo stesso nome di prima, il suo significato cambia: potrà contenere una qualsiasi data scelta dall'utente e verrà estratta la compagine sociale in essere a quella data, secondo quanto risulta dagli estremi dell'ultimo adempimento che precede la data di riferimento richiesta. 
+Si possono richiedere le visure o i fascicoli utilizzando i codici documento generici VATTU, VSTOR, FATTU o FSTOR , in questo caso il sistema eroghera' la visura/fascicolo congruente con le caratteristiche della posizione; oppure si possono indicare i codici documento specifici ed in questo caso il sistema eroghera' le visure/fascicoli solo se le caratteristiche della posizione sono congruenti con il documento scelto. Esclusivamente per output in formato XML e' possibile utilizzare i codici documento generico VARID, VSRID, in questo caso il sistema eroghera' la visura congruente con le caratteristiche della posizione; visura, che nel caso di sedi di societa' di capitale, sara' priva dell'elenco soci.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtAtto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoType"/>
+			</xsd:choice>
+			<!--data DtAtto utilizzata solo per la richiesta di SOS -->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaHtmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Questo tipo di richiesta fornisce la possibilita' di ottenere documenti o insiemi di blocchi relativi ad una impresa individuata tramite Cciaa ed NRea.
+Il parametro FUlCessate permette di ottenere nei documenti o blocchi di tipo storico anche le informazioni relative alle Unita Locali Cessate.
+I parametri DtInfoStoriche permettono di delimitare al periodo di interesse le informazioni storiche. Sono significativi soltanto se abbinati alla scelta di una delle visure storiche, dei fascicoli storici o del blocco storico. 
+Il parametro DtAtto va utilizzato nella richiesta di blocco SOS, in questo caso e' obbligatorio e serve ad indicare quale sia l'elenco soci richiesto. Anche se il parametro mantiene lo stesso nome di prima, il suo significato cambia: potrà contenere una qualsiasi data scelta dall'utente e verrà estratta la compagine sociale in essere a quella data, secondo quanto risulta dagli estremi dell'ultimo adempimento che precede la data di riferimento richiesta. 
+Si possono richiedere le visure o i fascicoli utilizzando i codici documento generici VATTU, VSTOR, FATTU o FSTOR , in questo caso il sistema eroghera' la visura/fascicolo congruente con le caratteristiche della posizione; oppure si possono indicare i codici documento specifici ed in questo caso il sistema eroghera' le visure/fascicoli solo se le caratteristiche della posizione sono congruenti con il documento scelto. Esclusivamente per output in formato XML e' possibile utilizzare i codici documento generico VARID, VSRID, in questo caso il sistema eroghera' la visura congruente con le caratteristiche della posizione; visura, che nel caso di sedi di societa' di capitale, sara' priva dell'elenco soci.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtAtto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoType"/>
+			</xsd:choice>
+			<!--data DtAtto utilizzata solo per la richiesta di SOS -->
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCodFiscSedeXmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Questo tipo di richiesta fornisce la possibilita' di ottenere documenti o insiemi di blocchi relativi ad una sede di impresa conoscendone il codice fiscale.
+Il parametro FUlCessate permette di ottenere nei documenti o blocchi di tipo storico anche le informazioni relative alle Unita Locali Cessate. I parametri
+                                        DtInfoStoriche permettono di delimitare al periodo di
+                                        interesse le informazioni storiche. Si puo' richiedere una
+                                        Visura utilizzando il codice Documento = VATTU oppure una
+                                        Visura Storica utilizzando il codice Documento = VSTOR
+                                        Esclusivamente per output in formato XML e' possibile
+                                        utilizzare i codici documento generico VARID, VSRID, in
+                                        questo caso il sistema eroghera' la visura congruente con le
+                                        caratteristiche della posizione; visura, che nel caso di
+                                        sedi di societa' di capitale, sara' priva dell'elenco soci.
+                                </xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CodFisc" type="CodFiscType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoVisuXmlType"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCodFiscSedeTestoType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> Questo tipo di richiesta fornisce la
+                                        possibilita' di ottenere documenti o insiemi di blocchi
+                                        relativi ad una sede di impresa conoscendone il codice
+                                        fiscale. Il parametro FUlCessate permette di ottenere nei
+                                        documenti o blocchi di tipo storico anche le informazioni
+                                        relative alle Unita Locali Cessate. I parametri
+                                        DtInfoStoriche permettono di delimitare al periodo di
+                                        interesse le informazioni storiche. Si puo' richiedere una
+                                        Visura utilizzando il codice Documento = VATTU oppure una
+                                        Visura Storica utilizzando il codice Documento = VSTOR
+                                        Esclusivamente per output in formato XML e' possibile
+                                        utilizzare i codici documento generico VARID, VSRID, in
+                                        questo caso il sistema eroghera' la visura congruente con le
+                                        caratteristiche della posizione; visura, che nel caso di
+                                        sedi di societa' di capitale, sara' priva dell'elenco soci.
+                                </xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CodFisc" type="CodFiscType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoVisuType"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCodFiscSedeHtmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> Questo tipo di richiesta fornisce la
+                                        possibilita' di ottenere documenti o insiemi di blocchi
+                                        relativi ad una sede di impresa conoscendone il codice
+                                        fiscale. Il parametro FUlCessate permette di ottenere nei
+                                        documenti o blocchi di tipo storico anche le informazioni
+                                        relative alle Unita Locali Cessate. I parametri
+                                        DtInfoStoriche permettono di delimitare al periodo di
+                                        interesse le informazioni storiche. Si puo' richiedere una
+                                        Visura utilizzando il codice Documento = VATTU oppure una
+                                        Visura Storica utilizzando il codice Documento = VSTOR
+                                        Esclusivamente per output in formato XML e' possibile
+                                        utilizzare i codici documento generico VARID, VSRID, in
+                                        questo caso il sistema eroghera' la visura congruente con le
+                                        caratteristiche della posizione; visura, che nel caso di
+                                        sedi di societa' di capitale, sara' priva dell'elenco soci.
+                                </xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CodFisc" type="CodFiscType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoVisuType"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RichiestaPerChiaveBilancioType">
+		<xsd:sequence>
+			<xsd:element name="KRea" type="KReaType"/>
+			<xsd:element name="DtChiusuraBil" type="xsd:date"/>
+			<xsd:element name="CodAtto" type="CodAttoType"/>
+			<xsd:element name="FBilRipresentato" type="FBilRipresentatoType" minOccurs="0"/>
+			<xsd:element name="ProgSezione" type="ProgSezioneType" minOccurs="0" maxOccurs="10"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:element name="ErogaXbrl" type="ErogaXbrlType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RichiestaPerChiaveReaType">
+		<xsd:sequence>
+			<xsd:element name="KRea" type="KReaType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaXmlDiffType">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtAtto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoXmlType"/>
+			</xsd:choice>
+			<!--data DtAtto utilizzata solo per la richiesta di SOS -->
+		</xsd:sequence>
+		<!-- Per le specifiche si rimanda all'etichetta PerChiaveReaXmlType -->
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaTestoDiffType">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtAtto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoType"/>
+			</xsd:choice>
+			<!--data DtAtto utilizzata solo per la richiesta di SOS -->
+		</xsd:sequence>
+		<!-- Per le specifiche si rimanda all'etichetta PerChiaveReaTestoType -->
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaHtmlDiffType">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtAtto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:choice>
+				<xsd:element name="ListaBlocchi" type="ListaBlocchiType" maxOccurs="20"/>
+				<xsd:element name="Documento" type="DocumentoType"/>
+			</xsd:choice>
+			<!--data DtAtto utilizzata solo per la richiesta di SOS -->
+		</xsd:sequence>
+		<!-- Per le specifiche si rimanda all'etichetta PerChiaveReaHtmlType -->
+	</xsd:complexType>
+	<xsd:complexType name="DaFileGuidaPerChiaveReaType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> Questo tipo di richiesta fornisce la
+                                        possibilita' di ottenere le visure inviando un file di
+                                        posizioni. Il tracciato del file e' in formato tracciato
+                                        fisso ed e' pubblicato nelle specifiche relative alle
+                                        differite: SpClienteDiffXml. Il parametro FUlCessate
+                                        permette di ottenere nella Visura Storica anche le
+                                        informazioni relative alle Unita Locali Cessate. I parametri
+                                        DtInfoStoriche permettono di delimitare al periodo di
+                                        interesse le informazioni storiche. Si possono' richiedere
+                                        le visure utilizzando i codici documento generici VATTU o
+                                        VSTOR, in questo caso il sistema eroghera' la visura
+                                        congruente con le caratteristiche della posizione; oppure si
+                                        possono indicare i codici documento specifici ed in questo
+                                        caso il sistema eroghera' le visure solo se le
+                                        caratteristiche della poisizione sono congruenti con il
+                                        documento scelto. Esclusivamente per output in formato XML
+                                        e' possibile utilizzare i codici documento generico VARID,
+                                        VSRID, in questo caso il sistema eroghera' la visura
+                                        congruente con le caratteristiche della posizione; visura,
+                                        che nel caso di sedi di societa' di capitale, sara' priva
+                                        dell'elenco soci. </xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="NomeFileGuida" type="NomeFileGuidaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="Documento" type="DocumentoVisuraXmlType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DaFileGuidaPerChiaveReaBlocchiType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Questo tipo di richiesta fornisce la possibilita' di ottenere uno specifico blocco inviando un file di posizioni.
+Il tracciato del file e' in formato tracciato fisso ed e' pubblicato nelle specifiche relative alle differite: SpClienteDiffXml.
+La DtAtto obbligatoria per il blocco SOS, va specificata nel file inviato (per il significato di questa data si rimanda al commento della richiesta: PerChiaveReaXmlType).
+Il parametro FUlCessate permette di ottenere nel blocco STO Storia delle modifiche le informazioni relative alle Unita Locali Cessate.
+I parametri DtInfoStoriche permettono di delimitare al periodo di interesse le informazioni storiche del blocco STO.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="NomeFileGuida" type="NomeFileGuidaType"/>
+			<xsd:element name="FUlCessate" type="FUlCessateType" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMin" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtInfoStoricheMax" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="ListaBlocchi" type="ListaBlocchiDiffType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KReaType">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RicPerChiaveContrattoXmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>E' possibile effettuare la visura del contratto di rete, o la ricerca, indicando il numero repertorio e il numero di registrazione dell'atto notarile di nascita, modifica o chiusura di un contratto di rete</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="NumeroRegistrazione" type="NumeroRegistrazioneXmlType"/>
+			<xsd:element name="NumeroRepertorio" type="NumeroRepertorioXmlType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RicPerCodFiscContrattoXmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>In alternativa al Numero Repertorio/Numero Registrazione è possibile effettuare la visura del contratto di rete, o la ricerca, indicando il codice fiscale attribuito alla rete di imprese.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="RicCodFiscContratto" type="CodFiscContrattoXmlType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RicPerDenomContrattoXmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Ricerca per denominazione contratto</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="DenominazioneContratto" type="DenominazioneContrattoType"/>
+			<xsd:element name="FDenomEsatta" type="FDenomEsattaType" minOccurs="0"/>
+			<xsd:element name="FParolaTronca" type="FParolaTroncaType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveContrattoXmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>E' possibile effettuare la visura del contratto di rete, o la ricerca, indicando il numero repertorio e il numero di registrazione dell'atto notarile di nascita, modifica o chiusura di un contratto di rete</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="NumeroRegistrazione" type="NumeroRegistrazioneXmlType"/>
+			<xsd:element name="NumeroRepertorio" type="NumeroRepertorioXmlType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:element name="Documento" type="DocumentoContrattoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCodFiscContrattoXmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>In alternativa al Numero Repertorio/Numero Registrazione è possibile effettuare la visura del contratto di rete, o la ricerca, indicando il codice fiscale attribuito alla rete di imprese.</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CodFiscContratto" type="CodFiscContrattoXmlType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:element name="Documento" type="DocumentoContrattoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveContrattoPdfType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Testo Help</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="NumeroRegistrazione" type="NumeroRegistrazionePdfType"/>
+			<xsd:element name="NumeroRepertorio" type="NumeroRepertorioPdfType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:element name="Documento" type="DocumentoContrattoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCodFiscContrattoPdfType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Testo Help</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CodFiscContratto" type="CodFiscContrattoPdfType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:element name="Documento" type="DocumentoContrattoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveContrattoHtmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Testo Help</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="NumeroRegistrazione" type="NumeroRegistrazioneHtmlType"/>
+			<xsd:element name="NumeroRepertorio" type="NumeroRepertorioHtmlType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:element name="Documento" type="DocumentoContrattoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCodFiscContrattoHtmlType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>Testo Help</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CodFiscContratto" type="CodFiscContrattoHtmlType"/>
+			<xsd:element name="IdeRich" type="IdeRichType" minOccurs="0"/>
+			<xsd:element name="Documento" type="DocumentoContrattoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CciaaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NReaType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:totalDigits value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="11"/>
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FUlCessateType">
+		<xsd:annotation>
+			<xsd:documentation> Il parametro FUlCessate permette di ottenere nei
+                                documenti storici anche le informazioni relative alle Unita Locali
+                                Cessate. E' pertanto significativo soltanto se valorizzato
+                                congruentemente con la scelta di un documento storico.
+                        </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="S"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ListaBlocchiType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ALB"/>
+			<xsd:enumeration value="AMM"/>
+			<xsd:enumeration value="APE"/>
+			<xsd:enumeration value="CAP"/>
+			<xsd:enumeration value="CON"/>
+			<xsd:enumeration value="COS"/>
+			<xsd:enumeration value="IPA"/>
+			<xsd:enumeration value="IS8"/>
+			<xsd:enumeration value="PAR"/>
+			<xsd:enumeration value="PAS"/>
+			<xsd:enumeration value="PAT"/>
+			<xsd:enumeration value="PCO"/>
+			<xsd:enumeration value="PER"/>
+			<xsd:enumeration value="PRA"/>
+			<xsd:enumeration value="PT8"/>
+			<xsd:enumeration value="QUO"/>
+			<xsd:enumeration value="SIN"/>
+			<xsd:enumeration value="SOC"/>
+			<xsd:enumeration value="STA"/>
+			<xsd:enumeration value="STO"/>
+			<xsd:enumeration value="SUL"/>
+			<xsd:enumeration value="TFS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocumentoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FATTU"/>
+			<xsd:enumeration value="FSTOR"/>
+			<xsd:enumeration value="VATTU"/>
+			<xsd:enumeration value="VSTOR"/>
+			<xsd:enumeration value="FATTUSC"/>
+			<xsd:enumeration value="FATTUSP"/>
+			<xsd:enumeration value="FSTORSC"/>
+			<xsd:enumeration value="FSTORSP"/>
+			<xsd:enumeration value="SOS"/>
+			<xsd:enumeration value="VATTUAL"/>
+			<xsd:enumeration value="VATTUSC"/>
+			<xsd:enumeration value="VATTUSP"/>
+			<xsd:enumeration value="VATTUUL"/>
+			<xsd:enumeration value="VSTORAL"/>
+			<xsd:enumeration value="VSTORSC"/>
+			<xsd:enumeration value="VSTORSP"/>
+			<xsd:enumeration value="VSTORUL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocumentoXmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FATTU"/>
+			<xsd:enumeration value="FSTOR"/>
+			<xsd:enumeration value="VATTU"/>
+			<xsd:enumeration value="VSTOR"/>
+			<xsd:enumeration value="FATTUSC"/>
+			<xsd:enumeration value="FATTUSP"/>
+			<xsd:enumeration value="FSTORSC"/>
+			<xsd:enumeration value="FSTORSP"/>
+			<xsd:enumeration value="SOS"/>
+			<xsd:enumeration value="VATTUAL"/>
+			<xsd:enumeration value="VATTUSC"/>
+			<xsd:enumeration value="VATTUSP"/>
+			<xsd:enumeration value="VATTUUL"/>
+			<xsd:enumeration value="VSTORAL"/>
+			<xsd:enumeration value="VSTORSC"/>
+			<xsd:enumeration value="VSTORSP"/>
+			<xsd:enumeration value="VSTORUL"/>
+			<xsd:enumeration value="VARID"/>
+			<xsd:enumeration value="VSRID"/>
+			<xsd:enumeration value="VARIDSC"/>
+			<xsd:enumeration value="VSRIDSC"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocumentoVisuType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VATTU"/>
+			<xsd:enumeration value="VSTOR"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocumentoVisuXmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VATTU"/>
+			<xsd:enumeration value="VSTOR"/>
+			<xsd:enumeration value="VARID"/>
+			<xsd:enumeration value="VSRID"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocumentoVisuraType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VATTU"/>
+			<xsd:enumeration value="VSTOR"/>
+			<xsd:enumeration value="VATTUAL"/>
+			<xsd:enumeration value="VATTUSC"/>
+			<xsd:enumeration value="VATTUSP"/>
+			<xsd:enumeration value="VATTUUL"/>
+			<xsd:enumeration value="VSTORAL"/>
+			<xsd:enumeration value="VSTORSC"/>
+			<xsd:enumeration value="VSTORSP"/>
+			<xsd:enumeration value="VSTORUL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocumentoVisuraXmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="VATTU"/>
+			<xsd:enumeration value="VSTOR"/>
+			<xsd:enumeration value="VATTUAL"/>
+			<xsd:enumeration value="VATTUSC"/>
+			<xsd:enumeration value="VATTUSP"/>
+			<xsd:enumeration value="VATTUUL"/>
+			<xsd:enumeration value="VSTORAL"/>
+			<xsd:enumeration value="VSTORSC"/>
+			<xsd:enumeration value="VSTORSP"/>
+			<xsd:enumeration value="VSTORUL"/>
+			<xsd:enumeration value="VARID"/>
+			<xsd:enumeration value="VSRID"/>
+			<xsd:enumeration value="VARIDSC"/>
+			<xsd:enumeration value="VSRIDSC"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ListaBlocchiDiffType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ALB"/>
+			<xsd:enumeration value="AMM"/>
+			<xsd:enumeration value="APE"/>
+			<xsd:enumeration value="CAP"/>
+			<xsd:enumeration value="CON"/>
+			<xsd:enumeration value="COS"/>
+			<xsd:enumeration value="IPA"/>
+			<xsd:enumeration value="PAR"/>
+			<xsd:enumeration value="PAS"/>
+			<xsd:enumeration value="PCO"/>
+			<xsd:enumeration value="PER"/>
+			<xsd:enumeration value="PRA"/>
+			<xsd:enumeration value="QUO"/>
+			<xsd:enumeration value="SIN"/>
+			<xsd:enumeration value="SOC"/>
+			<xsd:enumeration value="SOS"/>
+			<xsd:enumeration value="STO"/>
+			<xsd:enumeration value="SUL"/>
+			<xsd:enumeration value="TFS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodAttoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FBilRipresentatoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="KDocFisicoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ProgSezioneType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IdeRichType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="19"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NomeFileGuidaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ErogaXbrlType">
+		<xsd:annotation>
+			<xsd:documentation>ErogaXbrl: i valori possibili sono X - per richiedere in output l''Xbrl C - per Xbrl e CSV N - per non ricevere nè Xbrl nè CSV. Il campo ErogaXbrl non è obbligatorio: in assenza di tale campo non viene restituito nè Xbrl nè CSV</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="N"/>
+			<xsd:enumeration value="X"/>
+			<xsd:enumeration value="C"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RicPerNumeroRegistrazioneXmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NumeroRegistrazioneXmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NumeroRepertorioXmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscContrattoXmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DenominazioneContrattoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="50"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NumeroRegistrazionePdfType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NumeroRepertorioPdfType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscContrattoPdfType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NumeroRegistrazioneHtmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NumeroRepertorioHtmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscContrattoHtmlType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DocumentoContrattoType">
+		<xsd:annotation>
+			<xsd:documentation>Inizialmente sarà disponibile solo la visura Attuale; successivamente verrà rilasciata anche la visura storica: è qui riportata nello schema a scopo documentativo </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ATTUALE"/>
+			<!--<xsd:enumeration value="STORICO"/>-->
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FDenomEsattaType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Se valorizzato a '1' si ricerca esattamente la frase indicata.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FParolaTroncaType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Se valorizzato a '1', permette di effettuare la ricerca approssimata di parole 
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

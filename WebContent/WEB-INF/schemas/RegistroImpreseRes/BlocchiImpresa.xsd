@@ -1,0 +1,2932 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="DatiIdentificativi.xsd"/>
+	<xs:element name="abilitazione-facchinaggio">
+		<xs:complexType>
+			<xs:attribute name="c-fascia" type="xs:string"/>
+			<xs:attribute name="fascia" type="xs:string"/>
+			<xs:attribute name="c-volume" type="xs:string"/>
+			<xs:attribute name="volume" type="xs:string"/>
+			<xs:attribute name="dt-denuncia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="abilitazione-impiantisti">
+		<xs:complexType>
+			<xs:attribute name="c-qualifica" type="xs:string"/>
+			<xs:attribute name="qualifica" type="xs:string"/>
+			<xs:attribute name="lettera" type="xs:string"/>
+			<xs:attribute name="descrizione-lettera" type="xs:string"/>
+			<xs:attribute name="lettere" type="xs:string"/>
+			<xs:attribute name="limitazioni" type="xs:string"/>
+			<xs:attribute name="f-tutte-attivita-impresa" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-accertamento" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="c-ente-rilascio" type="xs:string"/>
+			<xs:attribute name="ente-rilascio" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="abilitazione-pulizia">
+		<xs:complexType>
+			<xs:attribute name="c-fascia" type="xs:string"/>
+			<xs:attribute name="fascia" type="xs:string"/>
+			<xs:attribute name="c-volume" type="xs:string"/>
+			<xs:attribute name="volume" type="xs:string"/>
+			<xs:attribute name="dt-denuncia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="abilitazioni-impiantisti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="abilitazione-impiantisti" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="c-riferimento-legge" type="xs:string"/>
+			<xs:attribute name="riferimento-legge" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="abilitazioni-professionali">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="p-abilitazioni" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="accordi-debiti" type="xs:string"/>
+	<xs:element name="accordi-partecipazione" type="xs:string"/>
+	<xs:element name="accreditamenti-odc">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="accreditamento-odc" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="dt-ultima-modifica" type="xs:string"/>
+			<xs:attribute name="sito-internet" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="accreditamento-odc">
+		<xs:complexType>
+			<xs:attribute name="c-schema-accreditamento" type="xs:string"/>
+			<xs:attribute name="schema-accreditamento" type="xs:string"/>
+			<xs:attribute name="n-certificato" type="xs:string"/>
+			<xs:attribute name="dt-emissione" type="xs:string"/>
+			<xs:attribute name="dt-scadenza" type="xs:string"/>
+			<xs:attribute name="file-download" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="addetti-impresa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="info-mesi" minOccurs="0"/>
+				<xs:element ref="valori-medi" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-tipo-informazione" type="xs:string"/>
+			<xs:attribute name="tipo-informazione" type="xs:string"/>
+			<xs:attribute name="anno" type="xs:string"/>
+			<xs:attribute name="dt-dichiarazione" type="xs:string"/>
+			<xs:attribute name="dt-rilevazione" type="xs:string"/>
+			<xs:attribute name="n-dipendenti" type="xs:string"/>
+			<xs:attribute name="n-indipendenti" type="xs:string"/>
+			<xs:attribute name="n-totale" type="xs:string"/>
+			<xs:attribute name="c-rilevazione-dipendenti" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="aggregazione-imprese" type="xs:string"/>
+	<xs:element name="albi-ruoli-licenze">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="dati-artigiani" minOccurs="0"/>
+				<xs:element ref="riconoscimenti-professionali" minOccurs="0"/>
+				<xs:element ref="abilitazioni-impiantisti" minOccurs="0"/>
+				<xs:element ref="abilitazione-pulizia" minOccurs="0"/>
+				<xs:element ref="abilitazione-facchinaggio" minOccurs="0"/>
+				<xs:element ref="ruoli" minOccurs="0"/>
+				<xs:element ref="registro-preziosi" minOccurs="0"/>
+				<xs:element ref="denunce-inizio-attivita" minOccurs="0"/>
+				<xs:element ref="licenze" minOccurs="0"/>
+				<xs:element ref="requisiti-morali-professionali" minOccurs="0"/>
+				<xs:element ref="commercio-dettaglio" minOccurs="0"/>
+				<xs:element ref="societa-cooperativa" minOccurs="0"/>
+				<xs:element ref="assegnatari-marchio" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="altre">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="altre-azioni" type="xs:string"/>
+	<xs:element name="altri-strumenti" type="xs:string"/>
+	<xs:element name="altro" type="xs:string"/>
+	<xs:element name="amministrazione-controllo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="n-soci" minOccurs="0"/>
+				<xs:element ref="sistema-amministrazione" minOccurs="0"/>
+				<xs:element ref="soggetto-controllo-contabile" minOccurs="0"/>
+				<xs:element ref="forme-amministrative" minOccurs="0"/>
+				<xs:element ref="forme-amministrative-in-carica" minOccurs="0"/>
+				<xs:element ref="organi-controllo-in-carica" minOccurs="0"/>
+				<xs:element ref="collegio-sindacale" minOccurs="0"/>
+				<xs:element ref="collegio-sindacale-in-carica" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="anagrafica-titolare">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="c-cittadinanza" type="xs:string"/>
+			<xs:attribute name="cittadinanza" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="denominazione-denunciata" type="xs:string"/>
+			<xs:attribute name="cognome" type="xs:string"/>
+			<xs:attribute name="nome" type="xs:string"/>
+			<xs:attribute name="f-cessata" type="xs:string"/>
+			<xs:attribute name="dt-cancellazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="annotazione-libro-soci">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-pratica" minOccurs="0"/>
+				<xs:element ref="estremi-pratica-riconfermata" minOccurs="0"/>
+				<xs:element ref="riquadri-trasferimento" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="annotazioni-libro-soci">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="annotazione-libro-soci" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="annotazioni-procedure" type="xs:string"/>
+	<xs:element name="anticipata-conversione" type="xs:string"/>
+	<xs:element name="apparecchi">
+		<xs:complexType>
+			<xs:attribute name="n-impastatrici" type="xs:string"/>
+			<xs:attribute name="n-formatrici" type="xs:string"/>
+			<xs:attribute name="n-grissinatrici" type="xs:string"/>
+			<xs:attribute name="n-spezzatrici" type="xs:string"/>
+			<xs:attribute name="n-laminatoi" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="appelli-reclami" type="xs:string"/>
+	<xs:element name="arbitrato" type="xs:string"/>
+	<xs:element name="assegnatari-marchio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="iscrizione" minOccurs="0"/>
+				<xs:element ref="cancellazione" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attestazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="certificato-qualita" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-fonte" type="xs:string"/>
+			<xs:attribute name="c-identificativo-SOA" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="n-attestazione" type="xs:string"/>
+			<xs:attribute name="dt-rilascio" type="xs:string"/>
+			<xs:attribute name="dt-scadenza" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attestazione-qualificazioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="categorie-opere" minOccurs="0"/>
+				<xs:element ref="attestazione" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="atti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="atto" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="atti-conferimento-cariche">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="atto-conferimento-cariche" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="atti-tradotti" type="xs:string"/>
+	<xs:element name="atti-trascrizioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="atto-trascrizioni" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attivita-aa">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="dt-iscrizione-inizio" type="xs:string"/>
+					<xs:attribute name="dt-inizio" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attivita-aa-bz">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mestieri-aa" minOccurs="0"/>
+				<xs:element ref="descrizione" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="cancellazione-aa-bz" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="dt-inizio" type="xs:string"/>
+			<xs:attribute name="f-attivita-secondaria" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attivita-agricola">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="dt-inizio" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attivita-esercitata" type="xs:string"/>
+	<xs:element name="attivita-no-aa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="descrizione" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="informazioni-supplementari-aa" minOccurs="0"/>
+				<xs:element ref="cancellazione-aa" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="dt-inizio" type="xs:string"/>
+			<xs:attribute name="c-categoria" type="xs:string"/>
+			<xs:attribute name="categoria" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attivita-prevalente">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-attivita-non-iniziata" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attivita-secondaria-esercitata" type="xs:string"/>
+	<xs:element name="atto">
+		<xs:complexType mixed="true">
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="estremi-notarili" minOccurs="0"/>
+				<xs:element ref="omologazione" minOccurs="0"/>
+				<xs:element ref="registrazione" minOccurs="0"/>
+				<xs:element ref="presentazione-cciaa" minOccurs="0"/>
+				<xs:element ref="iscrizione-modifica" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c" type="xs:string"/>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="descrizione-tipo" type="xs:string"/>
+			<xs:attribute name="dt-atto" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="atto-conferimento-cariche">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cariche" minOccurs="0"/>
+				<xs:element ref="poteri-persona" minOccurs="0"/>
+				<xs:element ref="estremi-atto" minOccurs="0"/>
+				<xs:element ref="proprieta-quota" minOccurs="0"/>
+				<xs:element ref="partecipazione-utili" minOccurs="0"/>
+				<xs:element ref="conferimenti-prestazioni" minOccurs="0"/>
+				<xs:element ref="abilitazioni-professionali" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="p-gruppo-cariche" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="atto-parcheggiato">
+		<xs:complexType>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="anno" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-atto" type="xs:string"/>
+			<xs:attribute name="dt-deposito" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="atto-trascrizioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="atto" minOccurs="0"/>
+				<xs:element ref="trascrizioni-ri" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="autorizzazione-ps">
+		<xs:complexType>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="azioni-ordinarie" type="xs:string"/>
+	<xs:element name="bene-servizio">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="beni-servizi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="bene-servizio" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="blocchi-impresa">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="dati-identificativi" minOccurs="0"/>
+				<xs:element ref="info-sede" minOccurs="0"/>
+				<xs:element ref="estremi-atto-costituzione" minOccurs="0"/>
+				<xs:element ref="cancellazione-trasferimento" minOccurs="0"/>
+				<xs:element ref="info-attivita" minOccurs="0"/>
+				<xs:element ref="storia-attivita" minOccurs="0"/>
+				<xs:element ref="storia-addetti" minOccurs="0"/>
+				<xs:element ref="albi-ruoli-licenze" minOccurs="0"/>
+				<xs:element ref="persone-sede" minOccurs="0"/>
+				<xs:element ref="localizzazioni" minOccurs="0"/>
+				<xs:element ref="protocolli-aperti" minOccurs="0"/>
+				<xs:element ref="protocolli-completi" minOccurs="0"/>
+				<xs:element ref="elenco-soci" minOccurs="0"/>
+				<xs:element ref="annotazioni-libro-soci" minOccurs="0"/>
+				<xs:element ref="trasferimenti-quote" minOccurs="0"/>
+				<xs:element ref="trasferimento-quote" minOccurs="0"/>
+				<xs:element ref="pratiche-soggetti-controllanti" minOccurs="0"/>
+				<xs:element ref="partecipazioni-societa" minOccurs="0"/>
+				<xs:element ref="mad" minOccurs="0"/>
+				<xs:element ref="trascrizioni" minOccurs="0"/>
+				<xs:element ref="storia-cciaa-provenienza" minOccurs="0"/>
+				<xs:element ref="iscrizione-ri" minOccurs="0"/>
+				<xs:element ref="info-statuto" minOccurs="0"/>
+				<xs:element ref="reti-imprese" minOccurs="0"/>
+				<xs:element ref="amministrazione-controllo" minOccurs="0"/>
+				<xs:element ref="info-patrimoniali-finanziarie" minOccurs="0"/>
+				<xs:element ref="patti-parasociali" minOccurs="0"/>
+				<xs:element ref="procedure-concorsuali" minOccurs="0"/>
+				<xs:element ref="variazioni-forma-giuridica" minOccurs="0"/>
+				<xs:element ref="info-supplementari-storiche" minOccurs="0"/>
+				<xs:element ref="ta-fusioni-scissioni-subentri" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="storia-cciaa-provenienza">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mad" minOccurs="0"/>
+				<xs:element ref="trascrizioni" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="cciaa" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancellazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-atto" minOccurs="0"/>
+				<xs:element ref="info-cessazione" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="dt-cancellazione" type="xs:string"/>
+			<xs:attribute name="dt-cessazione" type="xs:string"/>
+			<xs:attribute name="dt-domanda" type="xs:string"/>
+			<xs:attribute name="dt-denuncia" type="xs:string"/>
+			<xs:attribute name="c-causale" type="xs:string"/>
+			<xs:attribute name="causale" type="xs:string"/>
+			<xs:attribute name="dt-cessazione-attivita" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancellazione-aa">
+		<xs:complexType>
+			<xs:attribute name="c-causale" type="xs:string"/>
+			<xs:attribute name="causale" type="xs:string"/>
+			<xs:attribute name="dt-domanda-accertamento" type="xs:string"/>
+			<xs:attribute name="dt-delibera" type="xs:string"/>
+			<xs:attribute name="dt-cessazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancellazione-aa-bz">
+		<xs:complexType>
+			<xs:attribute name="dt-effetto" type="xs:string"/>
+			<xs:attribute name="dt-domanda-accertamento" type="xs:string"/>
+			<xs:attribute name="c-causale" type="xs:string"/>
+			<xs:attribute name="causale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancellazione-ruolo">
+		<xs:complexType>
+			<xs:attribute name="c-causale" type="xs:string"/>
+			<xs:attribute name="causale" type="xs:string"/>
+			<xs:attribute name="dt-domanda" type="xs:string"/>
+			<xs:attribute name="dt-delibera" type="xs:string"/>
+			<xs:attribute name="dt-cessazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cancellazione-trasferimento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="cancellazione" minOccurs="0"/>
+				<xs:element ref="indirizzo-sede-estero" minOccurs="0"/>
+				<xs:element ref="trasferimento-sede" minOccurs="0"/>
+				<xs:element ref="trasferimento-sede-ul-attiva" minOccurs="0"/>
+				<xs:element ref="info-altro-registro" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="capitale-investito">
+		<xs:complexType>
+			<xs:attribute name="c-valuta" type="xs:string"/>
+			<xs:attribute name="valuta" type="xs:string"/>
+			<xs:attribute name="ammontare" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="capitale-sociale">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="deliberato" minOccurs="0"/>
+				<xs:element ref="sottoscritto" minOccurs="0"/>
+				<xs:element ref="versato" minOccurs="0"/>
+				<xs:element ref="tipo-conferimenti" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-valuta" type="xs:string"/>
+			<xs:attribute name="valuta" type="xs:string"/>
+			<xs:attribute name="ammontare" type="xs:string"/>
+			<xs:attribute name="n-azioni" type="xs:string"/>
+			<xs:attribute name="n-quote" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="caratteristiche-impianto-1">
+		<xs:complexType>
+			<xs:attribute name="quintali-potenza-nominale" type="xs:string"/>
+			<xs:attribute name="tipo-riscaldamento" type="xs:string"/>
+			<xs:attribute name="tipo-combustibile" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="caratteristiche-impianto-2">
+		<xs:complexType>
+			<xs:attribute name="quintali-potenza-nominale" type="xs:string"/>
+			<xs:attribute name="tipo-riscaldamento" type="xs:string"/>
+			<xs:attribute name="tipo-combustibile" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="carica">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="p-carica" type="xs:string"/>
+					<xs:attribute name="c-carica" type="xs:string"/>
+					<xs:attribute name="dt-iscrizione" type="xs:string"/>
+					<xs:attribute name="dt-iscrizione-libro-soci" type="xs:string"/>
+					<xs:attribute name="dt-atto-nomina" type="xs:string"/>
+					<xs:attribute name="dt-nomina" type="xs:string"/>
+					<xs:attribute name="dt-fine" type="xs:string"/>
+					<xs:attribute name="n-anni-esercizio" type="xs:string"/>
+					<xs:attribute name="c-durata" type="xs:string"/>
+					<xs:attribute name="descrizione-durata" type="xs:string"/>
+					<xs:attribute name="dt-riferimento-bilancio" type="xs:string"/>
+					<xs:attribute name="dt-presentazione" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cariche">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="carica" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="categoria-opere">
+		<xs:complexType>
+			<xs:attribute name="c-categoria" type="xs:string"/>
+			<xs:attribute name="categoria" type="xs:string"/>
+			<xs:attribute name="c-classificazione" type="xs:string"/>
+			<xs:attribute name="classificazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="categorie-opere">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="categoria-opere" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="c-fonte" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="certificato-qualita">
+		<xs:complexType>
+			<xs:attribute name="denominazione-odc" type="xs:string"/>
+			<xs:attribute name="dt-scadenza" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="certificazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="settori" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-schema-accreditamento" type="xs:string"/>
+			<xs:attribute name="schema-accreditamento" type="xs:string"/>
+			<xs:attribute name="n-certificato" type="xs:string"/>
+			<xs:attribute name="dt-emissione" type="xs:string"/>
+			<xs:attribute name="denominazione-odc" type="xs:string"/>
+			<xs:attribute name="c-fiscale-odc" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="certificazioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="certificazione" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="dt-ultima-modifica" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>	
+	<xs:element name="cessazione" type="xs:string"/>
+	<xs:element name="cessazione-esercizio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="dt-cessazione" type="xs:string"/>
+			<xs:attribute name="dt-decorrenza" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cessazione-esercizio-provv" type="xs:string"/>
+	<xs:element name="cessazione-localizzazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-atto" minOccurs="0"/>
+				<xs:element ref="info-cessazione" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="dt-cessazione" type="xs:string"/>
+			<xs:attribute name="dt-domanda" type="xs:string"/>
+			<xs:attribute name="dt-denuncia" type="xs:string"/>
+			<xs:attribute name="c-causale" type="xs:string"/>
+			<xs:attribute name="causale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="classificazione-ateco-2002">
+		<xs:complexType>
+			<xs:attribute name="c-attivita" type="xs:string"/>
+			<xs:attribute name="attivita" type="xs:string"/>
+			<xs:attribute name="c-importanza" type="xs:string"/>
+			<xs:attribute name="importanza" type="xs:string"/>
+			<xs:attribute name="dt-inizio" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="classificazioni-ateco-2002">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="classificazione-ateco-2002" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="classificazione-ateco">
+		<xs:complexType>
+			<xs:attribute name="c-attivita" type="xs:string"/>
+			<xs:attribute name="attivita" type="xs:string"/>
+			<xs:attribute name="c-importanza" type="xs:string"/>
+			<xs:attribute name="importanza" type="xs:string"/>
+			<xs:attribute name="dt-inizio" type="xs:string"/>
+			<xs:attribute name="dt-riferimento" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="classificazioni-ateco">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="classificazione-ateco" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="c-codifica" type="xs:string"/>
+			<xs:attribute name="codifica" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="clausole">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="recesso" minOccurs="0"/>
+				<xs:element ref="esclusione" minOccurs="0"/>
+				<xs:element ref="gradimento" minOccurs="0"/>
+				<xs:element ref="prelazione" minOccurs="0"/>
+				<xs:element ref="limitazione" minOccurs="0"/>
+				<xs:element ref="compromissorie" minOccurs="0"/>
+				<xs:element ref="altre" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="collegio-sindacale">
+		<xs:complexType>
+			<xs:attribute name="n-effettivi" type="xs:string"/>
+			<xs:attribute name="n-supplenti" type="xs:string"/>
+			<xs:attribute name="n-min" type="xs:string"/>
+			<xs:attribute name="n-max" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="collegio-sindacale-in-carica">
+		<xs:complexType>
+			<xs:attribute name="n-in-carica" type="xs:string"/>
+			<xs:attribute name="anni-durata" type="xs:string"/>
+			<xs:attribute name="c-durata" type="xs:string"/>
+			<xs:attribute name="durata" type="xs:string"/>
+			<xs:attribute name="dt-inizio-carica" type="xs:string"/>
+			<xs:attribute name="dt-fine-carica" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="commercio-dettaglio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="integrazione-informazioni" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="dt-dichiarazione" type="xs:string"/>
+			<xs:attribute name="superficie-vendita" type="xs:string"/>
+			<xs:attribute name="c-settore-merceologico" type="xs:string"/>
+			<xs:attribute name="settore-merceologico" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="composizione-quote">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="c-valuta" type="xs:string"/>
+			<xs:attribute name="valuta" type="xs:string"/>
+			<xs:attribute name="valore-nominale" type="xs:string"/>
+			<xs:attribute name="n-azioni" type="xs:string"/>
+			<xs:attribute name="n-quote" type="xs:string"/>
+			<xs:attribute name="valore-unitario" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+			<xs:attribute name="valore-versato" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="compromissorie">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="comunicazione-curatore">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-udienza" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="tribunale" type="xs:string"/>
+			<xs:attribute name="n-provvedimento" type="xs:string"/>
+			<xs:attribute name="dt-provvedimento" type="xs:string"/>
+			<xs:attribute name="nome-giudice" type="xs:string"/>
+			<xs:attribute name="cognome-giudice" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="comunicazioni-curatore">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="comunicazione-curatore" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="condizioni-sospensive" type="xs:string"/>
+	<xs:element name="conferimenti-benefici">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="conferimenti-prestazioni">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="p-conferimenti" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="continuazione-esercizio-provv" type="xs:string"/>
+	<xs:element name="contratto-rete" type="xs:string"/>
+	<xs:element name="costituzione" type="xs:string"/>
+	<xs:element name="dati-artigiani">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="attivita-aa" minOccurs="0"/>
+				<xs:element ref="informazioni-supplementari-aa" minOccurs="0"/>
+				<xs:element ref="cancellazione-aa" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="c-categoria" type="xs:string"/>
+			<xs:attribute name="categoria" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione-accertamento" type="xs:string"/>
+			<xs:attribute name="dt-domanda" type="xs:string"/>
+			<xs:attribute name="dt-domanda-accertamento" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="dt-delibera" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dati-iscrizione-rea-rd">
+		<xs:complexType>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="c-tipo-iscrizione" type="xs:string"/>
+			<xs:attribute name="tipo-iscrizione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deliberato">
+		<xs:complexType>
+			<xs:attribute name="ammontare" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="denunce-inizio-attivita">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="denuncia-inizio-attivita" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="denuncia-inizio-attivita">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="dt-denuncia" type="xs:string"/>
+			<xs:attribute name="c-ente-rilascio" type="xs:string"/>
+			<xs:attribute name="ente-rilascio" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="deposito-statuto" type="xs:string"/>
+	<xs:element name="descrizione" type="xs:string"/>
+	<xs:element name="descrizioni">
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element ref="descrizione" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="descrizioni-atto-costitutivo" type="xs:string"/>
+	<xs:element name="dichiarazione-start-up">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c-tipo" type="xs:string"/>
+					<xs:attribute name="tipo" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dichiarazioni-start-up">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="dichiarazione-start-up" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="diminuzione-capitale" type="xs:string"/>
+	<xs:element name="diritti-partecipazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="diritto-partecipazione" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="diritto-partecipazione">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="ruolo-partecipazione" minOccurs="0"/>
+			</xs:choice>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="frazione-numeratore" type="xs:string"/>
+			<xs:attribute name="frazione-denominatore" type="xs:string"/>
+			<xs:attribute name="percentuale" type="xs:string"/>
+			<xs:attribute name="c-valuta" type="xs:string"/>
+			<xs:attribute name="valuta" type="xs:string"/>
+			<xs:attribute name="valore" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="domicilio-fiscale">
+		<xs:annotation>
+			<xs:documentation>Questo campo dal 31/03/2009 rappresenterà soltanto il domicilio (dichiarato al Registro Imprese), non il domicilio fiscale</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="c-comune" type="xs:string"/>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="c-toponimo" type="xs:string"/>
+			<xs:attribute name="toponimo" type="xs:string"/>
+			<xs:attribute name="via" type="xs:string"/>
+			<xs:attribute name="n-civico" type="xs:string"/>
+			<xs:attribute name="cap" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="frazione" type="xs:string"/>
+			<xs:attribute name="altre-indicazioni" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dt-rettifica" type="xs:string"/>
+	<xs:element name="durata-societa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="scadenza-esercizi" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="dt-termine" type="xs:string"/>
+			<xs:attribute name="f-durata-indeterminata" type="xs:string"/>
+			<xs:attribute name="c-tipo-proroga" type="xs:string"/>
+			<xs:attribute name="tipo-proroga" type="xs:string"/>
+			<xs:attribute name="n-anni-proroga-tacita" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="effetti-differiti" type="xs:string"/>
+	<xs:element name="elenco-soci">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="estremi-pratica" minOccurs="0"/>
+				<xs:element ref="estremi-pratica-riconfermata" minOccurs="0"/>
+				<xs:element ref="capitale-sociale" minOccurs="0"/>
+				<xs:element ref="riquadri" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="note-pratica-riconfermata" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+			<xs:attribute name="dt-soci-titolari-dal" type="xs:string"/>
+			<xs:attribute name="dt-soci-titolari-al" type="xs:string"/>
+			<xs:attribute name="f-consorzio" type="xs:string"/>
+			<xs:attribute name="f-ultimo-elenco-soci" type="xs:string"/>
+			<xs:attribute name="c-riferimento-legge" type="xs:string"/>
+			<xs:attribute name="riferimento-legge" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="esclusione">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="esecuzione-concordato" type="xs:string"/>
+	<xs:element name="esercizio-diritto-voto" type="xs:string"/>
+	<xs:element name="esercizio-influenza-dominante" type="xs:string"/>
+	<xs:element name="esercizio-provvisorio" type="xs:string"/>
+	<xs:element name="esiti-controllo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="esito-controllo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="esito-controllo">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:byte" use="required"/>
+					<xs:attribute name="esito" type="xs:string" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-atto">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="notaio" type="xs:string"/>
+			<xs:attribute name="tribunale" type="xs:string"/>
+			<xs:attribute name="altre-indicazioni" type="xs:string"/>
+			<xs:attribute name="n-registrazione" type="xs:string"/>
+			<xs:attribute name="dt-registrazione" type="xs:string"/>
+			<xs:attribute name="localita-ufficio-registro" type="xs:string"/>
+			<xs:attribute name="provincia-ufficio-registro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-atto-costituzione">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="n-repertorio" type="xs:string"/>
+			<xs:attribute name="notaio" type="xs:string"/>
+			<xs:attribute name="localita-notaio" type="xs:string"/>
+			<xs:attribute name="provincia-notaio" type="xs:string"/>
+			<xs:attribute name="n-registrazione" type="xs:string"/>
+			<xs:attribute name="dt-registrazione" type="xs:string"/>
+			<xs:attribute name="localita-ufficio-registro" type="xs:string"/>
+			<xs:attribute name="provincia-ufficio-registro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-impresa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="forma-giuridica" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="f-cessata" type="xs:string"/>
+			<xs:attribute name="dt-cancellazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-nascita">
+		<xs:complexType>
+			<xs:attribute name="dt" type="xs:string"/>
+			<xs:attribute name="c-comune" type="xs:string"/>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-notarili">
+		<xs:complexType>
+			<xs:attribute name="c-forma" type="xs:string"/>
+			<xs:attribute name="forma" type="xs:string"/>
+			<xs:attribute name="notaio" type="xs:string"/>
+			<xs:attribute name="n-repertorio" type="xs:string"/>
+			<xs:attribute name="localita-notaio" type="xs:string"/>
+			<xs:attribute name="provincia-notaio" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-pratica">
+		<xs:complexType>
+			<xs:attribute name="c-pratica" type="xs:string"/>
+			<xs:attribute name="c-tipo-adempimento" type="xs:string"/>
+			<xs:attribute name="tipo-adempimento" type="xs:string"/>
+			<xs:attribute name="dt-atto" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="anno" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-protocollo" type="xs:string"/>
+			<xs:attribute name="dt-deposito" type="xs:string"/>
+			<xs:attribute name="f-riconferma" type="xs:string"/>
+			<xs:attribute name="dt-dichiarazione" type="xs:string"/>
+			<xs:attribute name="c-tipo-elenco" type="xs:string"/>
+			<xs:attribute name="tipo-elenco" type="xs:string"/>
+			<xs:attribute name="c-tipo-richiesta" type="xs:string"/>
+			<xs:attribute name="tipo-richiesta" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-pratica-riconfermata">
+		<xs:complexType>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="anno" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="estremi-udienza">
+		<xs:complexType>
+			<xs:attribute name="dt-udienza" type="xs:string"/>
+			<xs:attribute name="dt-termine" type="xs:string"/>
+			<xs:attribute name="luogo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="eventi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="evento" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="evento">
+		<xs:complexType>
+			<xs:attribute name="p-societa" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="n-rs" type="xs:string"/>
+			<xs:attribute name="c-tribunale" type="xs:string"/>
+			<xs:attribute name="tribunale" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="n-ri" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="f-ultimo-elenco-soci" type="xs:string"/>
+	<xs:element name="fallimento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="fallimento-in-proprio" minOccurs="0"/>
+				<xs:element ref="fallimento-per-estensione" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="p-fallimento" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fallimento-in-proprio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-nascita" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-fallimento" type="xs:string"/>
+			<xs:attribute name="dt-fallimento" type="xs:string"/>
+			<xs:attribute name="tribunale" type="xs:string"/>
+			<xs:attribute name="provincia-tribunale" type="xs:string"/>
+			<xs:attribute name="n-sentenza" type="xs:string"/>
+			<xs:attribute name="dt-sentenza" type="xs:string"/>
+			<xs:attribute name="curatore" type="xs:string"/>
+			<xs:attribute name="dt-chiusura" type="xs:string"/>
+			<xs:attribute name="c-organo-giudiziario" type="xs:string"/>
+			<xs:attribute name="organo-giudiziario" type="xs:string"/>
+			<xs:attribute name="sesso" type="xs:string"/>
+			<xs:attribute name="cognome" type="xs:string"/>
+			<xs:attribute name="nome" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fallimento-per-estensione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-nascita" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-fallimento" type="xs:string"/>
+			<xs:attribute name="dt-fallimento" type="xs:string"/>
+			<xs:attribute name="tribunale" type="xs:string"/>
+			<xs:attribute name="provincia-tribunale" type="xs:string"/>
+			<xs:attribute name="n-sentenza" type="xs:string"/>
+			<xs:attribute name="dt-sentenza" type="xs:string"/>
+			<xs:attribute name="curatore" type="xs:string"/>
+			<xs:attribute name="dt-chiusura" type="xs:string"/>
+			<xs:attribute name="c-organo-giudiziario" type="xs:string"/>
+			<xs:attribute name="organo-giudiziario" type="xs:string"/>
+			<xs:attribute name="sesso" type="xs:string"/>
+			<xs:attribute name="cognome" type="xs:string"/>
+			<xs:attribute name="nome" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="familiare-partecipe">
+		<xs:complexType>
+			<xs:attribute name="cognome" type="xs:string"/>
+			<xs:attribute name="nome" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="f-coltivatore-diretto" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="familiari-partecipi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="familiare-partecipe" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="finanziamento-specifico-affare">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="costituzione" minOccurs="0"/>
+				<xs:element ref="modifica" minOccurs="0"/>
+				<xs:element ref="cessazione" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fondo-consortile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="descrizioni" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-valuta" type="xs:string"/>
+			<xs:attribute name="valuta" type="xs:string"/>
+			<xs:attribute name="ammontare" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forma-amministrativa">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+					<xs:attribute name="f-in-carica" type="xs:string"/>
+					<xs:attribute name="f-organo-controllo" type="xs:string"/>
+					<xs:attribute name="n-min-amministratori" type="xs:string"/>
+					<xs:attribute name="n-max-amministratori" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forma-amministrativa-in-carica">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+					<xs:attribute name="n-amministratori-in-carica" type="xs:string"/>
+					<xs:attribute name="anni-durata" type="xs:string"/>
+					<xs:attribute name="c-durata" type="xs:string"/>
+					<xs:attribute name="durata" type="xs:string"/>
+					<xs:attribute name="dt-inizio-carica" type="xs:string"/>
+					<xs:attribute name="dt-fine-carica" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forme-amministrative">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="forma-amministrativa" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forme-amministrative-in-carica">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="forma-amministrativa-in-carica" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fusione-scissione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="eventi"/>
+			</xs:sequence>
+			<xs:attribute name="p-fusione" type="xs:string"/>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="c-approvazione" type="xs:string"/>
+			<xs:attribute name="approvazione" type="xs:string"/>
+			<xs:attribute name="c-evento" type="xs:string"/>
+			<xs:attribute name="evento" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="dt-modifica" type="xs:string"/>
+			<xs:attribute name="dt-atto" type="xs:string"/>
+			<xs:attribute name="dt-delibera" type="xs:string"/>
+			<xs:attribute name="dt-atto-revoca" type="xs:string"/>
+			<xs:attribute name="dt-atto-esecuzione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fusioni-scissioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="fusione-scissione" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gradimento">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gruppi-societari" type="xs:string"/>
+	<xs:element name="impresa-sociale">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="beni-servizi" minOccurs="0"/>
+				<xs:element ref="settori-attivita" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-lavoratori-svantaggiati" type="xs:string"/>
+			<xs:attribute name="n-lavoratori-disabili" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="impresa-riferimento">
+		<xs:complexType>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="impresa-subentrante">
+		<xs:complexType>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="n-ri" type="xs:string"/>
+			<xs:attribute name="c-titolo-subentro" type="xs:string"/>
+			<xs:attribute name="titolo-subentro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="impresa-subentrata">
+		<xs:complexType>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="n-aa" type="xs:string"/>
+			<xs:attribute name="n-ri" type="xs:string"/>
+			<xs:attribute name="c-titolo-subentro" type="xs:string"/>
+			<xs:attribute name="titolo-subentro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="indirizzo">
+		<xs:complexType>
+			<xs:attribute name="c-comune" type="xs:string"/>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="c-toponimo" type="xs:string"/>
+			<xs:attribute name="toponimo" type="xs:string"/>
+			<xs:attribute name="via" type="xs:string"/>
+			<xs:attribute name="n-civico" type="xs:string"/>
+			<xs:attribute name="cap" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="frazione" type="xs:string"/>
+			<xs:attribute name="altre-indicazioni" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="indirizzo-sede-estero">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="info-trasferimento" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="indirizzo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-altro-registro">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trasferimento-altro-registro" minOccurs="0"/>
+				<xs:element ref="cancellazione" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="cciaa" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-attivita">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="lavoro-prestato-familiari-part" minOccurs="0"/>
+				<xs:element ref="familiari-partecipi" minOccurs="0"/>
+				<xs:element ref="attivita-esercitata" minOccurs="0"/>
+				<xs:element ref="attivita-secondaria-esercitata" minOccurs="0"/>
+				<xs:element ref="attivita-aa-bz" minOccurs="0"/>
+				<xs:element ref="attivita-no-aa" minOccurs="0"/>
+				<xs:element ref="attivita-agricola" minOccurs="0"/>
+				<xs:element ref="classificazioni-ateco-2002" minOccurs="0"/>
+				<xs:element ref="classificazioni-ateco" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="attivita-prevalente" minOccurs="0"/>
+				<xs:element ref="attestazione-qualificazioni" minOccurs="0"/>
+				<xs:element ref="certificazioni" minOccurs="0"/>
+				<xs:element ref="accreditamenti-odc" minOccurs="0"/>
+				<xs:element ref="impresa-sociale" minOccurs="0"/>
+				<xs:element ref="addetti-impresa" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="dt-inizio-attivita-impresa" type="xs:string"/>
+			<xs:attribute name="dt-inizio" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-cessazione" type="xs:string"/>
+	<xs:element name="info-generiche" type="xs:string"/>
+	<xs:element name="info-localizzazione" type="xs:string"/>
+	<xs:element name="info-mesi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="info-mese" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-mese">
+		<xs:complexType>
+			<xs:attribute name="c-mese" type="xs:string"/>
+			<xs:attribute name="mese" type="xs:string"/>
+			<xs:attribute name="n-dipendenti" type="xs:string"/>
+			<xs:attribute name="n-indipendenti" type="xs:string"/>
+			<xs:attribute name="n-totale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-non-documentata" type="xs:string"/>
+	<xs:element name="info-patrimoniali-finanziarie">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="capitale-investito" minOccurs="0"/>
+				<xs:element ref="fondo-consortile" minOccurs="0"/>
+				<xs:element ref="valore-nominale-conferimenti" minOccurs="0"/>
+				<xs:element ref="capitale-sociale" minOccurs="0"/>
+				<xs:element ref="composizione-quote" minOccurs="0"/>
+				<xs:element ref="conferimenti-benefici" minOccurs="0"/>
+				<xs:element ref="strumenti-finanziari" minOccurs="0"/>
+				<xs:element ref="diminuzione-capitale" minOccurs="0"/>
+				<xs:element ref="offerta-azioni" minOccurs="0"/>
+				<xs:element ref="anticipata-conversione" minOccurs="0"/>
+				<xs:element ref="patrimonio-specifico-affare" minOccurs="0"/>
+				<xs:element ref="finanziamento-specifico-affare" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-sede">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="telefono" minOccurs="0"/>
+				<xs:element ref="telex" minOccurs="0"/>
+				<xs:element ref="telefax" minOccurs="0"/>
+				<xs:element ref="indirizzo-posta-certificata" minOccurs="0"/>
+				<xs:element ref="sito-internet" minOccurs="0"/>
+				<xs:element ref="email" minOccurs="0"/>
+				<xs:element ref="legal-mail" minOccurs="0"/>
+				<xs:element ref="altre-funzioni-sede" minOccurs="0"/>
+				<xs:element ref="dati-iscrizione-rea-rd" minOccurs="0"/>
+				<xs:element ref="persona-giuridica-privata" minOccurs="0"/>
+				<xs:element ref="sede-fuori-provincia" minOccurs="0"/>
+				<xs:element ref="partita-iva" minOccurs="0"/>
+				<xs:element ref="insegna" minOccurs="0"/>
+				<xs:element ref="sede-secondaria-rs" minOccurs="0"/>
+				<xs:element ref="provenienza-trasferimento" minOccurs="0"/>
+				<xs:element ref="informazioni-supplementari" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="f-scritture-contabili" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-statuto">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="durata-societa" minOccurs="0"/>
+				<xs:element ref="iscrizione-rs" minOccurs="0"/>
+				<xs:element ref="oggetto-sociale" minOccurs="0"/>
+				<xs:element ref="poteri" minOccurs="0"/>
+				<xs:element ref="riferimenti" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="sigla-denominazione" type="xs:string"/>
+			<xs:attribute name="dt-fondazione" type="xs:string"/>
+			<xs:attribute name="dt-comunicazione-unica" type="xs:string"/>
+			<xs:attribute name="dt-atto-costituzione" type="xs:string"/>
+			<xs:attribute name="dt-costituzione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-supplementari-storiche">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="descrizioni-atto-costitutivo" minOccurs="0"/>
+				<xs:element ref="notizie-storiche" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-trasferimento" type="xs:string"/>
+	<xs:element name="info-visura" type="xs:string"/>
+	<xs:element name="informazioni-atto">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="titolari" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-repertorio" type="xs:string"/>
+			<xs:attribute name="notaio" type="xs:string"/>
+			<xs:attribute name="c-oggetto" type="xs:string"/>
+			<xs:attribute name="oggetto" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="informazioni-curatore" type="xs:string"/>
+	<xs:element name="informazioni-supplementari">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="poteri-congiunti" minOccurs="0"/>
+				<xs:element ref="info-visura" minOccurs="0"/>
+				<xs:element ref="info-generiche" minOccurs="0"/>
+				<xs:element ref="info-localizzazione" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="informazioni-supplementari-aa" type="xs:string"/>
+	<xs:element name="insegna" type="xs:string"/>
+	<xs:element name="integrazione-informazioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tabelle-speciali" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="cessazione-esercizio" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="dt-inserimento" type="xs:string"/>
+			<xs:attribute name="dt-decorrenza" type="xs:string"/>
+			<xs:attribute name="c-tipo-domanda" type="xs:string"/>
+			<xs:attribute name="tipo-domanda" type="xs:string"/>
+			<xs:attribute name="n-autorizzazione" type="xs:string"/>
+			<xs:attribute name="dt-presentazione" type="xs:string"/>
+			<xs:attribute name="c-comune-presentazione" type="xs:string"/>
+			<xs:attribute name="comune-presentazione" type="xs:string"/>
+			<xs:attribute name="provincia-presentazione" type="xs:string"/>
+			<xs:attribute name="n-protocollo" type="xs:string"/>
+			<xs:attribute name="c-struttura-esercizio" type="xs:string"/>
+			<xs:attribute name="struttura-esercizio" type="xs:string"/>
+			<xs:attribute name="mq-vendita-alimentare" type="xs:string"/>
+			<xs:attribute name="mq-vendita-non-alimentare" type="xs:string"/>
+			<xs:attribute name="mq-esercizio" type="xs:string"/>
+			<xs:attribute name="centro-commerciale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="iscrizione">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="n-marchio" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="dt-assegnazione" type="xs:string"/>
+			<xs:attribute name="c-categoria" type="xs:string"/>
+			<xs:attribute name="categoria" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="iscrizione-modifica">
+		<xs:complexType>
+			<xs:attribute name="c-tipo-iscrizione" type="xs:string"/>
+			<xs:attribute name="tipo-iscrizione" type="xs:string"/>
+			<xs:attribute name="dt-deposito" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="f-rettifica" type="xs:string"/>
+			<xs:attribute name="dt-rettifica" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="iscrizione-ri">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sezioni" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-annotazione-ri" type="xs:string"/>
+			<xs:attribute name="n-iscrizione-ri" type="xs:string"/>
+			<xs:attribute name="n-c-fiscale" type="xs:string"/>
+			<xs:attribute name="n-annotazione-ri-old" type="xs:string"/>
+			<xs:attribute name="n-iscrizione-ri-old" type="xs:string"/>
+			<xs:attribute name="provincia-ri" type="xs:string"/>
+			<xs:attribute name="c-n-iscrizione-ri-old" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="dt-annotazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="iscrizione-rs">
+		<xs:complexType>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="n-rs" type="xs:string"/>
+			<xs:attribute name="n-volume" type="xs:string"/>
+			<xs:attribute name="n-fascicolo" type="xs:string"/>
+			<xs:attribute name="localita-tribunale" type="xs:string"/>
+			<xs:attribute name="provincia-tribunale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="lavoro-prestato-familiari-part">
+		<xs:complexType>
+			<xs:attribute name="n-lavoratori-tempo-indeter" type="xs:string"/>
+			<xs:attribute name="n-giornate" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="licenza">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="info-non-documentata" minOccurs="0"/>
+				<xs:element ref="molini-panificatori" minOccurs="0"/>
+				<xs:element ref="licenza-autorizzazione" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="p-licenza" type="xs:string"/>
+			<xs:attribute name="f-non-documentata" type="xs:string"/>
+			<xs:attribute name="c-non-documentata" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="licenza-autorizzazione">
+		<xs:complexType>
+			<xs:attribute name="c-autorita-rilascio" type="xs:string"/>
+			<xs:attribute name="autorita-rilascio" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="c" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="licenze">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="licenza" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="limitazione">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="limitazioni-responsabilita">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="localizzazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sotto-tipi" minOccurs="0"/>
+				<xs:element ref="indirizzo-localizzazione" minOccurs="0"/>
+				<xs:element ref="telefono" minOccurs="0"/>
+				<xs:element ref="telex" minOccurs="0"/>
+				<xs:element ref="telefax" minOccurs="0"/>
+				<xs:element ref="sede-fuori-provincia" minOccurs="0"/>
+				<xs:element ref="sede-secondaria-rs" minOccurs="0"/>
+				<xs:element ref="impresa-subentrata" minOccurs="0"/>
+				<xs:element ref="attivita-esercitata" minOccurs="0"/>
+				<xs:element ref="attivita-secondaria-esercitata" minOccurs="0"/>
+				<xs:element ref="attivita-aa-bz" minOccurs="0"/>
+				<xs:element ref="attivita-no-aa" minOccurs="0"/>
+				<xs:element ref="classificazioni-ateco-2002" minOccurs="0"/>
+				<xs:element ref="classificazioni-ateco" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="albi-ruoli-licenze" minOccurs="0"/>
+				<xs:element ref="persone" minOccurs="0"/>
+				<xs:element ref="informazioni-supplementari" minOccurs="0"/>
+				<xs:element ref="cessazione-localizzazione" minOccurs="0"/>
+				<xs:element ref="trasferimento-localizzazione" minOccurs="0"/>
+				<xs:element ref="impresa-subentrante" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="progressivo" type="xs:string"/>
+			<xs:attribute name="f-dati-ridotti" type="xs:string"/>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="c-tipo-iscrizione" type="xs:string"/>
+			<xs:attribute name="tipo-iscrizione" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="insegna" type="xs:string"/>
+			<xs:attribute name="dt-apertura" type="xs:string"/>
+			<xs:attribute name="f-cessazione" type="xs:string"/>
+			<xs:attribute name="f-scritture-contabili" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="localizzazioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="localizzazione" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="macchinari">
+		<xs:complexType>
+			<xs:attribute name="caratteristica-1" type="xs:string"/>
+			<xs:attribute name="caratteristica-2" type="xs:string"/>
+			<xs:attribute name="caratteristica-3" type="xs:string"/>
+			<xs:attribute name="caratteristica-4" type="xs:string"/>
+			<xs:attribute name="f-apparecchi-pulitura" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mad">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sessioni-rd-rea" minOccurs="0"/>
+				<xs:element ref="sessioni-aa" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="marchio" type="xs:string"/>
+	<xs:element name="mestiere-aa">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+					<xs:attribute name="descrizione" type="xs:string"/>
+					<xs:attribute name="ulteriore-descrizione" type="xs:string"/>
+					<xs:attribute name="dt-inizio-attivita" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mestieri-aa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mestiere-aa" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="modelli">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modello" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="modelli-trascrizioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modelli" minOccurs="0"/>
+				<xs:element ref="trascrizioni-ri" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="modello">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="riquadri"/>
+			</xs:choice>
+			<xs:attribute name="c" type="xs:string"/>
+			<xs:attribute name="n-ricorrenze" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="modifica">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="p-modifica" type="xs:string"/>
+					<xs:attribute name="c-tipo" type="xs:string"/>
+					<xs:attribute name="tipo" type="xs:string"/>
+					<xs:attribute name="dt-effetto" type="xs:string"/>
+					<xs:attribute name="c-modifica" type="xs:string"/>
+					<xs:attribute name="descrizione-c-modifica" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="modifica-statuto" type="xs:string"/>
+	<xs:element name="modifiche">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modifica" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="modifiche-statutarie" type="xs:string"/>
+	<xs:element name="molini">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="potenze-cereali-macchinari" minOccurs="0"/>
+				<xs:element ref="stoccaggio" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="categoria" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="molini-panificatori">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="panificatori" minOccurs="0"/>
+				<xs:element ref="molini" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="conduzione" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="dt-inizio-rapporto" type="xs:string"/>
+			<xs:attribute name="dt-fine-rapporto" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="n-soci">
+		<xs:complexType>
+			<xs:attribute name="soci" type="xs:string"/>
+			<xs:attribute name="accomandatari" type="xs:string"/>
+			<xs:attribute name="amministratori" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="note" type="xs:string"/>
+	<xs:element name="note-pratica-riconfermata" type="xs:string"/>
+	<xs:element name="notizie-storiche" type="xs:string"/>
+	<xs:element name="obbligazioni" type="xs:string"/>
+	<xs:element name="obbligazioni-convertibili" type="xs:string"/>
+	<xs:element name="offerta-azioni" type="xs:string"/>
+	<xs:element name="oggetto-sociale" type="xs:string"/>
+	<xs:element name="omologazione">
+		<xs:complexType>
+			<xs:attribute name="dt-omologazione" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="organi-controllo-in-carica">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="forma-amministrativa-in-carica" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="panificatori">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="caratteristiche-impianto-1" minOccurs="0"/>
+				<xs:element ref="caratteristiche-impianto-2" minOccurs="0"/>
+				<xs:element ref="apparecchi" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="parametri">
+		<xs:complexType>
+			<xs:attribute name="id-richiesta" type="xs:string"/>
+			<xs:attribute name="sigla-cciaa" type="xs:string"/>
+			<xs:attribute name="testata-cciaa" type="xs:string"/>
+			<xs:attribute name="titolo-documento" type="xs:string"/>
+			<xs:attribute name="frase-documento" type="xs:string"/>
+			<xs:attribute name="dt-estrazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="partecipazione">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="estremi-impresa" minOccurs="0"/>
+				<xs:element ref="estremi-pratica" minOccurs="0"/>
+				<xs:element ref="capitale-sociale" minOccurs="0"/>
+				<xs:element ref="riquadri" minOccurs="0"/>
+				<xs:element ref="f-ultimo-elenco-soci" minOccurs="0"/>
+			</xs:choice>
+			<xs:attribute name="f-paragrafo-attuale" type="xs:string"/>
+			<xs:attribute name="f-info-incompleta" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="partecipazione-utili">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="p-partecipazione" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="partecipazioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="partecipazione" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="partecipazioni-societa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="partecipazioni" minOccurs="0"/>
+				<xs:element ref="trasferimenti" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="partecipazioni-utili" type="xs:string"/>
+	<xs:element name="partita-iva" type="xs:string"/>
+	<xs:element name="patrimonio-specifico-affare">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="costituzione" minOccurs="0"/>
+				<xs:element ref="modifica" minOccurs="0"/>
+				<xs:element ref="cessazione" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="patti-parasociali">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="esercizio-diritto-voto" minOccurs="0"/>
+				<xs:element ref="trasferimento-azioni-partecip" minOccurs="0"/>
+				<xs:element ref="esercizio-influenza-dominante" minOccurs="0"/>
+				<xs:element ref="altro" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="persona">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="persona-fisica" minOccurs="0"/>
+				<xs:element ref="persona-giuridica" minOccurs="0"/>
+				<xs:element ref="indirizzo-posta-certificata" minOccurs="0"/>
+				<xs:element ref="indirizzo" minOccurs="0"/>
+				<xs:element ref="telefono" minOccurs="0"/>
+				<xs:element ref="telefax" minOccurs="0"/>
+				<xs:element ref="quota" minOccurs="0"/>
+				<xs:element ref="atti-conferimento-cariche" minOccurs="0"/>
+				<xs:element ref="fallimento" minOccurs="0"/>
+				<xs:element ref="abilitazioni-impiantisti" minOccurs="0"/>
+				<xs:element ref="ruoli-persona" minOccurs="0"/>
+				<xs:element ref="licenze" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="progressivo" type="xs:string"/>
+			<xs:attribute name="f-rappresentante-rea" type="xs:string"/>
+			<xs:attribute name="f-rappresentante-ri" type="xs:string"/>
+			<xs:attribute name="f-amministratore" type="xs:string"/>
+			<xs:attribute name="f-sindaco" type="xs:string"/>
+			<xs:attribute name="f-elettore" type="xs:string"/>
+			<xs:attribute name="tipo-modifica" type="xs:string"/>
+			<xs:attribute name="cognome" type="xs:string"/>
+			<xs:attribute name="nome" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="f-firma-depositata" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="persona-fisica">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-nascita" minOccurs="0"/>
+				<xs:element ref="domicilio-fiscale" minOccurs="0"/>
+				<xs:element ref="titoli-onorifici" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="cognome" type="xs:string"/>
+			<xs:attribute name="nome" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="sesso" type="xs:string"/>
+			<xs:attribute name="c-cittadinanza" type="xs:string"/>
+			<xs:attribute name="cittadinanza" type="xs:string"/>
+			<xs:attribute name="c-capacita-di-agire" type="xs:string"/>
+			<xs:attribute name="capacita-di-agire" type="xs:string"/>
+			<xs:attribute name="c-titolo-studio" type="xs:string"/>
+			<xs:attribute name="titolo-studio" type="xs:string"/>
+			<xs:attribute name="c-precedente-occupazione" type="xs:string"/>
+			<xs:attribute name="precedente-occupazione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="persona-giuridica">
+		<xs:complexType>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="dt-costituzione" type="xs:string"/>
+			<xs:attribute name="c-stato-costituzione" type="xs:string"/>
+			<xs:attribute name="stato-costituzione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="persona-giuridica-privata">
+		<xs:complexType>
+			<xs:attribute name="registro" type="xs:string"/>
+			<xs:attribute name="ente" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="f-accertamento-requisiti" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="persone">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="persona" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="persone-pco">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="persona" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="persone-sede">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="persona" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="potenza-cereali-macchinari">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="macchinari" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="quintali-potenza-nominale" type="xs:string"/>
+			<xs:attribute name="quintali-potenza-reale" type="xs:string"/>
+			<xs:attribute name="tipo-cereale" type="xs:string"/>
+			<xs:attribute name="altro-tipo-cereale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="potenze-cereali-macchinari">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="potenza-cereali-macchinari" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="poteri">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="poteri-statuto" minOccurs="0"/>
+				<xs:element ref="poteri-carica" minOccurs="0"/>
+				<xs:element ref="poteri-patti-sociali" minOccurs="0"/>
+				<xs:element ref="poteri-soci" minOccurs="0"/>
+				<xs:element ref="poteri-congiunti" minOccurs="0"/>
+				<xs:element ref="limitazioni-responsabilita" minOccurs="0"/>
+				<xs:element ref="ripartizioni-utili-perdite" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="poteri-carica">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c-carica" type="xs:string"/>
+					<xs:attribute name="carica" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="poteri-congiunti" type="xs:string"/>
+	<xs:element name="poteri-patti-sociali" type="xs:string"/>
+	<xs:element name="poteri-persona">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="p-poteri" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="poteri-soci" type="xs:string"/>
+	<xs:element name="poteri-statuto" type="xs:string"/>
+	<xs:element name="pratica-soggetti-controllanti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-pratica" minOccurs="0"/>
+				<xs:element ref="soggetti-controllanti" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pratiche-soggetti-controllanti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="pratica-soggetti-controllanti" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="prelazione">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="presentazione-cciaa">
+		<xs:complexType>
+			<xs:attribute name="dt-presentazione" type="xs:string"/>
+			<xs:attribute name="n-protocollo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="procedura-concorsuale">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-atto" minOccurs="0"/>
+				<xs:element ref="comunicazioni-curatore" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione-procedura" type="xs:string"/>
+			<xs:attribute name="dt-provvedimento" type="xs:string"/>
+			<xs:attribute name="dt-atto" type="xs:string"/>
+			<xs:attribute name="dt-termine" type="xs:string"/>
+			<xs:attribute name="dt-omologazione" type="xs:string"/>
+			<xs:attribute name="dt-chiusura" type="xs:string"/>
+			<xs:attribute name="dt-esecuzione" type="xs:string"/>
+			<xs:attribute name="dt-revoca" type="xs:string"/>
+			<xs:attribute name="dt-udienza" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="procedure-concorsuali">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="procedura-concorsuale" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="comunicazioni-curatore" minOccurs="0"/>
+				<xs:element ref="informazioni-curatore" minOccurs="0"/>
+				<xs:element ref="accordi-debiti" minOccurs="0"/>
+				<xs:element ref="rapporto-curatore" minOccurs="0"/>
+				<xs:element ref="appelli-reclami" minOccurs="0"/>
+				<xs:element ref="proposta-concordato" minOccurs="0"/>
+				<xs:element ref="esercizio-provvisorio" minOccurs="0"/>
+				<xs:element ref="continuazione-esercizio-provv" minOccurs="0"/>
+				<xs:element ref="cessazione-esercizio-provv" minOccurs="0"/>
+				<xs:element ref="esecuzione-concordato" minOccurs="0"/>
+				<xs:element ref="annotazioni-procedure" minOccurs="0"/>
+				<xs:element ref="persone-pco" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="f-presenza-info" type="xs:string"/>
+			<xs:attribute name="cciaa-fuori-provincia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="proposta-concordato" type="xs:string"/>
+	<xs:element name="proprieta-quota">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="p-proprieta" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocolli">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="protocollo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocolli-aperti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="protocollo-aperto" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="f-presenza-info" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocolli-completi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="protocolli" minOccurs="0"/>
+				<xs:element ref="trascrizioni-prot-completi" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="f-presenza-info" type="xs:string"/>
+			<xs:attribute name="dt-estrazione" type="xs:string"/>
+			<xs:attribute name="dt-lunedi-precedente" type="xs:string"/>
+			<xs:attribute name="dt-domenica-precedente" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocolli-ri">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="protocollo-ri" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocolli-rs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="protocollo-rs" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocollo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modelli" minOccurs="0"/>
+				<xs:element ref="atti" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-albo" type="xs:string"/>
+			<xs:attribute name="c-stato-avanzamento" type="xs:string"/>
+			<xs:attribute name="stato-avanzamento" type="xs:string"/>
+			<xs:attribute name="c-stato-pratica" type="xs:string"/>
+			<xs:attribute name="stato-pratica" type="xs:string"/>
+			<xs:attribute name="cciaa-intercamerale" type="xs:string"/>
+			<xs:attribute name="dt-protocollo" type="xs:string"/>
+			<xs:attribute name="dt-ultima-modifica" type="xs:string"/>
+			<xs:attribute name="anno" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocollo-aperto">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modelli" minOccurs="0"/>
+				<xs:element ref="atti" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="c-albo" type="xs:string"/>
+			<xs:attribute name="c-stato-avanzamento" type="xs:string"/>
+			<xs:attribute name="stato-avanzamento" type="xs:string"/>
+			<xs:attribute name="c-stato-pratica" type="xs:string"/>
+			<xs:attribute name="stato-pratica" type="xs:string"/>
+			<xs:attribute name="cciaa-intercamerale" type="xs:string"/>
+			<xs:attribute name="dt-protocollo" type="xs:string"/>
+			<xs:attribute name="anno" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocollo-ri">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modelli-trascrizioni" minOccurs="0"/>
+				<xs:element ref="atti-trascrizioni" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-protocollo" type="xs:string"/>
+			<xs:attribute name="n-protocollo-ufficio" type="xs:string"/>
+			<xs:attribute name="anno" type="xs:string"/>
+			<xs:attribute name="dt-protocollo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="protocollo-rs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="atto" minOccurs="0"/>
+				<xs:element ref="trascrizioni-rs" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-riferimento" type="xs:string"/>
+			<xs:attribute name="n-registro-ordine" type="xs:string"/>
+			<xs:attribute name="anno-registro-ordine" type="xs:string"/>
+			<xs:attribute name="c-comune-tribunale" type="xs:string"/>
+			<xs:attribute name="tribunale" type="xs:string"/>
+			<xs:attribute name="provincia-tribunale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="provenienza-trasferimento">
+		<xs:complexType>
+			<xs:attribute name="dt-trasferimento" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="n-aa" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="provvedimenti-autorita" type="xs:string"/>
+	<xs:element name="provvedimenti-conservatore" type="xs:string"/>
+	<xs:element name="provvedimenti-giudice" type="xs:string"/>
+	<xs:element name="qualifiche">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="qualifica"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="qualifica">
+		<xs:complexType>
+			<xs:attribute name="c" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="quota">
+		<xs:complexType>
+			<xs:attribute name="c-valuta" type="xs:string"/>
+			<xs:attribute name="valuta" type="xs:string"/>
+			<xs:attribute name="valore" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+			<xs:attribute name="percentuale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rapporto-curatore" type="xs:string"/>
+	<xs:element name="recesso">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="registrazione">
+		<xs:complexType>
+			<xs:attribute name="dt-registrazione" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="ufficio-registro" type="xs:string"/>
+			<xs:attribute name="provincia-ufficio-registro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="registro-preziosi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:choice>
+					<xs:element ref="qualifica" minOccurs="0"/>
+					<xs:element ref="qualifiche" minOccurs="0"/>
+				</xs:choice>
+				<xs:element ref="autorizzazione-ps" minOccurs="0"/>
+				<xs:element ref="tassa-cg" minOccurs="0"/>
+				<xs:element ref="marchio" minOccurs="0"/>
+				<xs:element ref="cancellazione-ruolo" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-domanda" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="requisiti-morali-professionali">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="requisito-morale-professionale" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="requisito-morale-professionale">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="c-ente" type="xs:string"/>
+			<xs:attribute name="ente" type="xs:string"/>
+			<xs:attribute name="dt-denuncia" type="xs:string"/>
+			<xs:attribute name="dt-accertamento" type="xs:string"/>
+			<xs:attribute name="dt-decadenza" type="xs:string"/>
+			<xs:attribute name="ulteriori-specifiche" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rete-imprese">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="impresa-riferimento" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n-repertorio" type="xs:string"/>
+			<xs:attribute name="n-registrazione" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="reti-imprese">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="rete-imprese" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="riconoscimenti-professionali">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="riconoscimento-professionale" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="riconoscimento-professionale">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="dt-provvedimento" type="xs:string"/>
+					<xs:attribute name="n-iscrizione" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="riferimenti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="clausole" minOccurs="0"/>
+				<xs:element ref="modifiche-statutarie" minOccurs="0"/>
+				<xs:element ref="deposito-statuto" minOccurs="0"/>
+				<xs:element ref="modifica-statuto" minOccurs="0"/>
+				<xs:element ref="aggregazione-imprese" minOccurs="0"/>
+				<xs:element ref="provvedimenti-giudice" minOccurs="0"/>
+				<xs:element ref="effetti-differiti" minOccurs="0"/>
+				<xs:element ref="arbitrato" minOccurs="0"/>
+				<xs:element ref="condizioni-sospensive" minOccurs="0"/>
+				<xs:element ref="provvedimenti-conservatore" minOccurs="0"/>
+				<xs:element ref="provvedimenti-autorita" minOccurs="0"/>
+				<xs:element ref="gruppi-societari" minOccurs="0"/>
+				<xs:element ref="accordi-partecipazione" minOccurs="0"/>
+				<xs:element ref="contratto-rete" minOccurs="0"/>
+				<xs:element ref="atti-tradotti" minOccurs="0"/>
+				<xs:element ref="dichiarazioni-start-up" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ripartizioni-utili-perdite">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-presenza-nello-statuto" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="riquadri">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="riquadro" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="riquadri-trasferimento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="riquadro-trasferimento" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="riquadro">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="tipo-atto" minOccurs="0"/>
+				<xs:element ref="composizione-quote" minOccurs="0"/>
+				<xs:element ref="vincoli-quote" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="titolari" minOccurs="0"/>
+				<xs:element ref="diritti-partecipazione" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+			<xs:attribute name="c" type="xs:string"/>
+			<xs:attribute name="n-ricorrenze" type="xs:string"/>
+			<xs:attribute name="dt-annotazione" type="xs:string"/>
+			<xs:attribute name="dt-evento" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="vincoli-quote" type="xs:string"/>
+	<xs:element name="riquadro-trasferimento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tipo-atto" minOccurs="0"/>
+				<xs:element ref="composizione-quote" minOccurs="0"/>
+				<xs:element ref="vincoli-quote" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="titolari" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="dt-annotazione" type="xs:string"/>
+			<xs:attribute name="dt-evento" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ruoli">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ruolo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ruoli-persona">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ruolo-persona" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ruolo">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="cancellazione-ruolo"/>
+			</xs:choice>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="c-categoria" type="xs:string"/>
+			<xs:attribute name="categoria" type="xs:string"/>
+			<xs:attribute name="c-qualifica" type="xs:string"/>
+			<xs:attribute name="qualifica" type="xs:string"/>
+			<xs:attribute name="c-forma" type="xs:string"/>
+			<xs:attribute name="forma" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="c-ente-rilascio" type="xs:string"/>
+			<xs:attribute name="ente-rilascio" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ruolo-partecipazione">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ruolo-persona">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="c-categoria" type="xs:string"/>
+			<xs:attribute name="categoria" type="xs:string"/>
+			<xs:attribute name="c-qualifica" type="xs:string"/>
+			<xs:attribute name="qualifica" type="xs:string"/>
+			<xs:attribute name="c-forma" type="xs:string"/>
+			<xs:attribute name="forma" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="c-ente-rilascio" type="xs:string"/>
+			<xs:attribute name="ente-rilascio" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="scadenza-esercizi">
+		<xs:complexType>
+			<xs:attribute name="dt-primo-esercizio" type="xs:string"/>
+			<xs:attribute name="esercizi-successivi" type="xs:string"/>
+			<xs:attribute name="mesi-proroga-bilancio" type="xs:string"/>
+			<xs:attribute name="giorni-proroga-bilancio" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sede-fuori-provincia">
+		<xs:complexType>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="n-aa" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sede-secondaria-rs">
+		<xs:complexType>
+			<xs:attribute name="n-sede-secondaria" type="xs:string"/>
+			<xs:attribute name="c-comune-tribunale" type="xs:string"/>
+			<xs:attribute name="comune-tribunale" type="xs:string"/>
+			<xs:attribute name="provincia-tribunale" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sessione-aa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modifiche" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="c-movimentazione" type="xs:string"/>
+			<xs:attribute name="movimentazione" type="xs:string"/>
+			<xs:attribute name="dt-delibera" type="xs:string"/>
+			<xs:attribute name="dt-domanda-accertamento" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sessione-rd-rea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="modifiche"/>
+			</xs:sequence>
+			<xs:attribute name="c-movimentazione" type="xs:string"/>
+			<xs:attribute name="movimentazione" type="xs:string"/>
+			<xs:attribute name="dt-denuncia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sessioni-aa">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="sessione-aa"/>
+			</xs:choice>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sessioni-rd-rea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sessione-rd-rea" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="settore">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="settori">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="settore" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="settore-attivita">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="settori-attivita">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="settore-attivita" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sezione">
+		<xs:complexType>
+			<xs:attribute name="c" type="xs:string"/>
+			<xs:attribute name="descrizione" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="f-coltivatore-diretto" type="xs:string"/>
+			<xs:attribute name="cciaa-aa" type="xs:string"/>
+			<xs:attribute name="n-aa" type="xs:string"/>
+			<xs:attribute name="f-attesa-decisione" type="xs:string"/>
+			<xs:attribute name="dt-decorrenza" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sezioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sezione" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sistema-amministrazione">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="societa-cooperativa">
+		<xs:complexType>
+			<xs:attribute name="dt-presentazione" type="xs:string"/>
+			<xs:attribute name="n-iscrizione" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="c-sezione" type="xs:string"/>
+			<xs:attribute name="sezione" type="xs:string"/>
+			<xs:attribute name="c-sotto-sezione" type="xs:string"/>
+			<xs:attribute name="sotto-sezione" type="xs:string"/>
+			<xs:attribute name="c-categoria" type="xs:string"/>
+			<xs:attribute name="categoria" type="xs:string"/>
+			<xs:attribute name="c-categoria-attivita-eserc" type="xs:string"/>
+			<xs:attribute name="categoria-attivita-esercitata" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="soggetti-controllanti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="soggetto-controllante" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="soggetto-controllante">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="dt-costituzione" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="dt-riferimento" type="xs:string"/>
+			<xs:attribute name="c-tipo-dichiarazione" type="xs:string"/>
+			<xs:attribute name="tipo-dichiarazione" type="xs:string"/>
+			<xs:attribute name="c-tipo-controllo" type="xs:string"/>
+			<xs:attribute name="tipo-controllo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="soggetto-controllo-contabile">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sotto-tipi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="sotto-tipo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sotto-tipo">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sottoscritto">
+		<xs:complexType>
+			<xs:attribute name="ammontare" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="stoccaggio">
+		<xs:complexType>
+			<xs:attribute name="magazzini" type="xs:string"/>
+			<xs:attribute name="silos" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="storia-addetti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="addetti-impresa" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="storia-attivita">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="classificazioni-ateco-2002" minOccurs="0"/>
+				<xs:element ref="classificazioni-ateco" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="strumenti-finanziari">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="azioni-ordinarie" minOccurs="0"/>
+				<xs:element ref="altre-azioni" minOccurs="0"/>
+				<xs:element ref="obbligazioni" minOccurs="0"/>
+				<xs:element ref="obbligazioni-convertibili" minOccurs="0"/>
+				<xs:element ref="titoli-debito" minOccurs="0"/>
+				<xs:element ref="altri-strumenti" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="subentri">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="subentro" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="subentri-impresa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="impresa-subentrata" minOccurs="0"/>
+				<xs:element ref="subentri" minOccurs="0"/>
+				<xs:element ref="impresa-subentrante" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="subentro">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-ri" type="xs:string"/>
+			<xs:attribute name="c-titolo" type="xs:string"/>
+			<xs:attribute name="titolo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ta-fusioni-scissioni-subentri">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="trasferimenti-azienda"/>
+				<xs:element ref="fusioni-scissioni"/>
+				<xs:element ref="subentri-impresa"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tabelle-speciali">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="f-farmacia" type="xs:string"/>
+					<xs:attribute name="f-vendita-generi-monopolio" type="xs:string"/>
+					<xs:attribute name="f-vendita-carburanti" type="xs:string"/>
+					<xs:attribute name="mq" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tassa-cg">
+		<xs:complexType>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="dt" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tipo" type="xs:string"/>
+	<xs:element name="tipo-atto">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tipo-conferimenti">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tipo-trascrizione">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c-tipo-trascrizione" type="xs:string"/>
+					<xs:attribute name="c-tipo-modifica" type="xs:string"/>
+					<xs:attribute name="tipo-modifica" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="titolare">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="anagrafica-titolare"/>
+				<xs:element ref="domicilio" minOccurs="0"/>
+				<xs:element ref="indirizzo-posta-certificata" minOccurs="0"/>
+				<xs:element ref="diritto-partecipazione" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="c-situazione" type="xs:string"/>
+			<xs:attribute name="situazione" type="xs:string"/>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+			<xs:attribute name="f-rappresentante" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="domicilio">
+		<xs:complexType>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="via" type="xs:string"/>
+			<xs:attribute name="n-civico" type="xs:string"/>
+			<xs:attribute name="cap" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="frazione" type="xs:string"/>
+			<xs:attribute name="presso" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="titolari">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="titolare" maxOccurs="unbounded"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="titoli-debito" type="xs:string"/>
+	<xs:element name="titoli-onorifici">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="titolo-onorifico" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="titolo-onorifico">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trascrizione-prot-completi">
+		<xs:complexType>
+			<xs:attribute name="progressivo-trascrizione" type="xs:string"/>
+			<xs:attribute name="dt-iscrizione" type="xs:string"/>
+			<xs:attribute name="c-tipo-trascrizione" type="xs:string"/>
+			<xs:attribute name="tipo-trascrizione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trascrizione-ri">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="persona" minOccurs="0"/>
+				<xs:element ref="tipo-trascrizione" minOccurs="0"/>
+				<xs:element ref="descrizioni" minOccurs="0"/>
+				<xs:element ref="iscrizione-modifica" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="p-trascrizione" type="xs:string"/>
+			<xs:attribute name="c-tipo-modifica" type="xs:string"/>
+			<xs:attribute name="tipo-modifica" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trascrizione-rs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="persona" minOccurs="0"/>
+				<xs:element ref="tipo-trascrizione" minOccurs="0"/>
+				<xs:element ref="descrizioni" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="p-trascrizione" type="xs:string"/>
+			<xs:attribute name="c-tipo-modifica" type="xs:string"/>
+			<xs:attribute name="tipo-modifica" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trascrizioni">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="protocolli-rs" minOccurs="0"/>
+				<xs:element ref="protocolli-ri" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trascrizioni-prot-completi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trascrizione-prot-completi" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trascrizioni-ri">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trascrizione-ri" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trascrizioni-rs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trascrizione-rs" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimenti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trasferimento" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimenti-azienda">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trasferimento-azienda" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimenti-quote">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="trasferimento-quote" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="f-successivi-ultimo-es" type="xs:string"/>
+			<xs:attribute name="f-tutti" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-impresa"/>
+				<xs:element ref="estremi-pratica"/>
+				<xs:element ref="riquadri"/>
+			</xs:sequence>
+			<xs:attribute name="f-successivo-ultimo-es" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimento-altro-registro">
+		<xs:complexType>
+			<xs:attribute name="c-tipo" type="xs:string"/>
+			<xs:attribute name="tipo" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimento-azienda">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-pratica" minOccurs="0"/>
+				<xs:element ref="informazioni-atto" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimento-azioni-partecip" type="xs:string"/>
+	<xs:element name="trasferimento-localizzazione">
+		<xs:complexType>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimento-quote">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-pratica" minOccurs="0"/>
+				<xs:element ref="riquadri-trasferimento" minOccurs="0"/>
+				<xs:element ref="note" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="f-contestuale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimento-sede">
+		<xs:complexType>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="c-toponimo" type="xs:string"/>
+			<xs:attribute name="toponimo" type="xs:string"/>
+			<xs:attribute name="via" type="xs:string"/>
+			<xs:attribute name="n-civico" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+			<xs:attribute name="n-aa" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trasferimento-sede-ul-attiva">
+		<xs:complexType>
+			<xs:attribute name="c-causale" type="xs:string"/>
+			<xs:attribute name="causale" type="xs:string"/>
+			<xs:attribute name="dt" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="valore-nominale-conferimenti">
+		<xs:complexType>
+			<xs:attribute name="c-valuta" type="xs:string"/>
+			<xs:attribute name="valuta" type="xs:string"/>
+			<xs:attribute name="ammontare" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="valori-medi">
+		<xs:complexType>
+			<xs:attribute name="valore-medio-dipendenti" type="xs:string"/>
+			<xs:attribute name="valore-medio-indipendenti" type="xs:string"/>
+			<xs:attribute name="valore-medio-totale" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="variazione-forma-giuridica">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="estremi-atto" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="p-variazione" type="xs:string"/>
+			<xs:attribute name="c-old" type="xs:string"/>
+			<xs:attribute name="old" type="xs:string"/>
+			<xs:attribute name="c-new" type="xs:string"/>
+			<xs:attribute name="new" type="xs:string"/>
+			<xs:attribute name="dt-atto" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="variazioni-forma-giuridica">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="variazione-forma-giuridica" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="versato">
+		<xs:complexType>
+			<xs:attribute name="ammontare" type="xs:string"/>
+			<xs:attribute name="ammontare-convertito-in-euro" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

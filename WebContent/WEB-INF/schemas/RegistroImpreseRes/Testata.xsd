@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="Errori.xsd"/>
+	<xsd:element name="Testata" type="TestataType"/>
+	<xsd:complexType name="TestataType">
+		<xsd:sequence>
+			<xsd:element name="Riepilogo" type="RiepilogoType" minOccurs="0"/>
+			<xsd:element name="Messaggio" type="MessaggioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Messaggio informativo o segnalazione di errore</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RecordAccount" type="RecordAccountType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Dati utilizzati per la fatturazione. Per il tracciato e la spiegazione si veda il documento TracciatoTagRecordAccount</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RiepilogoType">
+		<xsd:sequence>
+			<xsd:element name="RichiestaInput" type="RichiestaInputType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Viene riportata la richiesta inviata dal sistema del cliente</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FormatoDocumentoAllegato" type="FormatoDocumentoAllegatoType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Formato del documento contenuto nella risposta.
+X = formato dati, XML;
+T = formato testo;
+H = formato HTML;
+P = formato Pdf;
+R = tar di tiff o tar di pdf.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumeroPosizioni" type="xsd:integer" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Numero posizioni risultato della ricerca o presenti nell'output. 
+Se zero, indica che nessuna posizione soddisfa  la ricerca </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IdRichiestaUser" type="IdRichiestaUserType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Identificativo assegnato dal cliente al Servizio Variazioni.
+Nome utilizzato come prefisso in tutti i file di risposta relativi al Servizio Variazioni richiesto.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IdRichiesta" type="IdRichiestaType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Identificativo univoco attribuito alla richiesta dal sistema.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IndicatoreSconto" type="IndicatoreScontoType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Indicatore applicazione sconto ricerca anagrafica. Presente solo se significativo.
+‘0’=sconto non applicato
+‘1’=sconto applicato.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumPagine" type="NumPagineType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Numero totale di pagine. Presente in caso di distribuzione di bilanci, atti o statuti.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FileOutput" type="FileOutputType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nome del file output. Presente in caso di esecuzione differita, invio di bilanci, atti, statuti o documenti PDF.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DtEstrazione" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Data estrazione del risultato della ricerca/richiesta</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OraEstrazione" type="xsd:time" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Ora estrazione del risultato della ricerca/richiesta
+Coincide con l'ora rilevata al termine dell'elaborazione.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MancataErogazione" type="MancataErogazioneType" minOccurs="0">
+				
+				<xsd:annotation>
+					<xsd:documentation>Indicatore di indisponibilità di un documento. Presente solo se significativo.
+‘XBRL’=xbrl non presente nel bilancio richiesto.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="FormatoDocumentoAllegatoType">
+		<xsd:annotation>
+			<xsd:documentation>
+X = formato dati, XML;
+T = formato testo;
+H = formato HTML;
+P = formato Pdf;
+R = tar di tiff o tar di pdf.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="X"/>
+			<xsd:enumeration value="T"/>
+			<xsd:enumeration value="H"/>
+			<xsd:enumeration value="P"/>
+			<xsd:enumeration value="R"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IdRichiestaType">
+		<xsd:annotation>
+			<xsd:documentation>Identificativo univoco attribuito alla richiesta dal sistema.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="19"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IndicatoreScontoType">
+		<xsd:annotation>
+			<xsd:documentation>Indicatore applicazione sconto ricerca anagrafica. Presente solo se significativo.
+‘0’=sconto non applicato
+‘1’=sconto applicato.	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NumPagineType">
+		<xsd:annotation>
+			<xsd:documentation>Numero totale di pagine. Presente in caso di distribuzione di bilanci, atti o statuti.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:nonNegativeInteger">
+			<xsd:totalDigits value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FileOutputType">
+		<xsd:annotation>
+			<xsd:documentation>Nome del file output. Presente in caso di esecuzione differita, invio di bilanci, atti, statuti o documenti PDF.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IdRichiestaUserType">
+		<xsd:annotation>
+			<xsd:documentation>Identificativo assegnato dal cliente al Servizio Variazioni. 
+		Nome utilizzato come prefisso in tutti i file di risposta relativi al Servizio Variazioni richiesto.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RecordAccountType">
+		<xsd:annotation>
+			<xsd:documentation>Dati utilizzati per la fatturazione. Per il tracciato e la spiegazione si veda il documento TracciatoTagRecordAccount</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="250"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MancataErogazioneType">
+		<xsd:annotation>
+			<xsd:documentation>Indicatore di indisponibilità di un documento. Presente solo se mancano nell'erogazione dei documenti significativi richiesti, come ad esempio l'XBRL. Il campo deve intendersi come una lista separata da "," indicante i documenti significativi non erogati</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

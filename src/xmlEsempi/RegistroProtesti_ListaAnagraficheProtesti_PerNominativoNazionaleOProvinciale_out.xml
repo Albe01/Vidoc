@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Risposta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ListaAnagraficheProtestiUnico.xsd">
+	<Testata>
+		<Riepilogo>
+			<NumeroPosizioni>3</NumeroPosizioni>
+			<IdRichiesta>LM496058479680000015</IdRichiesta>
+		</Riepilogo>
+	</Testata>
+	<ListaAnagrafiche>
+		<AnagraficaNominativo>
+			<ProgressivoAnagrafica>1</ProgressivoAnagrafica>
+			<KAnagrafica>8560237</KAnagrafica>
+			<Fonte>RP</Fonte>
+			<Nominativo>SUPERMERCATO 2G DI DI CHIARA GASPARE S.A.S</Nominativo>
+			<SglPrvRes>PA</SglPrvRes>
+			<DescPrvRes>PALERMO</DescPrvRes>
+			<CodComRes>PA053</CodComRes>
+			<DescComRes>PALERMO</DescComRes>
+			<IndirizzoRes>VIA LANCIA DI BROLO 42/A</IndirizzoRes>
+		</AnagraficaNominativo>
+		<AnagraficaNominativo>
+			<ProgressivoAnagrafica>2</ProgressivoAnagrafica>
+			<KAnagrafica>8560239</KAnagrafica>
+			<Fonte>RP</Fonte>
+			<Nominativo>SUPERMERCATO 2G DI DICHIARA GASPARE</Nominativo>
+			<SglPrvRes>PA</SglPrvRes>
+			<DescPrvRes>PALERMO</DescPrvRes>
+			<CodComRes>PA053</CodComRes>
+			<DescComRes>PALERMO</DescComRes>
+			<IndirizzoRes>VIA LANCIA DI BROLO 42/A</IndirizzoRes>
+		</AnagraficaNominativo>
+		<AnagraficaNominativo>
+			<ProgressivoAnagrafica>3</ProgressivoAnagrafica>
+			<KAnagrafica>8698779</KAnagrafica>
+			<Fonte>RP</Fonte>
+			<Nominativo>SUPERMERCATO 2G DI DI CHIARA GASPARE S.A.S.</Nominativo>
+			<SglPrvRes>PA</SglPrvRes>
+			<DescPrvRes>PALERMO</DescPrvRes>
+			<CodComRes>PA053</CodComRes>
+			<DescComRes>PALERMO</DescComRes>
+			<IndirizzoRes>VIA LANCIA DI BROLO 42/A</IndirizzoRes>
+		</AnagraficaNominativo>
+	</ListaAnagrafiche>
+</Risposta>

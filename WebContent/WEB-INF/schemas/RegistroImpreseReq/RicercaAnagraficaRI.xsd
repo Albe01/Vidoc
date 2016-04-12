@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="RicercaAnagraficaRI" type="RicercaAnagraficaRIType"/>
+	<xsd:complexType name="RicercaAnagraficaRIType">
+		<xsd:choice>
+			<xsd:element name="ListaImpreseRI" type="ListaImpreseRIType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="ListaImpreseRIType">
+		<xsd:choice>
+			<xsd:element name="PerChiaveRea" type="PerChiaveReaType"/>
+			<xsd:element name="PerDenominazione" type="PerDenominazioneType"/>
+			<xsd:element name="PerCodFiscImpresa" type="PerCodFiscImpresaType"/>
+			<xsd:element name="PerDenominazioneEComuneSede" type="PerDenominazioneEComuneSedeType"/>
+			<xsd:element name="PerDenominazioneOld" type="PerDenominazioneOldType"/>
+			<xsd:element name="PerCognomeNomeDenom" type="PerCognomeNomeDenomType"/>
+			<xsd:element name="AvanzataPerCodFiscImpresa" type="AvanzataPerCodFiscImpresaType"/>
+			<xsd:element name="PerPIvaImpresa" type="PerPIvaImpresaType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="PerChiaveReaType">
+		<xsd:sequence>
+			<xsd:element name="KRea" type="KReaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerDenominazioneType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> 
+E' una ricerca anagrafica sulle denominazioni attuali e insegne.
+Nota: i flag  FDenomEsatta  e FParolaTronca sono alternativi, nel senso che NON possono essere inviati entrambi valorizzati a 1</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Denominazione" type="DenominazioneType"/>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0" maxOccurs="15"/>
+			<xsd:element name="NatGiu" type="NatGiuType" minOccurs="0" maxOccurs="5"/>
+			<xsd:element name="FDenomEsatta" type="FDenomEsattaType" minOccurs="0"/>
+			<xsd:element name="FParolaTronca" type="FParolaTroncaType" minOccurs="0"/>
+			<xsd:element name="IStatoImpresa" type="IStatoImpresaType" minOccurs="0" maxOccurs="2"/>
+			<xsd:element name="FSoloSedi" type="FSoloSediType" minOccurs="0"/>
+			<xsd:element name="FNoRd" type="FNoRdType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCodFiscImpresaType">
+		<xsd:sequence>
+			<xsd:element name="KCodFisc" type="KCodFiscType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerDenominazioneEComuneSedeType">
+		<xsd:sequence>
+			<xsd:element name="Denominazione" type="DenominazioneType"/>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="CodComSede" type="CodComType"/>
+			<xsd:element name="NatGiu" type="NatGiuType" minOccurs="0" maxOccurs="5"/>
+			<xsd:element name="IStatoImpresa" type="IStatoImpresaType" minOccurs="0"/>
+			<xsd:element name="FNoRd" type="FNoRdType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerDenominazioneOldType">
+		<xsd:sequence>
+			<xsd:element name="DenominazioneOld" type="DenominazioneType"/>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0" maxOccurs="15"/>
+			<xsd:element name="NatGiu" type="NatGiuType" minOccurs="0" maxOccurs="5"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerCognomeNomeDenomType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> 
+E' una ricerca anagrafica per cognome (o denominazione societa' parificata) e nome persona e per denominazione.
+I due criteri di ricerca (sulla persona e sull'impresa) sono congiunti; facoltativamente si possono indicare la data di nascita della persona e l'ambito territoriale di ricerca delle imprese.
+E' possibile effettuare la ricerca approssimata o per 'parola tronca' utilizzando il carattere speciale % per i parametri CognomeDenom e/o Denominazione (indicare almeno due caratteri significativi).
+L'output della ricerca fornisce una lista imprese contenente gli estremi dell'impresa e della persona nell'ambito dlel'impresa.
+	</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CognomeDenom" type="CognomeDenomType"/>
+			<xsd:element name="Nome" type="NomeType" minOccurs="0"/>
+			<xsd:element name="DtNascita" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="Denominazione" type="DenominazioneType"/>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0" maxOccurs="15"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AvanzataPerCodFiscImpresaType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> 
+Funzionalità di ricerca imprese per codice fiscale, che prevede la possibilità di specificare fino a 15 province e indicare alcuni  filtri per restringere l’ambito di ricerca: selezionare solo le sedi legali, oppure indicare solo le posizioni Registro Imprese (escludendo il Registro Ditte), oppure estrarre solo le imprese ‘registrate’ (escludendo le cancellate e protocollate)</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="CodFisc" type="CodFiscType"/>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0" maxOccurs="15"/>
+			<xsd:element name="IStatoImpresa" type="IStatoImpresaType" minOccurs="0" maxOccurs="2"/>
+			<xsd:element name="FSoloSedi" type="FSoloSediType" minOccurs="0"/>
+			<xsd:element name="FNoRd" type="FNoRdType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerPIvaImpresaType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> 
+Funzionalità di ricerca imprese per partita Iva, che prevede la possibilità di specificare fino a 15 province e indicare alcuni  filtri per restringere l’ambito di ricerca: selezionare solo le sedi legali, oppure indicare solo le posizioni Registro Imprese (escludendo il Registro Ditte), oppure estrarre solo le imprese ‘registrate’ (escludendo le cancellate e protocollate)</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="PIva" type="PIvaType"/>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0" maxOccurs="15"/>
+			<xsd:element name="IStatoImpresa" type="IStatoImpresaType" minOccurs="0" maxOccurs="2"/>
+			<xsd:element name="FSoloSedi" type="FSoloSediType" minOccurs="0"/>
+			<xsd:element name="FNoRd" type="FNoRdType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KReaType">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType"/>
+			<xsd:element name="NRea" type="NReaType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="KCodFiscType">
+		<xsd:sequence>
+			<xsd:element name="CodFisc" type="CodFiscType"/>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="DenominazioneType">
+		<xsd:annotation>
+			<xsd:documentation>Denominazione attuale o insegna di un'impresa.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="50"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CciaaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NatGiuType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="11"/>
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodComType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodStaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="6"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NReaType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:totalDigits value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FDenomEsattaType">
+		<xsd:annotation>
+			<xsd:documentation>
+Se valorizzato a '1' si ricerca esattamente la frase indicata.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FParolaTroncaType">
+		<xsd:annotation>
+			<xsd:documentation>
+Se valorizzato a '1', permette di effettuare la ricerca approssimata di parole utilizzando: 
+il carattere speciale % per indicare un qualsiasi numero di caratteri non noti prefisso o suffisso di una parola (la parola deve essere costituita da almeno tre caratteri significativi) 
+il carattere _ per indicare un solo carattere non noto nella parola</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IStatoImpresaType">
+		<xsd:annotation>
+			<xsd:documentation>
+T = Tutte le imprese
+R = solo le imprese Registrate 
+C = solo le imprese Cessate
+P = solo le imprese che hanno presentato il protocollo di iscrizione </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="T"/>
+			<xsd:enumeration value="R"/>
+			<xsd:enumeration value="C"/>
+			<xsd:enumeration value="P"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FSoloSediType">
+		<xsd:annotation>
+			<xsd:documentation>
+0 = Tutte le imprese
+1 = Solo le Sedi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FNoRdType">
+		<xsd:annotation>
+			<xsd:documentation>
+0 = Tutte le imprese
+1 = Escludi le posizioni Registro Ditte</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PIvaType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:totalDigits value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CognomeDenomType">
+		<xsd:annotation>
+			<xsd:documentation>Cognome della persona fisica o Denominazione della persona giuridica (o societa' parificata) con carica in un'impresa.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="25"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NomeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="25"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

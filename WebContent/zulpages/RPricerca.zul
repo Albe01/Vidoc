@@ -1,0 +1,94 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="winRiRicDen" apply="it.vidoc.win.controller.WinRpRicercaController" border="none" style="border-top: 2px #DB9A00 solid;" contentStyle="overflow:auto">
+<include src="/zulpages/styles.zul"/>
+	<separator/>
+	<panel id="pnlRPRicerca" title="-- Registro Proetsti - Ricerca Anagrafica --" border="normal" style="margin-bottom: 10px" collapsible="false" open="true">
+		<panelchildren>
+			<grid >
+				<columns >
+					<column width="10%"/>
+					<column width="80%"/>
+				</columns>
+				<rows>
+					<row>
+						<label value="Nominativo: (*)" sclass="label" width="99%"/>
+						<textbox id="txbNom" width="99%"/>
+						<label value="max 4 parole" sclass="label"/>
+					</row>
+					<row>
+						<label value="Provincia: (**)" sclass="label"/>
+						<grid>
+							<columns>
+								<column width="45%"/>
+								<column width="12%"/>
+								<column width="6%"/>
+								<column width=""/>						
+							</columns>
+							<rows>
+								<row>
+									<combobox id="cmbPrv" readonly="true" width="99%"/>
+									<label value="Sigla Provincia:"  sclass="label"/>
+									<textbox id="txbSprv" width="99%"/>
+									<label value=""  sclass="label"/>
+								</row>
+							</rows>				 					
+						</grid>
+					</row>
+				</rows>
+			</grid>
+			<separator/>
+				<div>
+					<label value="(*) Campi obbligatori" sclass="label"/>
+				</div>
+				<label value="(**) luogo di domcilio del soggetto da ricercare" sclass="label"/>
+				<div>
+					<separator/>
+					Attraverso questa pagive è possibile effettuare la ricerca indicando al massimo 4 parole del nominativo che ti interessa.
+				</div>
+				<separator/>
+				<div align="Center">
+					<button id="btnIniRic" label="Inizia Ricerca" />
+				</div>
+				<separator/>
+		</panelchildren>
+	</panel>
+	<panel id="pnlRPLista" title="-- Registro Proetsti - Lista soggetti protestati --"
+		height="600px" border="normal" style="margin-bottom: 10px" collapsible="false" open="true">
+		<panelchildren>
+			<listbox id="lbListaAnag" model="${mymodel}" mold="paging" pageSize="12" emptyMessage="Nessun soggetto trovato con i dati indicati">
+				<listhead sizable="false">
+					<listheader label="#" hflex="min"/>
+					<listheader label="Key" hflex="min"/>					
+					<listheader label="Nome" hflex="1"/>
+					<listheader label="Codice Fiscale" hflex="min"/>					
+					<listheader label="Indirizzo" hflex="min"/>					
+					<listheader label="Provincia" hflex="min"/>					
+					<listheader label="Ultimo effetto" hflex="min"/>
+					<listheader label="Tot.effetti" hflex="min" align="Right"/>					
+					<listheader label="Tot.Importo" hflex="min" align="Right"/>					
+				</listhead>
+				<listfoot>
+            		<listfooter span="5">
+						<button id="btnGoPage" label="Vai a Pag." />
+                		<intbox id="inbNpag" width="3%"/>
+                		<label id="lblFoo1" value="" />
+						<button id="btnPagPrec" label="Pag.Prec." />                		
+						<button id="btnPagSucc" label="Pag.Succ." />						
+            		</listfooter>
+       			</listfoot>
+  		    </listbox>
+			<separator/>
+				<div align="Center">
+					<button id="btnNewRic" label="Nuova Ricerca" />
+				</div>
+			<separator/>				
+				<div align="Center">
+					<label id="lblNumSogg" value="" sclass="label"/>				
+				</div>
+			<separator/>
+		</panelchildren>
+		
+	</panel>
+</window>
+</zk>

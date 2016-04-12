@@ -1,0 +1,100 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<hbox align="center" pack="center" height="100%" width="100%">
+		<window id="winAMricerca"
+			apply="it.vidoc.win.controller.WinAmRicercaController"
+			contentStyle="overflow:auto" position="center">
+			<include src="/zulpages/styles.zul" />
+
+			<panel id="pnlAMRicerca"
+				title="-- Proetsti AMEDEO - Ricerca Anagrafica --" border="rounded+"
+				style="margin-bottom: 10px;" collapsible="false" open="true">
+				<panelchildren>
+					<grid>
+						<columns>
+							<column width="10%" />
+							<column width="80%" />
+						</columns>
+						<rows>
+							<row>
+								<label value="Nominativo: (*)"
+									sclass="label" width="99%" />
+								<textbox id="txbNom" width="99%" />
+								<label value="max 4 parole"
+									sclass="label" />
+							</row>
+							<row>
+								<label value="Provincia: (**)"
+									sclass="label" />
+								<grid>
+									<columns>
+										<column width="35%" />
+										<column width="9%" />
+										<column width="35%" />
+										<column width="11%" />
+										<column width="5" />
+									</columns>
+									<rows>
+										<row>
+											<combobox id="cmbPrv"
+												readonly="false" autodrop="false" autocomplete="true"
+												width="99%" />
+											<label value="Comune:"
+												sclass="label" />
+											<combobox id="cmbCom"
+												readonly="false" autodrop="false" autocomplete="true"
+												width="99%" />
+											<label
+												value="Sigla Provincia:" sclass="label" />
+											<textbox id="txbSprv"
+												width="99%" />
+											<label value=""
+												sclass="label" />
+										</row>
+									</rows>
+								</grid>
+							</row>
+						</rows>
+					</grid>
+					<separator />
+					<div>
+						<space></space>
+						<label value="(*) Campi obbligatori"
+							sclass="label" />
+					</div>
+					<separator />
+					<div>
+						<space></space>
+						<label
+							value="(**) luogo di domcilio del soggetto da ricercare"
+							sclass="label" />
+					</div>
+					<separator />
+					<div>
+						<space></space>
+						Attraverso questa pagive è possibile effettuare
+						la ricerca indicando al massimo 4 parole del
+						nominativo che ti interessa.
+					</div>
+					<separator />
+					<div align="Center">
+						<!-- 				
+							<button id="btnIniRic" label="Inizia Ricerca" />
+						-->
+						<image id="imgIniRic" tooltip="popup01"
+							src="/images/search_32x32.png" />
+					</div>
+					<separator />
+					<div align="Center">
+						<label id="lblNumSogg0" value="" sclass="label" />
+					</div>
+					<separator />
+				</panelchildren>
+			</panel>
+
+			<popup id="popup01" top="200px" left="350px">
+				<label value="Clicca per iniziare le ricerca" />
+			</popup>
+		</window>
+	</hbox>
+</zk>

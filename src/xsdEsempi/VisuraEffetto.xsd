@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="VisuraEffetto" type="VisuraEffettoType"/>
+	<xsd:complexType name="VisuraEffettoType">
+		<xsd:sequence>
+			<xsd:element name="AnagraficaNominativo" type="AnagraficaType" minOccurs="0"/>
+			<xsd:element name="ArchivioStorico" type="ArchivioStoricoType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="RegistroProtesti" type="RegistroProtestiType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ArchivioStoricoType">
+		<xsd:sequence>
+			<xsd:element name="DatiArchivioStorico" type="DatiArchivioStoricoType" minOccurs="0"/>
+			<xsd:element name="InformazioniEffetto" type="InformazioniEffettoType" minOccurs="0"/>
+			<xsd:element name="InfoAggiuntiveEffetto" type="InfoAggiuntiveEffettoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RegistroProtestiType">
+		<xsd:sequence>
+			<xsd:element name="DatiRegistroProtesti" type="DatiRegistroProtestiType" minOccurs="0"/>
+			<xsd:element name="AnagraficaCollegata" type="AnagraficaType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="InformazioniEffetto" type="InformazioniEffettoType" minOccurs="0"/>
+			<xsd:element name="InfoAggiuntiveEffetto" type="InfoAggiuntiveEffettoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnagraficaType">
+		<xsd:sequence>
+			<xsd:element name="KAnagrafica" type="KAnagraficaType"/>
+			<xsd:element name="Fonte" type="FonteType" minOccurs="0" maxOccurs="2"/>
+			<xsd:element name="Nominativo" type="NominativoType"/>
+			<xsd:element name="CodFisc" type="CodFiscType" minOccurs="0"/>
+			<xsd:element name="CodStaRes" type="CodStaType" minOccurs="0"/>
+			<xsd:element name="DescStaRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="SglPrvRes" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComRes" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="IndirizzoRes" type="IndirizzoType" minOccurs="0"/>
+			<xsd:element name="DtNascita" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="CodStaNas" type="CodStaType" minOccurs="0"/>
+			<xsd:element name="DescStaNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="SglPrvNas" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComNas" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="LuogoNas" type="LuogoType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DatiArchivioStoricoType">
+		<xsd:sequence>
+			<xsd:element name="CciaaBoll" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="NBoll" type="NBollType" minOccurs="0"/>
+			<xsd:element name="AnnoBoll" type="xsd:gYear" minOccurs="0"/>
+			<xsd:element name="DtCarBoll" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DatiRegistroProtestiType">
+		<xsd:sequence>
+			<xsd:element name="CciaaPubblicazione" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DtIscrRegistro" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InformazioniEffettoType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation>
+				Gli importi che vengono restituiti da visura effetto hanno lo stesso formato che restituisce l'EDI: un numero lungo al max 15 cifre, di cui le prime 12 sono
+				 relative alla parte intera della cifra mentre le ultime tre si riferiscono alla parte decimale; tuttavia non c'e' alcun separatore tra la parte intera e la parte decimale.
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="DtLevata" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="SglPrvLevata" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvLevata" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComLevata" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComLevata" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="DtScadenzaEffetto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="CodScadenzaEffetto" type="CodScadenzaEffettoType" minOccurs="0"/>
+			<xsd:element name="DescScadenzaEffetto" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodTipoEffetto" type="CodTipoEffettoType" minOccurs="0"/>
+			<xsd:element name="DescTipoEffetto" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="ImportoValutaLevata" type="xsd:float" minOccurs="0"/>
+			<xsd:element name="CodValutaLevata" type="CodValutaType" minOccurs="0"/>
+			<xsd:element name="DescValutaLevata" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="ImportoValutaCorrente" type="xsd:float" minOccurs="0"/>
+			<xsd:element name="CodValutaCorrente" type="CodValutaType" minOccurs="0"/>
+			<xsd:element name="DescValutaCorrente" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodMancatoPagSanp" type="CodMancatoPagSanpType" minOccurs="0"/>
+			<xsd:element name="DescMancatoPagSanp" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodMancatoPagRepr" type="CodMancatoPagReprType" minOccurs="0"/>
+			<xsd:element name="DescMancatoPagRepr" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodStatoEffetto" type="CodStatoEffettoType" minOccurs="0"/>
+			<xsd:element name="DescStatoEffetto" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="NRepertorio" type="NRepertorioType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InfoAggiuntiveEffettoType">
+		<xsd:sequence>
+			<xsd:element name="ProgInfoEffetto" type="xsd:nonNegativeInteger" minOccurs="0"/>
+			<xsd:element name="CodInfoEffetto" type="CodInfoEffettoType" minOccurs="0"/>
+			<xsd:element name="DescInfoEffetto" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="SglPrvTrib" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvTrib" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComTrib" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComTrib" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="DtEmisDecreto" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="DtPubblRiabilitazione" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="TestoInfoEffetto" type="TestoInfoEffettoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="KAnagraficaType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:totalDigits value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FonteType">
+		<xsd:restriction base="xsd:normalizedString">
+			<xsd:enumeration value="RP"/>
+			<xsd:enumeration value="SN"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NominativoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="243"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodStaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DescrizioneType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CciaaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodComType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IndirizzoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="80"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LuogoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NBollType">
+		<xsd:restriction base="xsd:integer">
+			<xsd:totalDigits value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodScadenzaEffettoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodTipoEffettoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodValutaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodMancatoPagSanpType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodMancatoPagReprType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodStatoEffettoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodInfoEffettoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TestoInfoEffettoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="80"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NRepertorioType">
+		<xsd:annotation>
+			<xsd:documentation>Numero Repertorio dell'effetto. Tale dato viene utilizzato sopratutto nell'istruire pratiche di riabilitazione.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

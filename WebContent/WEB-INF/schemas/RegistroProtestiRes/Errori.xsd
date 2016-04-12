@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="Messaggio" type="MessaggioType"/>
+	<xsd:complexType name="MessaggioType">
+		<xsd:sequence>
+			<xsd:element name="GravitaErrore" type="GravitaErroreType"/>
+			<xsd:element name="TipoErrore" type="TipoErroreType"/>
+			<xsd:element name="CodiceErrore" type="CodiceErroreType"/>
+			<xsd:element name="DescrizioneErrore" type="DescrizioneErroreType"/>
+			<xsd:element name="ProgrammaErrore" type="ProgrammaErroreType"/>
+			<xsd:element name="NumeroErrore" type="xsd:integer"/>
+			<xsd:element name="RichiestaInput" type="RichiestaInputType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="GravitaErroreType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="I"/>
+			<xsd:enumeration value="E"/>
+		</xsd:restriction>
+		<!-- indicatore di gravità del messaggio: : può assumere i seguenti valori
+I: il distributore, ricevendo questo messaggio, non deve intraprendere nessuna ulteriore azione
+E: il distributore, ricevendo questo messaggio, deve intraprendere un'azione: correggere e/o modificare la richiesta, ripetere la richiesta o contattare il CSC per segnalare la malfunzione -->
+	</xsd:simpleType>
+	<xsd:simpleType name="TipoErroreType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+		</xsd:restriction>
+		<!-- tipo errore: è un primo macro raggruppamento dei possibili errori. Può assumere i seguenti valori:
+1: errore formale nella formulazione della richiesta
+2: errore nella parte generalizzata di AICA
+3: errore nella parte propria di ciascuna applicazione
+4: messaggio informativo, esso non è causato da una malfunzione-->
+	</xsd:simpleType>
+	<xsd:simpleType name="CodiceErroreType">
+		<xsd:restriction base="xsd:string"/>
+		<!-- codice del messaggio: secondo raggruppamento di tutte le segnalazioni, esso fornisce un'indicazione piu' particolareggiata della natura degli errori.
+		Per le codifiche si veda il manuale MuErroriIG2 -->
+	</xsd:simpleType>
+	<xsd:simpleType name="DescrizioneErroreType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="160"/>
+		</xsd:restriction>
+		<!-- descrive l'errore nel dettaglio -->
+	</xsd:simpleType>
+	<xsd:simpleType name="ProgrammaErroreType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+		<!-- nome programma: programma che segnala l'errore -->
+	</xsd:simpleType>
+	<xsd:simpleType name="RichiestaInputType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+</xsd:schema>

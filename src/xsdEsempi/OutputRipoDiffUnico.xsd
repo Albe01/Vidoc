@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="Testata.xsd"/>
+	<xsd:include schemaLocation="VisuraEffetto.xsd"/>
+	<xsd:element name="Risposta">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Testata" minOccurs="0"/>
+				<xsd:element name="Posizione" type="PosizioneType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="Scarti" type="ScartiType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="PosizioneType">
+		<xsd:choice>
+			<xsd:element name="AnagraficaNominativo" type="AnagraficaType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Output restituito a fronte di una richiesta di ListaAnagraficheProtestiDiff</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="VisuraEffetto" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Output restituito a fronte di una richiesta di VisuraEffettoDiff</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DtAggPosizione" type="xsd:date" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Data di ultima movimentazione della chiave anagrafica. Output restituito a fronte di una richiesta di DtAggPosizioneAnagrafica</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:choice>
+		<xsd:attribute name="KAnagr" type="ProgressivoType"/>
+		<xsd:attribute name="ProgRec" type="ProgressivoType">
+			<xsd:annotation>
+				<xsd:documentation>Si tratta del progressivo record attribuito dall'utente, viene rilevato dal campo PROGREC del file di input</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="DtAgg" type="xsd:date">
+			<xsd:annotation>
+				<xsd:documentation>Data aggiornamento in input (riportata solo se la richiesta è del tipo: DaFileGuidaPerChiaveAnagraficaConDtAgg e se la posizione in esame non è stata movimentata dopo tale data)</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="ScartiType">
+		<xsd:annotation>
+			<xsd:documentation>Record del file di input non elaborati per errori nei dati di input o per altri motivi</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Scarto" type="ScartoType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ScartoType">
+		<xsd:sequence>
+			<xsd:element name="CodiceScarto" type="xsd:string"/>
+			<xsd:element name="DescrizioneScarto" type="xsd:string"/>
+			<xsd:element name="RicorrenzaInput" type="xsd:string"/>
+			<xsd:element name="ProgrammaErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroErrore" type="xsd:integer" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="ProgressivoType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:totalDigits value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

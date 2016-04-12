@@ -1,0 +1,46 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winAMvisura"
+		apply="it.vidoc.win.controller.WinAmVisuraController" border="rounded+"
+		contentStyle="overflow:auto">
+		<include src="/zulpages/styles.zul" />
+		<vbox align="center" pack="center">
+			<panel id="pnlAMVisura"
+				title="-- Proetsti AMEDEO - Visura di dettaglio --" width="50%"
+				border="rounded+" style="margin-bottom: 10px" collapsible="false"
+				open="true">
+				<panelchildren style="overflow: auto">
+					<listbox id="lbVisura" span="true" height="335px"
+						sizedByContent="true" emptyMessage="Nessun effetto trovato">
+						<listhead sizable="false">
+							<listheader label="Tipo" align="Center" />
+							<listheader label="Data Levata"
+								align="Center" />
+							<listheader label="Data Iscrizione"
+								align="Center" />
+							<listheader label="C.C.I.A.A."
+								align="Center" />
+							<listheader label="Importo" align="Right" />
+							<listheader label="#" visible="false" />
+						</listhead>
+						<listfoot>
+							<listfooter span="3" align="left">
+								<button id="btnGoPageVis"
+									label="Vai a Pag." />
+								<intbox id="inbNpagVis" width="15%" />
+								<label id="lblFoo1Vis" value="" />
+								<button id="btnPagPrecVis" label="&lt;" />
+								<button id="btnPagSuccVis" label="&gt;" />
+							</listfooter>
+						</listfoot>
+					</listbox>
+					<div align="Center">
+						<separator />
+						<button id="btnNewVis" label="Indietro" />
+						<separator />
+					</div>
+				</panelchildren>
+			</panel>
+		</vbox>
+	</window>
+</zk>

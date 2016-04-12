@@ -1,0 +1,53 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winAMlista"
+		apply="it.vidoc.win.controller.WinAmListaController" border="rounded+"
+		contentStyle="overflow:auto">
+		<include src="/zulpages/styles.zul" />
+		<separator />
+		<panel id="pnlAMLista"
+			title="-- Proetsti AMEDEO - Lista soggetti protestati --"
+			height="700px" border="rounded+" style="margin-bottom: 5px"
+			collapsible="false" open="true">
+			<panelchildren>
+				<listbox id="lbListaAnag" span="true" height="290px"
+					emptyMessage="Nessun soggetto trovato con i dati indicati">
+					<listhead sizable="false">
+						<listheader label="Nome" hflex="min" />
+						<listheader label="Codice Fiscale" hflex="min" />
+						<listheader label="Indirizzo" hflex="min" />
+						<listheader label="Comune" hflex="min" />
+						<listheader label="Ultimo effetto" hflex="min" />
+						<listheader label="Tot.effetti" hflex="min"
+							align="Right" />
+						<listheader label="Tot.Importo" hflex="min"
+							align="Right" />
+						<listheader label="#" hflex="min"
+							visible="false" />
+						<listheader label="Key" hflex="min"
+							visible="false" />
+					</listhead>
+					<listfoot id="listfoot">
+						<listfooter id="listfooter" span="9">
+							<button id="btnGoPageLis"
+								label="Vai a Pag." />
+							<intbox id="inbNpagLis" width="4%" />
+							<label id="lblFoo1Lis" value="" />
+							<button id="btnPagPrecLis" label="&lt;" />
+							<button id="btnPagSuccLis" label="&gt;" />
+						</listfooter>
+					</listfoot>
+				</listbox>
+				<separator />
+				<div align="Center">
+					<button id="btnNewRic" label="Indietro" />
+				</div>
+				<separator />
+				<div align="Center">
+					<label id="lblNumSogg" value="" sclass="label" />
+				</div>
+				<separator />
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.5">
+	<xs:element name="dati-identificativi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tipi-procedure-concorsuali" minOccurs="0"/>
+				<xs:element ref="forma-giuridica" minOccurs="0"/>
+				<xs:element ref="indirizzo-localizzazione" minOccurs="0"/>
+				<xs:element ref="indirizzo-posta-certificata" minOccurs="0"/>
+				<xs:element ref="telefono" minOccurs="0"/>
+				<xs:element ref="telex" minOccurs="0"/>
+				<xs:element ref="telefax" minOccurs="0"/>
+				<xs:element ref="sito-internet" minOccurs="0"/>
+				<xs:element ref="email" minOccurs="0"/>
+				<xs:element ref="legal-mail" minOccurs="0"/>
+				<xs:element ref="altre-funzioni-sede" minOccurs="0"/>
+				<xs:element ref="estremi-sede" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="f-sede-intercamerale" type="xs:string"/>
+			<xs:attribute name="c-fonte" type="xs:string"/>
+			<xs:attribute name="fonte" type="xs:string"/>
+			<xs:attribute name="tipo-soggetto" type="xs:string"/>
+			<xs:attribute name="descrizione-tipo-soggetto" type="xs:string"/>
+			<xs:attribute name="tipo-impresa" type="xs:string"/>
+			<xs:attribute name="descrizione-tipo-impresa" type="xs:string"/>
+			<xs:attribute name="stato-impresa" type="xs:string"/>
+			<xs:attribute name="stato-ditta" type="xs:string"/>
+			<xs:attribute name="f-aggiornamento" type="xs:string"/>
+			<xs:attribute name="dt-ultimo-protocollo" type="xs:string"/>
+			<xs:attribute name="dt-mod-ultimo-protocollo-evaso" type="xs:string"/>
+			<xs:attribute name="denominazione" type="xs:string"/>
+			<xs:attribute name="c-fiscale" type="xs:string"/>
+			<xs:attribute name="partita-iva" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+			<xs:attribute name="n-rd" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="altre-funzioni-sede" type="xs:string"/>
+	<xs:element name="email" type="xs:string"/>
+	<xs:element name="estremi-sede">
+		<xs:complexType>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forma-giuridica">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="indirizzo-localizzazione">
+		<xs:complexType>
+			<xs:attribute name="c-comune" type="xs:string"/>
+			<xs:attribute name="comune" type="xs:string"/>
+			<xs:attribute name="provincia" type="xs:string"/>
+			<xs:attribute name="c-toponimo" type="xs:string"/>
+			<xs:attribute name="toponimo" type="xs:string"/>
+			<xs:attribute name="via" type="xs:string"/>
+			<xs:attribute name="n-civico" type="xs:string"/>
+			<xs:attribute name="cap" type="xs:string"/>
+			<xs:attribute name="c-stato" type="xs:string"/>
+			<xs:attribute name="stato" type="xs:string"/>
+			<xs:attribute name="frazione" type="xs:string"/>
+			<xs:attribute name="altre-indicazioni" type="xs:string"/>
+			<xs:attribute name="c-stradario" type="xs:string"/>
+			<xs:attribute name="c-zona" type="xs:string"/>
+			<xs:attribute name="f-sede-presso-terzi" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="indirizzo-posta-certificata">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c-nota" type="xs:string"/>
+					<xs:attribute name="nota" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="legal-mail" type="xs:string"/>
+	<xs:element name="sito-internet" type="xs:string"/>
+	<xs:element name="telefax">
+		<xs:complexType>
+			<xs:attribute name="prefisso" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="telefono">
+		<xs:complexType>
+			<xs:attribute name="prefisso" type="xs:string"/>
+			<xs:attribute name="n" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="telex" type="xs:string"/>
+	<xs:element name="tipi-procedure-concorsuali">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tipo-procedura-concorsuale" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="cciaa-fuori-provincia" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tipo-procedura-concorsuale">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="c-tipo" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

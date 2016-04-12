@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="ListaUfficialiLevatori" type="ListaUfficialiLevatoriType"/>
+	<xsd:complexType name="ListaUfficialiLevatoriType">
+		<xsd:sequence>
+			<xsd:element name="UfficialeLevatore" type="UfficialeLevatoreType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UfficialeLevatoreType">
+		<xsd:sequence>
+			<xsd:element name="ProgressivoUfficialeLevatore" type="xsd:integer"/>
+			<xsd:element name="CodUffLev" type="CodUffLevType"/>
+			<xsd:element name="CodStatoUffLev" type="CodStatoUffLevType"/>
+			<xsd:element name="DescStatoUffLev" type="DescrizioneType"/>
+			<xsd:element name="Cognome" type="CognomeType" minOccurs="0"/>
+			<xsd:element name="Nome" type="NomeType" minOccurs="0"/>
+			<xsd:element name="CodFisc" type="CodFiscType" minOccurs="0"/>
+			<xsd:element name="CodStaRes" type="CodStaType" minOccurs="0"/>
+			<xsd:element name="DescStaRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="SglPrvRes" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComRes" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="IndirizzoRes" type="IndirizzoType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CodUffLevType">
+		<xsd:sequence>
+			<xsd:element name="SglPrvRegUffLev" type="CciaaType"/>
+			<xsd:element name="DescPrvRegUffLev" type="DescrizioneType"/>
+			<xsd:element name="CodTipoUffLev" type="CodTipoUffLevType"/>
+			<xsd:element name="DescTipoUffLev" type="DescrizioneType"/>
+			<xsd:element name="NUffLev" type="xsd:positiveInteger"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CciaaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DescrizioneType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="253"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodTipoUffLevType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodStatoUffLevType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CognomeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="40"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NomeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="40"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="11"/>
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodStaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodComType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IndirizzoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="80"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

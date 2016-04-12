@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="DatiIdentificativi.xsd"/>
+	<xs:element name="bilancio">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="info-ultimo-bilancio" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="blocchi" type="xs:string"/>
+			<xs:attribute name="esito" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="blocchi">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="blocco" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="blocco">
+		<xs:complexType>
+			<xs:attribute name="c" type="xs:string"/>
+			<xs:attribute name="descrizione" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="controlli">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="controllo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="controlli-preliminari">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="dati-identificativi"/>
+				<xs:element ref="controlli" minOccurs="0"/>
+				<xs:element ref="informazioni-impresa" minOccurs="0"/>
+				<xs:element ref="output-disponibili"/>
+			</xs:sequence>
+			<xs:attribute name="CCIAA" type="xs:string"/>
+			<xs:attribute name="N_REA" type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="controllo">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="esito" type="xs:string"/>
+					<xs:attribute name="blocchi" type="xs:string"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="info-ultimo-bilancio">
+		<xs:complexType>
+			<xs:attribute name="c-atto" type="xs:short"/>
+			<xs:attribute name="tipo-bilancio" type="xs:string"/>
+			<xs:attribute name="dt-chiusura" type="xs:string"/>
+			<xs:attribute name="chiave-documento" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="informazioni-impresa">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="statuto" minOccurs="0"/>
+				<xs:element ref="bilancio" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="output-disponibili">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="blocchi" minOccurs="0"/>
+				<xs:element ref="tipi-documento" minOccurs="0"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="statuto">
+		<xs:complexType>
+			<xs:attribute name="f-presenza-statuto" type="xs:string"/>
+			<xs:attribute name="f-parziale" type="xs:string"/>
+			<xs:attribute name="f-aggiornamento" type="xs:string"/>
+			<xs:attribute name="cciaa" type="xs:string"/>
+			<xs:attribute name="n-rea" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tipi-documento">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tipo-documento" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tipo-documento">
+		<xs:complexType>
+			<xs:attribute name="c" type="xs:string"/>
+			<xs:attribute name="descrizione-breve" type="xs:string"/>
+			<xs:attribute name="descrizione-lunga" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

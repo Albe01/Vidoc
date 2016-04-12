@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/amedeo" />
+				<property name="username" value="root" />
+				<property name="password" value="" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- <environments default="development"> <environment id="development"> 
+		<transactionManager type="JDBC" /> <dataSource type="POOLED"> <property name="driver" 
+		value="com.mysql.jdbc.Driver" /> <property name="url" value="jdbc:mysql://127.13.149.130:3306/amedeo" 
+		/> <property name="username" value="adminpXETltI" /> <property name="password" 
+		value="6I-X3D2a9m3_" /> </dataSource> </environment> </environments> -->
+
+
+	<mappers>
+		<mapper resource="it/vidoc/mybatis/sqlmapper/AnagraficheMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/EffettiMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/InfanagraficheMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/InfeffettiMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ParoleMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/StrcodcomnasMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/StrcodcomresMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/StrcodfiscMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/StrcodiceregioneMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/StrcodprvresMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/StrdatnasMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strindir03Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strindir06Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strindir10Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strindir15Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strindir20Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi03Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi04Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi05Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi06Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi07Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi08Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi10Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi15Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/Strnomi20Mapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/LogelabMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/InfcomuniMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/UserMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/UserabilitazioniMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ListinoMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/AccountMapper.xml" />
+
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrcodprvresMapperExt.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrnomiMapperExt.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/AnagraficheMapperExt.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrcodcomresMapperExt.xml" />
+
+	</mappers>
+</configuration>

@@ -1,0 +1,63 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winLogOparazioni"
+		apply="it.vidoc.win.controller.WinLogOperazioniController"
+		border="rounded+" contentStyle="overflow:auto" hflex="1">
+		<include src="/zulpages/styles.zul" />
+		<hbox align="center" pack="center" height="100%" width="100%">
+			<grid>
+				<columns>
+					<column width="45%" align="right" />
+					<column width="10%" align="left" />
+					<column width="3%" align="right" />
+					<column width="10%" align="left" />
+					<column width="40%" align="left" />
+				</columns>
+				<rows>
+					<row>
+						<label value="Elenco operazioni Dal:"
+							sclass="label" />
+						<datebox id="dataDa" cols="10"
+							format="dd/MM/yyyy" />
+						<label value="Al:" sclass="label" />
+						<datebox id="dataA" cols="10"
+							format="dd/MM/yyyy " />
+						<button id="btnOk" label="Ok" />
+					</row>
+				</rows>
+			</grid>
+		</hbox>
+		<hbox align="center" pack="center" height="100%" width="100%">
+			<panel id="pnlLogOperazioni"
+				title="-- Riepilogo Operazioni --" height="420px" border="none"
+				open="true" width="100%" collapsible="false">
+				<panelchildren>
+					<hbox width="100%" height="100%" align="start"
+						pack="center">
+						<listbox id="lbListaLogOper" span="true"
+							mold="paging" pageSize="9"
+							emptyMessage="Nessun operazione trovata con i dati indicati">
+							<listhead sizable="false">
+								<listheader label="Data" hflex="min" />
+								<listheader label="Banca Dati"
+									hflex="min" />
+								<listheader label="Richiesta"
+									hflex="min" />
+								<listheader label="Risposta"
+									hflex="min" />
+								<listheader label="Esito" hflex="min"
+									align="center" />
+								<listheader label="Onl./Diff."
+									hflex="min" align="center" />
+								<listheader label="Prezzo" hflex="min"
+									align="Right" />
+								<listheader label="Diritti Segreteria"
+									hflex="min" align="Right" />
+							</listhead>
+						</listbox>
+					</hbox>
+				</panelchildren>
+			</panel>
+		</hbox>
+	</window>
+</zk>

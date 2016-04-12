@@ -1,0 +1,99 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+
+<style>
+.myname1.z-panel .z-panel-children {
+    background-image: url('./images/abc_logo.jpg'); 
+	background-position : 0px 0px;
+	background-color : #00FF80; 
+	background-repeat : repeat-y; 
+}
+
+.myname1.z-panel .z-panel-header {
+	background-color : #FF80FF; 
+}
+
+.myname1.z-panel .z-panel-top .z-toolbar ,.myname1.z-panel .z-panel-top .z-toolbar span {
+	background-color : #FF8000; 
+}
+	
+	
+.myname1.z-panel .z-panel-tbar .z-toolbar ,.myname1.z-panel .z-panel-tbar .z-toolbar span {
+	background-color : #FF8000; 
+}
+
+.myname1.z-panel .z-panel-btm .z-toolbar , .myname1.z-panel .z-panel-btm .z-toolbar span {
+	background-color : #FFFF80; 
+}
+	
+.myname1.z-panel .z-panel-bbar .z-toolbar , .myname1.z-panel .z-panel-bbar .z-toolbar span {
+	background-color : #FFFF80; 
+}
+
+.myname1.z-panel .z-panel-btm2 .z-toolbar{
+	background-color : #FF0000; 
+}
+	
+	
+.myname1.z-panel .z-panel-fbar .z-toolbar{
+	background-color : #FF0000; 
+}
+	
+
+.myname1.z-panel  {
+	border-style : solid; 
+	border-width : 3px; 
+	border-top-style : double; 
+	border-top-width : 3px; 
+	border-right-style : double; 
+	border-right-width : 3px; 
+	border-bottom-style : double; 
+	border-bottom-width : 3px; 
+	border-left-style : double; 
+	border-left-width : 3px; 
+}
+
+</style>
+
+
+<style>
+.myname2.z-panel .z-panel-hm {
+	background-color : #808000; 
+	background-repeat : repeat-y; 
+}
+
+.myname2.z-panel .z-panel-cm {
+	background-color : #FF8080; 
+	background-repeat : repeat-y; 
+}
+
+</style>
+
+
+<style>
+	div.z-listbox.myname3 .z-list-item
+, div.z-listbox.myname3 .z-listitem{
+	background-color : #E9DB8D; 
+	background-repeat : repeat; 
+}
+
+</style>
+
+
+<style>
+        .label {
+            font-style: oblique;
+			font-weight:bold
+        }
+</style>
+
+<style>
+    body { padding: 0 0; /* 0 padding on top and bottom and 0 padding on right and left */
+           <!-- background image -->
+           background-image: url('../images/logo4.png'); 
+           background-repeat:repeat-1; 
+          }		
+</style>
+<!--  padding: 0 0; /* 0 padding on top and bottom and 0 padding on right and left */ -->
+        
+</zk>

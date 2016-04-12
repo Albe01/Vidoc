@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="ListaAnagrafiche" type="ListaAnagraficheType"/>
+	<xsd:complexType name="ListaAnagraficheType">
+		<xsd:sequence>
+			<xsd:element name="AnagraficaNominativo" type="AnagraficaNominativoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnagraficaNominativoType" mixed="true">
+		<xsd:sequence>
+			<xsd:element name="ProgressivoAnagrafica" type="xsd:integer"/>
+			<xsd:element name="KAnagrafica" type="KAnagraficaType"/>
+			<xsd:element name="Fonte" type="FonteType" maxOccurs="2"/>
+			<xsd:element name="Nominativo" type="NominativoType"/>
+			<xsd:element name="CodFisc" type="CodFiscType" minOccurs="0"/>
+			<xsd:element name="CodStaRes" type="CodStaType" minOccurs="0"/>
+			<xsd:element name="DescStaRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="SglPrvRes" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComRes" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComRes" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="IndirizzoRes" type="IndirizzoType" minOccurs="0"/>
+			<xsd:element name="DtNascita" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="CodStaNas" type="CodStaType" minOccurs="0"/>
+			<xsd:element name="DescStaNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="SglPrvNas" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComNas" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="LuogoNas" type="LuogoType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="KAnagraficaType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:totalDigits value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FonteType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="RP"/>
+			<xsd:enumeration value="SN"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NominativoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="243"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodStaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DescrizioneType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="253"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CciaaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodComType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IndirizzoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="80"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LuogoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="80"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

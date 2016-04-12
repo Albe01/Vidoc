@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<Risposta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="VisuraEffettoUnico.xsd">
+	<Testata>
+		<Riepilogo>
+			<NumeroPosizioni>1</NumeroPosizioni>
+			<IdRichiesta>LM286047635040000002</IdRichiesta>
+		</Riepilogo>
+	</Testata>
+	<VisuraEffetto>
+		<AnagraficaNominativo>
+			<KAnagrafica>9232633</KAnagrafica>
+			<Fonte>RP</Fonte>
+			<Nominativo>MALAGUTI PIER LUIGI</Nominativo>
+			<CodFisc>MLGPLG57A12G467E</CodFisc>
+			<SglPrvRes>BO</SglPrvRes>
+			<DescPrvRes>BOLOGNA</DescPrvRes>
+			<CodComRes>BO054</CodComRes>
+			<DescComRes>SAN LAZZARO DI SAVENA</DescComRes>
+			<IndirizzoRes>VIA A. ORLANDI 11</IndirizzoRes>
+			<DtNascita>1957-01-12</DtNascita>
+			<SglPrvNas>BO</SglPrvNas>
+			<DescPrvNas>BOLOGNA</DescPrvNas>
+			<CodComNas>BO053</CodComNas>
+			<DescComNas>SAN GIOVANNI IN PERSICETO</DescComNas>
+			<LuogoNas>SAN GIOVANNI IN PERSICETO</LuogoNas>
+		</AnagraficaNominativo>
+		<RegistroProtesti>
+			<DatiRegistroProtesti>
+				<CciaaPubblicazione>BO</CciaaPubblicazione>
+				<DtIscrRegistro>2003-12-11</DtIscrRegistro>
+			</DatiRegistroProtesti>
+			<InformazioniEffetto>
+				<DtLevata>2003-10-27</DtLevata>
+				<SglPrvLevata>BO</SglPrvLevata>
+				<DescPrvLevata>BOLOGNA</DescPrvLevata>
+				<CodComLevata>BO006</CodComLevata>
+				<DescComLevata>BOLOGNA</DescComLevata>
+				<CodTipoEffetto>A</CodTipoEffetto>
+				<DescTipoEffetto>ASSEGNO</DescTipoEffetto>
+				<ImportoValutaLevata>4131660</ImportoValutaLevata>
+				<CodValutaLevata>EU</CodValutaLevata>
+				<DescValutaLevata>EURO</DescValutaLevata>
+				<CodMancatoPagRepr>A20</CodMancatoPagRepr>
+				<DescMancatoPagRepr>DIFETTO DI PROVVISTA  ART. 2, L. 386/90  - Mancanza totale o parziale di fondi nel momento in cui il titolo viene presentato per il pagamento.</DescMancatoPagRepr>
+				<CodStatoEffetto>N</CodStatoEffetto>
+				<DescStatoEffetto>NORMALE</DescStatoEffetto>
+			</InformazioniEffetto>
+		</RegistroProtesti>
+		<RegistroProtesti>
+			<DatiRegistroProtesti>
+				<CciaaPubblicazione>BO</CciaaPubblicazione>
+				<DtIscrRegistro>2003-12-11</DtIscrRegistro>
+			</DatiRegistroProtesti>
+			<InformazioniEffetto>
+				<DtLevata>2003-11-19</DtLevata>
+				<SglPrvLevata>BO</SglPrvLevata>
+				<DescPrvLevata>BOLOGNA</DescPrvLevata>
+				<CodComLevata>BO006</CodComLevata>
+				<DescComLevata>BOLOGNA</DescComLevata>
+				<CodTipoEffetto>A</CodTipoEffetto>
+				<DescTipoEffetto>ASSEGNO</DescTipoEffetto>
+				<ImportoValutaLevata>4131660</ImportoValutaLevata>
+				<CodValutaLevata>EU</CodValutaLevata>
+				<DescValutaLevata>EURO</DescValutaLevata>
+				<CodMancatoPagRepr>A20</CodMancatoPagRepr>
+				<DescMancatoPagRepr>DIFETTO DI PROVVISTA  ART. 2, L. 386/90  - Mancanza totale o parziale di fondi nel momento in cui il titolo viene presentato per il pagamento.</DescMancatoPagRepr>
+				<CodStatoEffetto>N</CodStatoEffetto>
+				<DescStatoEffetto>NORMALE</DescStatoEffetto>
+			</InformazioniEffetto>
+		</RegistroProtesti>
+		<RegistroProtesti>
+			<DatiRegistroProtesti>
+				<CciaaPubblicazione>BO</CciaaPubblicazione>
+				<DtIscrRegistro>2004-01-12</DtIscrRegistro>
+			</DatiRegistroProtesti>
+			<InformazioniEffetto>
+				<DtLevata>2003-12-22</DtLevata>
+				<SglPrvLevata>BO</SglPrvLevata>
+				<DescPrvLevata>BOLOGNA</DescPrvLevata>
+				<CodComLevata>BO006</CodComLevata>
+				<DescComLevata>BOLOGNA</DescComLevata>
+				<CodTipoEffetto>A</CodTipoEffetto>
+				<DescTipoEffetto>ASSEGNO</DescTipoEffetto>
+				<ImportoValutaLevata>4131660</ImportoValutaLevata>
+				<CodValutaLevata>EU</CodValutaLevata>
+				<DescValutaLevata>EURO</DescValutaLevata>
+				<CodMancatoPagRepr>A20</CodMancatoPagRepr>
+				<DescMancatoPagRepr>DIFETTO DI PROVVISTA  ART. 2, L. 386/90  - Mancanza totale o parziale di fondi nel momento in cui il titolo viene presentato per il pagamento.</DescMancatoPagRepr>
+				<CodStatoEffetto>N</CodStatoEffetto>
+				<DescStatoEffetto>NORMALE</DescStatoEffetto>
+			</InformazioniEffetto>
+		</RegistroProtesti>
+	</VisuraEffetto>
+</Risposta>

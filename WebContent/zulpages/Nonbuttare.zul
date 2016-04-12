@@ -1,0 +1,167 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Second Insert Row" border="normal" apply="it.vidoc.win.controller.InsertRow2">
+	<grid mold="paging"  pageSize="6">
+		<columns>
+			<column width="10%"/>
+			<column width="70%"/>
+			<column width="20%"/>			
+		</columns>
+		<rows>
+	 		<row>
+					<!-- <image width="75px" height="50px" src="/images/abc_logo.jpg" />  -->
+					<label value="immagine"/>
+				<vbox>
+					<hbox>
+						<label value="aaaaaaaaaaaaaaaaaaaaaaaa"/>
+						<textbox readonly="true"/>
+						<label value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+						<label value="cccccccccccccccccccccccc"/>						
+					</hbox>
+					<hbox>
+						<label value="111111111111111111111111"/>
+						<label value="222222222222222222222222"/>
+						<label value="333333333333333333333333"/>						
+					</hbox>
+					<label value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+					<label value="yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"/>
+					<label value="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"/>
+				</vbox>
+				<combobox width="99%"></combobox>
+			</row> 								
+	 		<row>
+					<!-- <image width="75px" height="50px" src="/images/abc_logo.jpg" />  -->
+					<label value="immagine"/>
+				<vbox>
+					<hbox>
+						<label value="aaaaaaaaaaaaaaaaaaaaaaaa"/>
+						<label value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+						<label value="cccccccccccccccccccccccc"/>						
+					</hbox>
+					<hbox>
+						<label value="111111111111111111111111"/>
+						<label value="222222222222222222222222"/>
+						<label value="333333333333333333333333"/>						
+					</hbox>
+					<label value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+					<label value="yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"/>
+					<label value="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"/>
+				</vbox>
+				<combobox width="99%"></combobox>
+			</row> 								
+	 		<row>
+					<!-- <image width="75px" height="50px" src="/images/abc_logo.jpg" />  -->
+					<label value="immagine"/>
+				<vbox>
+					<hbox>
+						<label value="aaaaaaaaaaaaaaaaaaaaaaaa"/>
+						<label value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+						<label value="cccccccccccccccccccccccc"/>						
+					</hbox>
+					<hbox>
+						<label value="111111111111111111111111"/>
+						<label value="222222222222222222222222"/>
+						<label value="333333333333333333333333"/>						
+					</hbox>
+					<label value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+					<label value="yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"/>
+					<label value="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"/>
+				</vbox>
+				<combobox width="99%"></combobox>
+			</row> 								
+	 		<row>
+					<!-- <image width="75px" height="50px" src="/images/abc_logo.jpg" />  -->
+					<label value="immagine"/>
+				<vbox>
+					<hbox>
+						<label value="aaaaaaaaaaaaaaaaaaaaaaaa"/>
+						<label value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+						<label value="cccccccccccccccccccccccc"/>						
+					</hbox>
+					<hbox>
+						<label value="111111111111111111111111"/>
+						<label value="222222222222222222222222"/>
+						<label value="333333333333333333333333"/>						
+					</hbox>
+					<label value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+					<label value="yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"/>
+					<label value="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"/>
+				</vbox>
+				<combobox width="99%"></combobox>
+			</row> 								
+	 		<row>
+					<!-- <image width="75px" height="50px" src="/images/abc_logo.jpg" />  -->
+					<label value="immagine"/>
+				<vbox>
+					<hbox>
+						<label value="aaaaaaaaaaaaaaaaaaaaaaaa"/>
+						<label value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+						<label value="cccccccccccccccccccccccc"/>						
+					</hbox>
+					<hbox>
+						<label value="111111111111111111111111"/>
+						<label value="222222222222222222222222"/>
+						<label value="333333333333333333333333"/>						
+					</hbox>
+					<label value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+					<label value="yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"/>
+					<label value="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"/>
+				</vbox>
+				<combobox width="99%"></combobox>
+			</row> 								
+	 		<row>
+					<!-- <image width="75px" height="50px" src="/images/abc_logo.jpg" />  -->
+					<label value="immagine"/>
+				<vbox>
+					<hbox>
+						<label value="aaaaaaaaaaaaaaaaaaaaaaaa"/>
+						<label value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+						<label value="cccccccccccccccccccccccc"/>						
+					</hbox>
+					<hbox>
+						<label value="111111111111111111111111"/>
+						<label value="222222222222222222222222"/>
+						<label value="333333333333333333333333"/>						
+					</hbox>
+					<label value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+					<label value="yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"/>
+					<label value="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"/>
+				</vbox>
+				<combobox width="99%"></combobox>
+			</row> 								
+	 		<row>
+					<!-- <image width="75px" height="50px" src="/images/abc_logo.jpg" />  -->
+					<label value="immagine"/>
+				<vbox>
+					<hbox>
+						<label value="aaaaaaaaaaaaaaaaaaaaaaaa"/>
+						<label value="bbbbbbbbbbbbbbbbbbbbbbbb"/>
+						<label value="cccccccccccccccccccccccc"/>						
+					</hbox>
+					<hbox>
+						<label value="111111111111111111111111"/>
+						<label value="222222222222222222222222"/>
+						<label value="333333333333333333333333"/>						
+					</hbox>
+					<label value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"/>
+					<label value="yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"/>
+					<label value="zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"/>
+				</vbox>
+				<combobox width="99%"></combobox>
+			</row> 								
+
+		</rows>
+	</grid>
+	<button id="b_OK" label="Ok" />
+	<grid >
+		<columns>
+			<column width="10%"/>
+			<column width="70%"/>
+			<column width="20%"/>			
+		</columns>
+		<rows id="rows">
+		</rows>
+	</grid>		
+</window>
+</zk>
+			

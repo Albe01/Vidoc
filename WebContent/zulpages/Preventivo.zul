@@ -1,0 +1,33 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winPreventivo" title="" border="none" width="40%"
+		height="40%" apply="it.vidoc.win.controller.WinPreventivoController"
+		position="center,center" closable="false"
+		action="show: slideDown;hide: slideUp">
+		<include src="/zulpages/styles.zul" />
+		<hbox align="center" pack="center" width="100%" height="100%">
+			<panel id="pnlPreventivo" border="rounded+"
+				collapsible="false" open="true" height="200px" width="300px"
+				title="-- Costo della richiesta --">
+				<panelchildren>
+				<space></space>
+					<hbox align="center" pack="center" width="100%"
+						height="100%" vflex="1">
+						<label id="lblPreventivo" width="100%" />
+					</hbox>
+					<hbox align="center" pack="center" width="100%"
+						height="100%" vflex="1">
+						<checkbox id="chbNonMostrare"
+							label="Non mostrare piu' questo messaggio" />
+					</hbox>
+
+					<hbox align="center" pack="center" width="100%"
+						height="100%" vflex="1">
+						<button id="btnOk" label="OK" />
+						<button id="btnCancel" label="Cancel" />
+					</hbox>
+				</panelchildren>
+			</panel>
+		</hbox>
+	</window>
+</zk>

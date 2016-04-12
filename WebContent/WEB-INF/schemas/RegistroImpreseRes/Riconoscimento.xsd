@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="Riconoscimento" type="RiconoscimentoType"/>
+	<xsd:complexType name="RiconoscimentoType">
+		<xsd:sequence>
+			<xsd:element name="IdentificativoPosizione" type="IdentificativoPosizioneType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Identificativo della posizione. Viene riportata la chiave univoca dell'applicazione interrogata; ad es per le richieste di output R.I. di imprese viene riportata cciaa/nrea.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutputRestituiti" type="OutputRestituitiType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nome o lista degli output restituiti; nel caso di restituzione di piu' blocchi i blocchi sono concatenati dal separatore +;
+ nel caso di documento Output R.I. il tag e' valorizzato con documento/blocchi-valorizzati;
+ Esempio l'utente chiede VATTU e il sistema restituisce:
+ VATTUSC/IS8+CAP+SUL+PCO+SOC+AMM+SIN+APE+TFS+ALB </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="IdentificativoPosizioneType">
+		<xsd:annotation>
+			<xsd:documentation>Identificativo della posizione. Viene riportata la chiave univoca dell'applicazione interrogata; ad es per le richieste di output R.I. di imprese viene riportata cciaa/nrea.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OutputRestituitiType">
+		<xsd:annotation>
+			<xsd:documentation>Nome o lista degli output restituiti; nel caso di restituzione di piu' blocchi i blocchi sono concatenati dal separatore +;
+ nel caso di documento Output R.I. il tag e' valorizzato con documento/blocchi-valorizzati;
+  Esempio l'utente chiede VATTU e il sistema restituisce:
+  VATTUSC/IS8+CAP+SUL+PCO+SOC+AMM+SIN+APE+TFS+ALB </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="250"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

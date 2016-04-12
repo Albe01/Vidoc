@@ -1,0 +1,30 @@
+<?page id="winIndex" title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<include src="./zulpages/styles.zul" />
+	<window id="winMain" contentStyle="overflow:auto" border="none"
+		width="100%" height="99%">
+		<borderlayout id="blayout" width="100%" height="100%">
+			<north id="north" size="15%">
+				<box align="left" pack="center" height="100%"
+					width="100%">
+					<div>
+						<space></space>
+						<image src="/images/logo.png" />
+					</div>
+				</box>
+			</north>
+			<center id="center" border="none">
+				<include src="/zulpages/login.zul" />
+			</center>
+			<south size="10%">
+				<box align="left" pack="center" height="100%"
+					width="100%">
+					<div>
+						<space></space>
+						Diritti Riservati
+					</div>
+				</box>
+			</south>
+		</borderlayout>
+	</window>
+</zk>

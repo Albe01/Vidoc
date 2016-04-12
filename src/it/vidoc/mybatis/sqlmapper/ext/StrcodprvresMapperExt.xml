@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="it.vidoc.mybatis.javaclient.ext.StrcodprvresMapperExt">
+
+    <select id="selectKanagra" parameterType="it.vidoc.mybatis.javamodel.StrcodprvresExample" resultMap="it.vidoc.mybatis.javaclient.StrcodprvresMapper.BaseResultMap">
+    select kanagra from strcodprvres
+    <if test="_parameter != null">
+      <include refid="it.vidoc.mybatis.javaclient.StrcodprvresMapper.Example_Where_Clause" />
+    </if>
+  </select>
+  
+</mapper>

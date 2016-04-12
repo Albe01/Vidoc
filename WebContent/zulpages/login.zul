@@ -1,0 +1,53 @@
+<?page title="Login" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<vbox align="center" pack="center" height="100%" width="100%">
+		<vbox align="center" pack="center" height="99%" width="99%">
+			<hbox vflex="1" hflex="1" align="center" pack="center"
+				height="99%" width="99%">
+				<vlayout>
+					<window id="loginWin"
+						apply="it.vidoc.authentication.LoginController" title="Login"
+						border="normal" hflex="min">
+						<vbox hflex="min" align="center">
+							<grid hflex="min">
+								<columns>
+									<column hflex="min" align="right" />
+									<column />
+								</columns>
+								<rows>
+									<row>
+										User ID :
+										<textbox id="account" 
+											width="300px" />
+									</row>
+									<row>
+										Password :
+										<textbox id="password" 
+											type="password" width="300px" />
+									</row>
+								</rows>
+							</grid>
+							<separator></separator>
+							<button id="btnLogin" label="Login" />
+							<separator></separator>
+							<hbox>
+								<toolbarbutton id="pwdDimenticata" 
+									label="Password dimenticata?" />
+								<toolbarbutton id="serveAiuto" 
+									label="Serve aiuto?" />
+								<!-- 
+									<a href="/index.zul"
+									label="Password dimenticata?" />
+									<space></space>
+									<a href="/index.zul"
+									label="Serve aiuto?" />
+								-->
+							</hbox>
+							<separator></separator>
+						</vbox>
+					</window>
+				</vlayout>
+			</hbox>
+		</vbox>
+	</vbox>
+</zk>

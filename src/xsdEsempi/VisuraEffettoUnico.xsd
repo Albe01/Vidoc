@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="Testata.xsd"/>
+	<!--<xs:include schemaLocation="Riconoscimento.xsd"/>  -->
+	<xs:include schemaLocation="VisuraEffetto.xsd"/>
+	<xs:element name="Risposta">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Testata"/>
+				<xs:choice>
+					<xs:element ref="dati" minOccurs="0"/>
+					<xs:element ref="VisuraEffetto" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dati">
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<!--<xs:element ref="Riconoscimento" minOccurs="0"/>-->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

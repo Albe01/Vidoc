@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="3.1">
+	<xsd:element name="ListaImpreseRI" type="ListaImpreseRIType"/>
+	<xsd:complexType name="ListaImpreseRIType">
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation> 
+In data 14 novembre 2006 sono state inserite nello schema gli elementi AnagraficaPersona e AnagraficaPersonaGiuridica; questi due elementi verranno valorizzati, in alternativa tra loro, solo per richieste che utilizzino nella ricerca parametri relativi alla persona o persona giuridica. 
+Ad oggi l'unica richiesta con queste caratteristiche e' la RicercaAnagraficaRI/ListaImpreseRI/PerCognomeNomeDenom.
+Tutte le ricerche effettuate con parametri di ricerca sulle sole imprese riceveranno in risposta un xml identico al precedente. 
+	</xsd:documentation>
+			</xsd:annotation>
+			<xsd:element name="Impresa" type="ImpresaType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ImpresaType" mixed="true">
+		<xsd:sequence>
+			<xsd:element name="ProgressivoImpresa" type="xsd:integer"/>
+			<xsd:element name="AnagraficaImpresa" type="AnagraficaImpresaType" minOccurs="0"/>
+			<xsd:element name="AnagraficaPersona" type="AnagraficaPersonaType" minOccurs="0"/>
+			<xsd:element name="AnagraficaPersonaGiuridica" type="AnagraficaPersonaGiuridicaType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnagraficaImpresaType" mixed="true">
+		<xsd:sequence>
+			<xsd:element name="Cciaa" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescCciaa" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="NRea" type="NReaType" minOccurs="0"/>
+			<xsd:element name="Denominazione" type="DenominazioneType" minOccurs="0"/>
+			<xsd:element name="SglPrvSede" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvSede" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodFisc" type="CodFiscType" minOccurs="0"/>
+			<xsd:element name="PIva" type="PIvaType" minOccurs="0"/>
+			<xsd:element name="NatGiu" type="NatGiuType" minOccurs="0"/>
+			<xsd:element name="DescNatGiu" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="Fonte" type="FonteType" minOccurs="0"/>
+			<xsd:element name="DescFonte" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="StatoAttivita" type="StatoAttivitaType" minOccurs="0"/>
+			<xsd:element name="DescStatoAttivita" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodAttivitaAteco" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Codice attivita' economica esercitata dall'impresa</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescAttivitaAteco" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ClassificazioneAteco" type="ClassificazioneAtecoType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IndirizzoSede" type="IndirizzoSedeType" minOccurs="0"/>
+			<xsd:element name="IndirizzoLocalizzazione" type="IndirizzoLocalizzazioneType" minOccurs="0"/>
+			<xsd:element name="IndirizzoPostaCertificata" type="IndirizzoPostaCertificataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ClassificazioneAtecoType">
+		<xsd:sequence>
+			<xsd:element name="CodCodifica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescCodifica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodAttivita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescAttivita" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndirizzoSedeType">
+		<xsd:sequence>
+			<xsd:element name="SglPrvSede" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvSede" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComSede" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComSede" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodToponSede" type="CodToponType" minOccurs="0"/>
+			<xsd:element name="DescToponSede" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="ViaSede" type="ViaType" minOccurs="0"/>
+			<xsd:element name="NCivicoSede" type="NCivicoType" minOccurs="0"/>
+			<xsd:element name="CapSede" type="CapType" minOccurs="0"/>
+			<xsd:element name="FrazioneSede" type="FrazioneType" minOccurs="0"/>
+			<xsd:element name="CodStatoEstero" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Codice Stato Estero di ubicazione della sede, valorizzato solo nel caso l'impresa abbia sede all'estero</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescStatoEstero" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndirizzoLocalizzazioneType">
+		<xsd:sequence>
+			<xsd:element name="SglPrvLocalizzazione" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvLocalizzazione" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodComLocalizzazione" type="CodComType" minOccurs="0"/>
+			<xsd:element name="DescComLocalizzazione" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodToponLocalizzazione" type="CodToponType" minOccurs="0"/>
+			<xsd:element name="DescToponLocalizzazione" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="ViaLocalizzazione" type="ViaType" minOccurs="0"/>
+			<xsd:element name="NCivicoLocalizzazione" type="NCivicoType" minOccurs="0"/>
+			<xsd:element name="CapLocalizzazione" type="CapType" minOccurs="0"/>
+			<xsd:element name="FrazioneLocalizzazione" type="FrazioneType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndirizzoPostaCertificataType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="CodNota" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="AnagraficaPersonaType" mixed="true">
+		<xsd:sequence>
+			<xsd:element name="Cognome" type="CognomeType"/>
+			<xsd:element name="Nome" type="NomeType" minOccurs="0"/>
+			<xsd:element name="Sesso" type="SessoType" minOccurs="0"/>
+			<xsd:element name="LuogoNas" type="LuogoType" minOccurs="0"/>
+			<xsd:element name="SglPrvNas" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="DescPrvNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="CodStaNas" type="CodStaType" minOccurs="0"/>
+			<xsd:element name="DescStaNas" type="DescrizioneType" minOccurs="0"/>
+			<xsd:element name="DtNascita" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="CodFiscPers" type="CodFiscPersType" minOccurs="0"/>
+			<xsd:element name="CodPrimaCarica" type="CodPrimaCaricaType" minOccurs="0"/>
+			<xsd:element name="DescPrimaCarica" type="DescrizioneType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnagraficaPersonaGiuridicaType" mixed="true">
+		<xsd:sequence>
+			<xsd:element name="CciaaSocPar" type="CciaaType" minOccurs="0"/>
+			<xsd:element name="NReaSocPar" type="NReaType" minOccurs="0"/>
+			<xsd:element name="DenomSocPar" type="DenomSocParType" minOccurs="0"/>
+			<xsd:element name="DtCostituzSocPar" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="CodFiscPers" type="CodFiscPersType" minOccurs="0"/>
+			<xsd:element name="CodPrimaCarica" type="CodPrimaCaricaType" minOccurs="0"/>
+			<xsd:element name="DescPrimaCarica" type="DescrizioneType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="CciaaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NReaType">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:totalDigits value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DenominazioneType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="305"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DescrizioneType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PIvaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="11"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NatGiuType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FonteType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PR"/>
+			<xsd:enumeration value="RD"/>
+			<xsd:enumeration value="RI"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StatoAttivitaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="P"/>
+			<xsd:enumeration value="C"/>
+			<xsd:enumeration value="R"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodComType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodToponType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ViaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NCivicoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CapType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FrazioneType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CognomeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NomeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="25"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SessoType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="LuogoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodStaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodFiscPersType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DenomSocParType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="305"/>
+			<xsd:whiteSpace value="collapse"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodPrimaCaricaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

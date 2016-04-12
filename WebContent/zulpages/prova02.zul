@@ -1,0 +1,26 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+
+<style>
+.myname1 .z-window-embedded-cnt, .z-window-embedded-cnt-noborder{
+	background-color : #80FF00; 
+	background-repeat : repeat-y;
+}
+
+</style>
+
+
+
+<window sclass="myname1"       id="winRiListaImprese"  border="none" style="border-top: 2px #DB9A00 solid;" contentStyle="overflow:auto">
+<!-- <include src="/zulpages/styles.zul"/> V
+<grid width="99%">
+    <columns>
+        <column label="Name" hflex="1"/>
+        <column label="Value" hflex="2"/>
+        <column label="Value" hflex="2"/>        
+    </columns>
+    <rows>
+        <row>username:<textbox hflex="1"/></row>
+        <row>password:<textbox hflex="1"/></row>
+    </rows>
+</grid></zk>

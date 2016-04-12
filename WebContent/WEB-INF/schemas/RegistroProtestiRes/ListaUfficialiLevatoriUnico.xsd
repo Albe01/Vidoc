@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="Testata.xsd"/>
+	<xs:include schemaLocation="ListaUfficialiLevatori.xsd"/>
+	<xs:element name="Risposta">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Testata"/>
+				<xs:element ref="ListaUfficialiLevatori" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+

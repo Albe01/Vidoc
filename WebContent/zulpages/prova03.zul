@@ -1,0 +1,27 @@
+<?page title="Second Insert Row" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Second Insert Row" border="normal" apply="it.vidoc.win.controller.InsertRow2">
+<grid>
+		<columns>
+			<column label=""/>
+			<column label=""/>
+		</columns>
+		<rows>
+			<row><label value="Name" /><textbox id="name"  />
+			</row>
+			<row><label value="Email" /><textbox id="email" />
+			</row>
+		</rows>
+	</grid>
+	<button id="b_OK" label="Ok" />
+	<grid>
+		<columns>
+			<column label="Name"/>
+			<column label="Email"/>
+			<column label="Delete"/>
+		</columns>
+		<rows id="rows">
+		</rows>
+	</grid>
+</window>
+</zk>

@@ -1,0 +1,50 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<include src="/zulpages/styles.zul" />
+	<menubar id="topMenu" autodrop="true" mold="default"
+		apply="it.vidoc.win.controller.TopMenuController">
+		<menu id="menuRI" label="Registro Imprese">
+			<menupopup>
+				<menu label="Ricerca per" image="">
+					<menupopup>
+						<menuitem id="menuitemRiDen"
+							label="Denominazione" image="" />
+						<menuitem id="menuitemRiCF"
+							label="Codice Fiscale" image="" />
+						<menuitem id="menuitemRiNRea" label="Numero REA"
+							image="" />
+					</menupopup>
+				</menu>
+			</menupopup>
+		</menu>
+		<menu id="menuRP" label="Registro Protesti">
+			<menupopup>
+				<menuitem id="menuitemRpRic" label="Ricerca" image="" />
+				<menuitem id="menuitemRpVis" label="Visura" image="" />
+			</menupopup>
+		</menu>
+		<menu id="menuAM" label="Protesti AMEDEO">
+			<menupopup>
+				<menuitem id="menuitemAmRic" label="Ricerca"
+					image="/images/search_16x16.png" />
+				<menuitem id="menuitemAmVis" label="Visura"
+					image="/images/page_full_16x16.png" />
+			</menupopup>
+		</menu>
+		<menuitem id="menuitemDocRic" label="Documenti Richiesti" />
+		<menuitem id="menuitemlogOper" label="Log Operazioni" />		
+		<menuitem id="menuitemHelp" label="Help" />
+		<menuitem id="b" label="" />
+		<menuitem id="c" label="" />
+		<menuitem id="d" label="" />
+		<menuitem id="e" label="" />
+		<menuitem id="f" label="" />
+		<menuitem id="g" label="" />
+		<menuitem id="h" label="" />
+		<menuitem id="i" label="" />
+		<menuitem id="l" label="" />
+		<menuitem id="m" label="" />
+		<menuitem id="n" label="" />
+		<menuitem id="o" label="" />
+	</menubar>
+</zk>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="it.vidoc.mybatis.javaclient.ext.StrnomiMapperExt">
+
+<!-- 
+  <select id="selectKanagra" parameterType="java.util.Map" resultMap="it.vidoc.mybatis.javaclient.StrnomiMapper.BaseResultMap">
+-->
+  <select id="selectKanagra" parameterType="java.util.Map" resultType="Integer">  
+    select kanagra from ${tableName} where parola = #{parola}
+  </select>
+  
+</mapper>
