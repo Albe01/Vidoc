@@ -203,4 +203,25 @@ public class SqlAccount implements ISqlGeneric {
 		MyBatisConnectionFactory.closeSqlSession();
 		return ret;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> selectByExample(T oggetto, String dataDa, String dataA, String orderBy) {
+		List<T> list = new ArrayList<T>();
+		try {
+			AccountExample exampleWhere = setWhereCondition((Account) oggetto, orderBy);
+			if (dataDa != null && !"".equals(dataDa)) {
+				exampleWhere.getOredCriteria().get(0).andDataGreaterThanOrEqualTo(dataDa);
+			}
+			if (dataA != null && !"".equals(dataA)) {
+				exampleWhere.getOredCriteria().get(0).andDataLessThanOrEqualTo(dataA);
+			}
+
+			list = (List<T>) MyBatisConnectionFactory.getSqlSession().getMapper(AccountMapper.class).selectByExample(exampleWhere);				
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		MyBatisConnectionFactory.closeSqlSession();
+		return (List<T>) list;
+	}
+
 }
