@@ -2,7 +2,7 @@
 <zk>
 	<include src="/zulpages/styles.zul" />
 	<menubar id="topMenu" autodrop="true" mold="default"
-		apply="it.vidoc.win.controller.TopMenuController">
+		apply="it.vidoc.win.controller.TopMenuController" width="100%" >
 		<menu id="menuRI" label="Registro Imprese">
 			<menupopup>
 				<menu label="Ricerca per" image="">
@@ -32,19 +32,24 @@
 			</menupopup>
 		</menu>
 		<menuitem id="menuitemDocRic" label="Documenti Richiesti" />
-		<menuitem id="menuitemlogOper" label="Log Operazioni" />		
+		<menuitem id="menuitemlogOper" label="Log Operazioni" />
 		<menuitem id="menuitemHelp" label="Help" />
-		<menuitem id="b" label="" />
-		<menuitem id="c" label="" />
-		<menuitem id="d" label="" />
-		<menuitem id="e" label="" />
-		<menuitem id="f" label="" />
-		<menuitem id="g" label="" />
-		<menuitem id="h" label="" />
-		<menuitem id="i" label="" />
-		<menuitem id="l" label="" />
-		<menuitem id="m" label="" />
-		<menuitem id="n" label="" />
-		<menuitem id="o" label="" />
+		<menuitem label="" disabled="true"/>
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
+		<menuitem label="" disabled="true" />
 	</menubar>
 </zk>

@@ -6,20 +6,28 @@ import java.util.Date;
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.EventQueue;
+import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Datebox;
+import org.zkoss.zul.Image;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Panel;
+import org.zkoss.zul.Window;
 
 import it.vidoc.mybatis.javamodel.Account;
+import it.vidoc.mybatis.javamodel.Elencodocumenti;
 import it.vidoc.mybatis.javamodel.Listino;
 import it.vidoc.mybatis.sqlquery.SqlAccount;
+import it.vidoc.mybatis.sqlquery.SqlElencoDocumenti;
 import it.vidoc.mybatis.sqlquery.SqlListino;
 import it.vidoc.utils.Costants.BANCA_DATI;
 import it.vidoc.utils.Costants.RICHIESTA;
@@ -31,6 +39,7 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 	private static final long serialVersionUID = 6204566952879868705L;
 	private Session session = null;;
 	private DatiSessione datiSessione = null;
+	private EventQueue eventQueue;
 	
 	private Listbox lbListaLogOper;
 	private Panel pnlLogOperazioni;
@@ -63,7 +72,7 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 		Account account = new Account();
 		account.setUsername(datiSessione.getUser().getUsername());
 		//account.setData(dt1.format(dataDa.getValue()));
-		List<Account> lstAccount = new SqlAccount().selectByExample(account, dt1.format(dataDa.getValue()), dt1.format(dataA.getValue()), "data");
+		List<Account> lstAccount = new SqlAccount().selectByExample(account, dt1.format(dataDa.getValue()), dt1.format(dataA.getValue()), "data, time");
 		riempiLbLogOper(lstAccount);
 	}
 	
@@ -83,14 +92,13 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 		pnlLogOperazioni.setOpen(true);
 		lbListaLogOper.getItems().clear();
 		DecimalFormat decimalFormat = new DecimalFormat("#,###,###,##0.00");
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
 		for (int i = 0; i < lstAccount.size(); i++) {
 			Listino listino = new SqlListino().selectByPrimaryKey(lstAccount.get(i).getProgrrigalistino());
 			
 			Listitem riga = new Listitem();
 			Listcell cella = new Listcell();
-			//20160408042321
+			
 			cella = new Listcell();
 			cella.setLabel(
 					lstAccount.get(i).getData().substring(6, 8) + // gg
@@ -138,11 +146,73 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 			cella.setLabel(decimalFormat.format(lstAccount.get(i).getDirittisegreteria()));
 			cella.setStyle("white-space:nowrap;overflow:hidden");
 			riga.appendChild(cella);
+
+//			cella = new Listcell();
+//			cella.setImage("/images/View_Document.png");
+//			cella.setStyle("white-space:nowrap;overflow:hidden");
+//			riga.appendChild(cella);
 			
+			
+			Elencodocumenti elencodocumenti = new Elencodocumenti();
+			elencodocumenti.setProgrrigaaccount(lstAccount.get(i).getProgrriga());
+			List<Elencodocumenti> lstElencodocumenti = new SqlElencoDocumenti().selectByExampleWithBlobs(elencodocumenti, null);
+			if (lstElencodocumenti.size() > 0) {
+				cella = new Listcell();
+				Image img = new Image();
+				img.setSrc("/images/View_Document.png");
+				img.setParent(cella);
+				riga.appendChild(cella);
+				
+				cella = new Listcell();
+				cella.setLabel("X");
+				cella.setStyle("white-space:nowrap;overflow:hidden");
+				riga.appendChild(cella);
+			} else {
+				cella = new Listcell();
+				riga.appendChild(cella);
+				cella = new Listcell();
+				riga.appendChild(cella);
+			}
+
+
+			cella = new Listcell();
+			cella.setLabel(lstAccount.get(i).getProgrriga().toString());
+			cella.setStyle("white-space:nowrap;overflow:hidden");
+			riga.appendChild(cella);
+
 			lbListaLogOper.appendChild(riga);
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public void onSelect$lbListaLogOper(Event event) {
+		
+//		eventQueue = EventQueues.lookup("interactive", EventQueues.DESKTOP, true);
+// 		eventQueue.subscribe(new EventListener() {
+//            public void onEvent(Event event) throws Exception {
+//            	eventQueue.unsubscribe(this);
+//				try {
+//					// serve a riattivare EventListener
+//					lbListaLogOper.getSelectedItem().setSelected(false);
+//				} catch (Exception e) {
+//				}
+//            }
+//        });
+		
+		Listcell listcell;
+		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(9);
+		if (!"".equals(listcell.getLabel()) &&  listcell.getLabel() != null) {
+			listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(10);
+			datiSessione.setRigaElencoDocumenti(Integer.parseInt(listcell.getLabel()));
+			session.setAttribute("datisessione", datiSessione);
+//			Window dialog = (Window) Executions.createComponents("/zulpages/REIMVisuraHTML.zul", null, null);
+//			dialog.doModal();
+			
+			lbListaLogOper.getSelectedItem().setSelected(false);
+			Executions.getCurrent().sendRedirect("/zulpages/REIMVisuraHTML.zul", "_blank");
+//			Executions.getCurrent().sendRedirect("D:/temp/73016_precompilato_DBLLRT60A17F839C.pdf", "_blank");
+		}
+	}
 
 	public void onCreate() {
 		pnlLogOperazioni.setVisible(false);

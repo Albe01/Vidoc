@@ -6,7 +6,7 @@
 				height="99%" width="99%">
 				<vlayout>
 					<window id="loginWin"
-						apply="it.vidoc.authentication.LoginController" title="Login"
+						apply="it.vidoc.win.controller.WinLoginController" title="Login"
 						border="normal" hflex="min">
 						<vbox hflex="min" align="center">
 							<grid hflex="min">

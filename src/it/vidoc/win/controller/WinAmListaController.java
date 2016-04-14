@@ -172,7 +172,7 @@ public class WinAmListaController extends GenericForwardComposer {
 		lblNumSogg.setValue("(N. soggetti trovati: " + lstKanagra.size() + ")");
 	}
 
-	public void onClick$btnNewRic(Event event) throws IOException {
+	public void onClick$btnIndietro(Event event) throws IOException {
 		LoadNewPage.loadNewPage("/zulpages/AMricerca.zul");
 	}
 

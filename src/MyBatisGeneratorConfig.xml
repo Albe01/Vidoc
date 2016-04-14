@@ -50,6 +50,7 @@
 		<table schema="user" tableName="userabilitazioni" />
 		<table schema="user" tableName="listino" />
 		<table schema="user" tableName="account" />
+		<table schema="user" tableName="elencodocumenti" />		
 
 	</context>
 </generatorConfiguration>

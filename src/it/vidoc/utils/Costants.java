@@ -1,5 +1,9 @@
 package it.vidoc.utils;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Costants {
 
 	public final static String AMEDcodiceBancaDati = "AMED";
@@ -15,7 +19,7 @@ public class Costants {
 	
 	public enum BANCA_DATI {      
 		AMED("Protesti Amedeo"), 
-		REMI("Registro Imprese"), 
+		REIM("Registro Imprese"), 
 		;
 
 	    private String name;
@@ -34,7 +38,8 @@ public class Costants {
 
 	public enum RICHIESTA {      
 		AMLI01("Ricerca Anagrafica"), 
-		AMVI01("Visura Protesti"), 
+		AMVI01("Visura Protesti"),
+		VATTU("Visura Ordinaria"),
 		;
 
 	    private String name;
@@ -54,6 +59,7 @@ public class Costants {
 	public enum RISPOSTA {      
 		AMLI01("Ricerca Anagrafica"), 
 		AMVI01("Visura Protesti"), 
+		VATTU("Visura Ordinaria"),
 		;
 
 	    private String name;
@@ -69,5 +75,48 @@ public class Costants {
 		    return this.toString();
 		}
 	}	
+	
+	public static synchronized String getTmpDir(){
+		String tmpDir = "";
+		if (System.getProperty("os.name").toLowerCase().contains("win")) {
+			tmpDir = "C:" + File.separator + "Windows" + File.separator + "Temp";
+		} else {
+			tmpDir = File.separator + "/tmp";
+		}
+		return tmpDir;
+//		return("C:" + File.separator + "temp");
+	}
+	
+	public static synchronized Boolean appendToFileTXT(String riga, FileWriter fileWriter){
+		try {
+			fileWriter.append(riga);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public static synchronized FileWriter createFileTxtAppend(String nomeFileCompleto) {
+		FileWriter fileWriter = null;
+		File file = new File(nomeFileCompleto);
+		file.delete();
+		try {
+			fileWriter = new FileWriter(file,true);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return fileWriter;
+	}
+
+	public static synchronized Boolean deleteFileFromFS(String fileName) {
+		try {
+			File file = new File(fileName);
+			return file.delete();
+//			System.out.println((file.delete()) ? "successfully deleted" : "failed to be deleted");
+		} catch(Exception e1) {
+		}
+		return false;
+	}
 
 }

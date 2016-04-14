@@ -53,6 +53,10 @@
 									align="Right" />
 								<listheader label="Diritti Segreteria"
 									hflex="min" align="Right" />
+								<listheader 
+									hflex="min" align="Center" />
+								<listheader visible="false"/>
+								<listheader visible="false"/>
 							</listhead>
 						</listbox>
 					</hbox>

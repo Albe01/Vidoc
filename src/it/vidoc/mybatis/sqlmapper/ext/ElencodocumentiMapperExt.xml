@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="it.vidoc.mybatis.javaclient.ext.ElencodocumentiMapperExt">
+
+	<insert id="insertReturnID"
+		parameterType="it.vidoc.mybatis.javamodel.Elencodocumenti"
+		useGeneratedKeys="true" keyProperty="progrriga" keyColumn="progrriga">
+
+		insert into elencodocumenti (progrrigaaccount, tipodocumento,
+		documento)
+		values (#{progrrigaaccount,jdbcType=INTEGER},
+		#{tipodocumento,jdbcType=VARCHAR},
+		#{documento,jdbcType=LONGVARBINARY})
+	</insert>
+
+</mapper>

@@ -1,0 +1,43 @@
+<?page title="" contentType="text/html;charset=UTF-8"?>
+<window id="winREIMVisuraHTML" border="none" width="100%" height="100%"
+	position="center,center" closable="false"
+	action="show: slideDown;hide: slideUp"
+	apply="it.vidoc.win.controller.WinREIMVisuraHTMLController"
+	contentStyle="overflow:auto">
+	<borderlayout id="blayout" height="100%" width="100%">
+	<!-- 
+		<north size="7%" vflex="1" hflex="1">
+			<hbox align="center" pack="end" width="100%" height="100%"
+				hflex="1" vflex="1">
+				<image id="iconpdf" src="/images/pdf-icon24x24.png"
+					tooltip="DownloadPDFfile, position=before_start">
+				</image>
+				<image id="iconprint" src="/images/print-icon24x24.png"
+					tooltip="Stampa, position=before_start">
+				</image>
+				<image id="iconexit"
+					src="/images/Actions-window-close-icon24x24.png"
+					tooltip="Exit, position=before_start">
+				</image>
+				<space></space>
+			</hbox>
+		</north>
+ -->		
+		<center autoscroll="true">
+			<iframe id="iframe" width="100%" height="100%">
+			<!-- 
+				<html id="ht" />
+ -->				
+			</iframe>
+		</center>
+	</borderlayout>
+	<popup id="DownloadPDFfile" top="200px" left="350px">
+		<label value="Salva in PDF" />
+	</popup>
+	<popup id="Exit" top="200px" left="350px">
+		<label value="Chiudi" />
+	</popup>
+	<popup id="Stampa">
+		<label value="Stampa" />
+	</popup>
+</window>

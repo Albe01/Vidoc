@@ -9,32 +9,54 @@
 			<panelchildren>
 				<borderlayout id="blayout" height="100%" width="100%">
 					<north size="15%" vflex="1" hflex="1">
-						<hbox align="center" pack="start" width="100%"
-							height="100%">
-							<cell width="80%" hflex="1"
-								style="border-style:none; border-width:0.1px">
-								<hbox hflex="1">
-									<space></space>
-									<image src="/images/logotris.png" />
-									<space></space>
-									<include
-										src="/zulpages/topmenu.zul" />
-								</hbox>
-							</cell>
-							<cell width="20%" align="right"
-								style="border-style:none; border-width:0.1px">
-								<space></space>
+						<vbox vflex="1">
+							<hbox align="center" pack="end" width="100%"
+								height="100%" hflex="1" vflex="1">
 								<a id="iconuser" href="/index.zul"
 									image="/images/User-Male-icon.png" />
 								<label id="user" width="100%"
 									style="font-size:11px; font-style:oblique; font-weight:bold; color:blue" />
-								<space></space>
 								<a href="/index.zul"
 									tooltip="popup01 , position=start_after"
 									image="/images/logout.png" />
+							</hbox>
+							<hbox align="center" pack="start"
+								width="100%" height="100%" hflex="1" vflex="1">
 								<space></space>
-							</cell>
-						</hbox>
+								<image src="/images/logotris.png" />
+								<space></space>
+								<include src="/zulpages/topmenu.zul" />
+							</hbox>
+							<!-- 
+								<hbox align="center" pack="start"
+								width="100%" height="100%">
+								<cell width="80%" hflex="1"
+								style="border-style:none; border-width:0.1px">
+								<hbox hflex="1">
+								<space></space>
+								<image
+								src="/images/logotris.png" />
+								<space></space>
+								<include
+								src="/zulpages/topmenu.zul" />
+								</hbox>
+								</cell>
+								<cell width="20%" align="right"
+								style="border-style:none; border-width:0.1px">
+								<space></space>
+								<a id="iconuser" href="/index.zul"
+								image="/images/User-Male-icon.png" />
+								<label id="user" width="100%"
+								style="font-size:11px; font-style:oblique; font-weight:bold; color:blue" />
+								<space></space>
+								<a href="/index.zul"
+								tooltip="popup01 , position=start_after"
+								image="/images/logout.png" />
+								<space></space>
+								</cell>
+								</hbox>
+							-->
+						</vbox>
 					</north>
 					<center border="none"></center>
 					<south size="10%">

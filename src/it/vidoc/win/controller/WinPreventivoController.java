@@ -2,7 +2,6 @@ package it.vidoc.win.controller;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.HashMap;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Session;

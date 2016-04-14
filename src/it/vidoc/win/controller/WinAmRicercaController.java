@@ -1,7 +1,6 @@
 package it.vidoc.win.controller;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
