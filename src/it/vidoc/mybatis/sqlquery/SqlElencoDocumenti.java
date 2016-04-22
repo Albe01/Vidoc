@@ -99,8 +99,7 @@ public class SqlElencoDocumenti implements ISqlGeneric {
 	public <T> int insert(T oggetto) {
 		int ret = 0;
 		try {
-			ret = MyBatisConnectionFactory.getSqlSession().getMapper(ElencodocumentiMapper.class)
-					.insert((Elencodocumenti) oggetto);
+			ret = MyBatisConnectionFactory.getSqlSession().getMapper(ElencodocumentiMapper.class).insert((Elencodocumenti) oggetto);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

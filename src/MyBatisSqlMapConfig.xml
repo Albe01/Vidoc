@@ -54,13 +54,13 @@
 		<mapper resource="it/vidoc/mybatis/sqlmapper/UserabilitazioniMapper.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ListinoMapper.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/AccountMapper.xml" />
-		<mapper resource="it/vidoc/mybatis/sqlmapper/ElencodocumentiMapper.xml" />		
-
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ElencodocumentiMapper.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/AmedeodateaggMapper.xml" />				
+		
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrcodprvresMapperExt.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrnomiMapperExt.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/AnagraficheMapperExt.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrcodcomresMapperExt.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/ElencodocumentiMapperExt.xml" />		
-
 	</mappers>
 </configuration>

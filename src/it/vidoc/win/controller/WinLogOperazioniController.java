@@ -10,9 +10,6 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
-import org.zkoss.zk.ui.event.EventQueue;
-import org.zkoss.zk.ui.event.EventQueues;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Datebox;
@@ -21,7 +18,6 @@ import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Panel;
-import org.zkoss.zul.Window;
 
 import it.vidoc.mybatis.javamodel.Account;
 import it.vidoc.mybatis.javamodel.Elencodocumenti;
@@ -39,8 +35,7 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 	private static final long serialVersionUID = 6204566952879868705L;
 	private Session session = null;;
 	private DatiSessione datiSessione = null;
-	private EventQueue eventQueue;
-	
+
 	private Listbox lbListaLogOper;
 	private Panel pnlLogOperazioni;
 	private Datebox dataDa, dataA;
@@ -55,12 +50,14 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 	}
 
 	public void onClick$btnOk(Event event) {
-		if ("".equals(dataDa.getText()) || dataDa.getText() == null || "".equals(dataA.getText()) || dataA.getText() == null) {
+		if ("".equals(dataDa.getText()) || dataDa.getText() == null || "".equals(dataA.getText())
+				|| dataA.getText() == null) {
 			Clients.showNotification("Date obbligatorie", Clients.NOTIFICATION_TYPE_WARNING, null, null, 5000, true);
 			return;
 		}
-		if (dataDa.getValue().after(new Date()) || dataA.getValue().after(new Date()) ) {
-			Clients.showNotification("Data errata (non puo' contenere date future).", Clients.NOTIFICATION_TYPE_WARNING, null, null, 5000, true);
+		if (dataDa.getValue().after(new Date()) || dataA.getValue().after(new Date())) {
+			Clients.showNotification("Data errata (non puo' contenere date future).", Clients.NOTIFICATION_TYPE_WARNING,
+					null, null, 5000, true);
 			return;
 		}
 		if (dataDa.getValue().after(dataA.getValue())) {
@@ -68,17 +65,17 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 			return;
 		}
 		SimpleDateFormat dt1 = new SimpleDateFormat("yyyyMMdd");
-		
+
 		Account account = new Account();
 		account.setUsername(datiSessione.getUser().getUsername());
-		//account.setData(dt1.format(dataDa.getValue()));
 		List<Account> lstAccount = new SqlAccount().selectByExample(account, dt1.format(dataDa.getValue()), dt1.format(dataA.getValue()), "data, time");
 		riempiLbLogOper(lstAccount);
 	}
-	
+
 	public void onChange$dataDa(Event event) {
 		onCreate();
 	}
+
 	public void onClick$dataDa(Event event) {
 		onCreate();
 	}
@@ -87,28 +84,23 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 		onCreate();
 	}
 
-	public void riempiLbLogOper (List<Account> lstAccount) {
+	public void riempiLbLogOper(List<Account> lstAccount) {
 		pnlLogOperazioni.setVisible(true);
 		pnlLogOperazioni.setOpen(true);
 		lbListaLogOper.getItems().clear();
 		DecimalFormat decimalFormat = new DecimalFormat("#,###,###,##0.00");
-		
+
 		for (int i = 0; i < lstAccount.size(); i++) {
 			Listino listino = new SqlListino().selectByPrimaryKey(lstAccount.get(i).getProgrrigalistino());
-			
+
 			Listitem riga = new Listitem();
 			Listcell cella = new Listcell();
-			
+
 			cella = new Listcell();
-			cella.setLabel(
-					lstAccount.get(i).getData().substring(6, 8) + // gg
-					"/" + 
-					lstAccount.get(i).getData().substring(4, 6) + // mm					
-					"/" +
-					lstAccount.get(i).getData().substring(0, 4) + // aaaa
-					" " +
-					lstAccount.get(i).getTime()
-					);
+			cella.setLabel(lstAccount.get(i).getData().substring(6, 8) + // gg
+					"/" + lstAccount.get(i).getData().substring(4, 6) + // mm
+					"/" + lstAccount.get(i).getData().substring(0, 4) + // aaaa
+					" " + lstAccount.get(i).getTime());
 			cella.setStyle("white-space:nowrap;overflow:hidden");
 			riga.appendChild(cella);
 
@@ -126,7 +118,7 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 			cella.setLabel(RISPOSTA.valueOf(listino.getCodicerisposta()).value());
 			cella.setStyle("white-space:nowrap;overflow:hidden");
 			riga.appendChild(cella);
-			
+
 			cella = new Listcell();
 			cella.setLabel(listino.getPosneg());
 			cella.setStyle("white-space:nowrap;overflow:hidden");
@@ -147,22 +139,17 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 			cella.setStyle("white-space:nowrap;overflow:hidden");
 			riga.appendChild(cella);
 
-//			cella = new Listcell();
-//			cella.setImage("/images/View_Document.png");
-//			cella.setStyle("white-space:nowrap;overflow:hidden");
-//			riga.appendChild(cella);
-			
-			
 			Elencodocumenti elencodocumenti = new Elencodocumenti();
 			elencodocumenti.setProgrrigaaccount(lstAccount.get(i).getProgrriga());
-			List<Elencodocumenti> lstElencodocumenti = new SqlElencoDocumenti().selectByExampleWithBlobs(elencodocumenti, null);
+			List<Elencodocumenti> lstElencodocumenti = new SqlElencoDocumenti()
+					.selectByExampleWithBlobs(elencodocumenti, null);
 			if (lstElencodocumenti.size() > 0) {
 				cella = new Listcell();
 				Image img = new Image();
 				img.setSrc("/images/View_Document.png");
 				img.setParent(cella);
 				riga.appendChild(cella);
-				
+
 				cella = new Listcell();
 				cella.setLabel("X");
 				cella.setStyle("white-space:nowrap;overflow:hidden");
@@ -174,7 +161,6 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 				riga.appendChild(cella);
 			}
 
-
 			cella = new Listcell();
 			cella.setLabel(lstAccount.get(i).getProgrriga().toString());
 			cella.setStyle("white-space:nowrap;overflow:hidden");
@@ -184,33 +170,20 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public void onSelect$lbListaLogOper(Event event) {
-		
-//		eventQueue = EventQueues.lookup("interactive", EventQueues.DESKTOP, true);
-// 		eventQueue.subscribe(new EventListener() {
-//            public void onEvent(Event event) throws Exception {
-//            	eventQueue.unsubscribe(this);
-//				try {
-//					// serve a riattivare EventListener
-//					lbListaLogOper.getSelectedItem().setSelected(false);
-//				} catch (Exception e) {
-//				}
-//            }
-//        });
-		
 		Listcell listcell;
 		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(9);
-		if (!"".equals(listcell.getLabel()) &&  listcell.getLabel() != null) {
+		if (!"".equals(listcell.getLabel()) && listcell.getLabel() != null) {
 			listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(10);
 			datiSessione.setRigaElencoDocumenti(Integer.parseInt(listcell.getLabel()));
 			session.setAttribute("datisessione", datiSessione);
-//			Window dialog = (Window) Executions.createComponents("/zulpages/REIMVisuraHTML.zul", null, null);
-//			dialog.doModal();
-			
+			// Window dialog = (Window)
+			// Executions.createComponents("/zulpages/REIMVisuraHTML.zul", null, null);
+			// dialog.doModal();
+
 			lbListaLogOper.getSelectedItem().setSelected(false);
-			Executions.getCurrent().sendRedirect("/zulpages/REIMVisuraHTML.zul", "_blank");
-//			Executions.getCurrent().sendRedirect("D:/temp/73016_precompilato_DBLLRT60A17F839C.pdf", "_blank");
+			Executions.getCurrent().sendRedirect("/zulpages/REIMVisura.zul", "_blank");
+			// Executions.getCurrent().sendRedirect("D:/temp/73016_precompilato_DBLLRT60A17F839C.pdf", "_blank");
 		}
 	}
 

@@ -40,7 +40,7 @@
 				</listbox>
 				<separator />
 				<div align="Center">
-					<button id="btnNewRic" label="Indietro" />
+					<button id="btnIndietro" label="Indietro" />
 				</div>
 				<separator />
 				<div align="Center">

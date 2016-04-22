@@ -17,10 +17,10 @@ import org.zkoss.zul.Textbox;
 import it.vidoc.mybatis.javamodel.Elencodocumenti;
 import it.vidoc.mybatis.javamodel.User;
 import it.vidoc.mybatis.javamodel.Userabilitazioni;
-import it.vidoc.mybatis.sqlquery.SqlElencoDocumenti;
 import it.vidoc.mybatis.sqlquery.SqlUser;
 import it.vidoc.mybatis.sqlquery.SqlUserAbilitazioni;
 import it.vidoc.utils.DatiSessione;
+import it.vidoc.utils.ManageDbWithJDBC;
 import it.vidoc.utils.StringEncrypter;
 
 @SuppressWarnings("rawtypes")
@@ -34,8 +34,19 @@ public class WinLoginController extends GenericForwardComposer {
 		super.doAfterCompose(comp);
 		account.setFocus(true);
 		
+//		File file = new File("d:/temp/20160420_094643.jpg");
+//		byte[] dataByte = new byte[(int) file.length()];
+//		DataInputStream dis = new DataInputStream(new FileInputStream(file));
+//		dis.readFully(dataByte);  // read from file into byte[] array
+//		dis.close();
+//		Elencodocumenti elencodocumenti = new Elencodocumenti();
+//		elencodocumenti.setProgrrigaaccount(44);
+//		elencodocumenti.setTipodocumento("pdf");
+//		elencodocumenti.setDocumento(dataByte);
+//		new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
 		
-//		File pdfFile = new File("d:/temp/640619297.pdf");
+		
+//		File pdfFile = new File("d:/temp/elencodocumenti.sql");
 //		byte[] pdfData = new byte[(int) pdfFile.length()];
 //		DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
 //		dis.readFully(pdfData);  // read from file into byte[] array
@@ -44,20 +55,7 @@ public class WinLoginController extends GenericForwardComposer {
 //		elencodocumenti.setProgrrigaaccount(99);
 //		elencodocumenti.setTipodocumento("pdf");
 //		elencodocumenti.setDocumento(pdfData);
-////		elencodocumenti.setDocumento(null);
-//		elencodocumenti.setDocumento(pdfData);
-////		new SqlElencoDocumenti().insertReturnID(elencodocumenti);
 //		new SqlElencoDocumenti().insert(elencodocumenti);
-		
-//		Elencodocumenti where = new Elencodocumenti();
-//		where.setProgrriga(elencodocumenti.getProgrriga());
-//		
-//		elencodocumenti.setProgrriga(null);
-//		elencodocumenti.setProgrrigaaccount(null);
-//		elencodocumenti.setTipodocumento(null);
-//		elencodocumenti.setDocumento(pdfData);
-//		new SqlElencoDocumenti().updateByExampleSelective(elencodocumenti, where);
-		
 	}
 
 	public void onClick$pwdDimenticata(Event event) {

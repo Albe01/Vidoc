@@ -1,6 +1,8 @@
 package it.vidoc.mybatis.sqlquery;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -98,8 +100,12 @@ public class SqlAccount implements ISqlGeneric {
 	@Override
 	public <T> int insert(T oggetto) {
 		int ret = 0;
+		Account object = (Account) oggetto;
+		if ("".equals(object.getData()) || object.getData() == null) {
+			object.setData(new SimpleDateFormat("yyyyMMdd").format(new Date()));
+		}
 		try {
-			ret = MyBatisConnectionFactory.getSqlSession().getMapper(AccountMapper.class).insert((Account)oggetto);				
+			ret = MyBatisConnectionFactory.getSqlSession().getMapper(AccountMapper.class).insert((Account)object);				
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

@@ -1,5 +1,10 @@
 package it.vidoc.win.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
@@ -21,6 +26,7 @@ public class WinMainController extends GenericForwardComposer {
 	
 	private A iconuser;
 	private Label user;
+	private Label datatime;
 	
 	@SuppressWarnings("unchecked")
 	public void doAfterCompose(Component comp) throws Exception {
@@ -28,6 +34,9 @@ public class WinMainController extends GenericForwardComposer {
 		if (CheckLogin.checkLogin() == false) {
 			return;
 		}
+//		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//		dateFormat.setTimeZone(TimeZone.getTimeZone("Europe/London"));
+//		datatime.setValue(dateFormat.format(new Date()));
 		
 		try {
 			session = Sessions.getCurrent();

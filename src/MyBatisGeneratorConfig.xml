@@ -51,6 +51,7 @@
 		<table schema="user" tableName="listino" />
 		<table schema="user" tableName="account" />
 		<table schema="user" tableName="elencodocumenti" />		
+		<table schema="amedeo" tableName="amedeodateagg" />		
 
 	</context>
 </generatorConfiguration>

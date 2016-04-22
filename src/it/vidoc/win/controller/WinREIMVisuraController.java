@@ -1,5 +1,8 @@
 package it.vidoc.win.controller;
 
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,7 +23,7 @@ import it.vidoc.mybatis.sqlquery.SqlElencoDocumenti;
 import it.vidoc.utils.DatiSessione;
 
 @SuppressWarnings("rawtypes")
-public class WinREIMVisuraHTMLController extends GenericForwardComposer {
+public class WinREIMVisuraController extends GenericForwardComposer {
 	private static final long serialVersionUID = 6204566952879868705L;
 	private Session session = null;
 	private DatiSessione datiSessione = null;
@@ -39,7 +42,6 @@ public class WinREIMVisuraHTMLController extends GenericForwardComposer {
 		Elencodocumenti elencodocumenti = new Elencodocumenti();
 		elencodocumenti.setProgrrigaaccount(datiSessione.getRigaElencoDocumenti());
 		lstElencodocumenti = new SqlElencoDocumenti().selectByExampleWithBlobs(elencodocumenti, null);
-//		ht.setContent(new String(lstElencodocumenti.get(0).getDocumento(), "UTF-8"));
 
 //		String path = "D:/temp/73016_precompilato_DBLLRT60A17F839C.pdf";
 //		File f = new File(path);
@@ -54,7 +56,19 @@ public class WinREIMVisuraHTMLController extends GenericForwardComposer {
 //   			amedia = new AMedia("", "html", "text/xml;charset=UTF-8", lstElencodocumenti.get(0).getDocumento());	    			
 	    	amedia = new AMedia("", "html", "text/html", lstElencodocumenti.get(0).getDocumento());	
 		} else if (lstElencodocumenti.get(0).getTipodocumento().equalsIgnoreCase("pdf")) {
-			amedia = new AMedia("", "pdf", "application/pdf", lstElencodocumenti.get(0).getDocumento());
+//			amedia = new AMedia("", "pdf", "application/pdf", lstElencodocumenti.get(0).getDocumento());
+			
+			
+			File pdfFile = new File("d:/temp/73016_precompilato_DBLLRT60A17F839C.pdf");
+			byte[] pdfData = new byte[(int) pdfFile.length()];
+			DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
+			dis.readFully(pdfData);  // read from file into byte[] array
+			dis.close();
+			amedia = new AMedia("", "pdf", "application/pdf", pdfData);
+			
+			
+			
+			
 		}
 	    iframe.setContent(amedia);
 	}
