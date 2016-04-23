@@ -17,6 +17,8 @@ import org.zkoss.zul.Textbox;
 import it.vidoc.mybatis.javamodel.Elencodocumenti;
 import it.vidoc.mybatis.javamodel.User;
 import it.vidoc.mybatis.javamodel.Userabilitazioni;
+import it.vidoc.mybatis.javamodel.ext.AmedeodateaggExt;
+import it.vidoc.mybatis.sqlquery.SqlAmedeodateagg;
 import it.vidoc.mybatis.sqlquery.SqlUser;
 import it.vidoc.mybatis.sqlquery.SqlUserAbilitazioni;
 import it.vidoc.utils.DatiSessione;
@@ -33,6 +35,11 @@ public class WinLoginController extends GenericForwardComposer {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		account.setFocus(true);
+		
+		
+//		List<AmedeodateaggExt> lst = new SqlAmedeodateagg().selectDateAgg();
+//		
+//		String albe = null;
 		
 //		File file = new File("d:/temp/20160420_094643.jpg");
 //		byte[] dataByte = new byte[(int) file.length()];

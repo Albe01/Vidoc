@@ -29,6 +29,8 @@
 					image="/images/search_16x16.png" />
 				<menuitem id="menuitemAmVis" label="Visura"
 					image="/images/page_full_16x16.png" />
+				<menuitem id="menuitemAmDtAgg" label="Date Aggiornamento"
+					image="/images/page_full_16x16.png" />
 			</menupopup>
 		</menu>
 		<menuitem id="menuitemDocRic" label="Documenti Richiesti" />

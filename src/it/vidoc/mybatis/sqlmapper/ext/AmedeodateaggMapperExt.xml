@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="it.vidoc.mybatis.javaclient.ext.AmedeodateaggMapperExt">
+
+  <resultMap id="BaseResultMap" type="it.vidoc.mybatis.javamodel.ext.AmedeodateaggExt">
+    <result column="cciaa" jdbcType="VARCHAR" property="cciaa" />
+    <result column="datamin" jdbcType="VARCHAR" property="datamin" />
+    <result column="datamax" jdbcType="VARCHAR" property="datamax" />
+    <result column="denomcomune" jdbcType="VARCHAR" property="denomcomune" />
+    <result column="codregione" jdbcType="VARCHAR" property="codregione" />
+    <result column="denomregione" jdbcType="VARCHAR" property="denomregione" />
+  </resultMap>
+  
+    <select id="selectDateAgg" resultMap="BaseResultMap">
+    
+			SELECT amedeodateagg.cciaa, amedeodateagg.datamin, amedeodateagg.datamax, infcomuni.denomcomune, infcomuni.codregione, infcomuni.denomregione  
+				FROM AMEDEODATEAGG 
+			INNER JOIN INFCOMUNI on infcomuni.siglaprovincia = amedeodateagg.cciaa
+			WHERE 1 = 1
+				and amedeodateagg.cciaa = infcomuni.siglaprovincia
+				and infcomuni.infcodicecomune like '%999'
+			order by infcomuni.codregione, infcomuni.denomcomune
+			
+  </select>
+</mapper>

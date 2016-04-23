@@ -17,8 +17,12 @@ import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
 
+import it.vidoc.mybatis.javamodel.Anagrafiche;
 import it.vidoc.mybatis.javamodel.Effetti;
+import it.vidoc.mybatis.javamodel.Infcomuni;
+import it.vidoc.mybatis.sqlquery.SqlAnagrafiche;
 import it.vidoc.mybatis.sqlquery.SqlEffetti;
+import it.vidoc.mybatis.sqlquery.SqlInfComuni;
 import it.vidoc.utils.DatiSessione;
 import it.vidoc.utils.LoadNewPage;
 
@@ -29,12 +33,13 @@ public class WinAmVisuraController extends GenericForwardComposer {
 	private DatiSessione datiSessione = null;
 
 	private List<Effetti> listEffetti = null;
+	private Anagrafiche anagrafiche = null;
 	private Integer totPagVis = 0;
 	private int listaSize = 9;
-	
+
 	private Listbox lbVisura;
 	private Intbox inbNpagVis;
-	private Label lblFoo1Vis;
+	private Label lblFoo1Vis, lblNom, lblCodFisc, lblNato, lblIndir;
 
 	@SuppressWarnings("unchecked")
 	public void doAfterCompose(Component comp) throws Exception {
@@ -51,99 +56,144 @@ public class WinAmVisuraController extends GenericForwardComposer {
 			}
 		});
 
-        Effetti where = new Effetti();
-        where.setKanagra(datiSessione.getAMkanagraVis());
-        listEffetti = new SqlEffetti().selectByExample(where, "dataiscrizione desc");
+		Effetti where = new Effetti();
+		where.setKanagra(datiSessione.getAMkanagraVis());
+		listEffetti = new SqlEffetti().selectByExample(where, "dataiscrizione desc");
 		riempiLbVisura(1);
-		
+
 	}
 
-	   public void riempiLbVisura(Integer pagina) {
-			lbVisura.getItems().clear();
-			DecimalFormat decimalFormat = new DecimalFormat( "#,###,###,##0.00" );
+	public void riempiLbVisura(Integer pagina) {
+		
+		anagrafiche = new SqlAnagrafiche().selectByPrimaryKey(datiSessione.getAMkanagraVis());
+		if (anagrafiche != null) {
+			if (anagrafiche.getNominativo() != null) {
+				lblNom.setValue(anagrafiche.getNominativo());	
+			}
+			if (anagrafiche.getCodicefiscale() != null) {
+				lblCodFisc.setValue(anagrafiche.getCodicefiscale());	
+			}
+			String natoA = "";
+			if (!"".equals(anagrafiche.getCodicecomunenascita()) &&  anagrafiche.getCodicecomunenascita() != null) {
+				Infcomuni infcomuni = new SqlInfComuni().selectByPrimaryKey(anagrafiche.getCodicecomunenascita());
+				if (infcomuni != null) {
+					natoA = infcomuni.getDenomcomune() + " (" + infcomuni.getSiglaprovincia() + ") ";  
+				}
+			}
+			if (!"".equals(anagrafiche.getDatanascita()) &&  anagrafiche.getDatanascita() != null) {
+				natoA = natoA +
+						" il " +
+						anagrafiche.getDatanascita().substring(6,8) +
+						"/" +
+						anagrafiche.getDatanascita().substring(4,6) +
+						"/" +
+						anagrafiche.getDatanascita().substring(0,4);
+			}
+			lblNato.setValue(natoA);
 			
-			Integer iniLb = 0;
-			Integer finLb = 0;
-			if (pagina == 1) {
-				iniLb = 0;
-				finLb = listaSize;
-			} else {
-				iniLb = ((pagina - 1) * listaSize);
-			}
-			finLb = iniLb + listaSize;
-			if (finLb > listEffetti.size()) {
-				finLb = listEffetti.size();
-			}
 			
-			for (int i = iniLb; i < finLb; i++) {
-				Listitem riga = new Listitem();
-				Listcell cella = new Listcell();
-				
-				cella = new Listcell();
-				cella.setLabel(listEffetti.get(i).getTipoeffetto());
-				if (listEffetti.get(i).getTipoeffetto().trim().equals("A")) {
-					cella.setLabel("Assegno");
+			String indirizzo = "";
+			if (!"".equals(anagrafiche.getIndirizzoresidenza()) && anagrafiche.getIndirizzoresidenza() != null) {
+				indirizzo = anagrafiche.getIndirizzoresidenza(); 
+				lblIndir.setValue(indirizzo);
+			}
+			if (!"".equals(anagrafiche.getCodicecomuneresidenza()) &&  anagrafiche.getCodicecomuneresidenza() != null) {
+				Infcomuni infcomuni = new SqlInfComuni().selectByPrimaryKey(anagrafiche.getCodicecomuneresidenza());
+				if (infcomuni != null) {
+					indirizzo = indirizzo +
+							" - " +
+							infcomuni.getDenomcomune() + " (" + infcomuni.getSiglaprovincia() + ") ";  
+					lblIndir.setValue(indirizzo);
 				}
-				if (listEffetti.get(i).getTipoeffetto().trim().equals("C")) {
-					cella.setLabel("Cambiale");
-				}
-				if (listEffetti.get(i).getTipoeffetto().trim().equals("T")) {
-					cella.setLabel("Tratta");
-				}
+			}
 
-				riga.appendChild(cella);
-				
-				cella = new Listcell();
-				cella.setLabel(listEffetti.get(i).getDatalevata().substring(6, 8) + "/"
-						+ listEffetti.get(i).getDatalevata().substring(4, 6) + "/"
-						+ listEffetti.get(i).getDatalevata().substring(0, 4));
-				riga.appendChild(cella);		
+			
+			
+			
+		}
 
-				cella = new Listcell();
-				cella.setLabel(listEffetti.get(i).getDataiscrizione().substring(6, 8) + "/"
-						+ listEffetti.get(i).getDataiscrizione().substring(4, 6) + "/"
-						+ listEffetti.get(i).getDataiscrizione().substring(0, 4));
-				riga.appendChild(cella);		
+		lbVisura.getItems().clear();
+		DecimalFormat decimalFormat = new DecimalFormat("#,###,###,##0.00");
 
-				cella = new Listcell();
-				cella.setLabel(listEffetti.get(i).getCciaapubblicazione());
-				riga.appendChild(cella);
-				
-				cella = new Listcell();
-				if (listEffetti.get(i).getCodicevaluta().trim().equals("EU")) {
-					cella.setLabel(String.valueOf(decimalFormat.format(listEffetti.get(i).getImporto())));
-				} else {
-					cella.setLabel(String.valueOf(decimalFormat.format(listEffetti.get(i).getImportocorrente())));
-				}
-				riga.appendChild(cella);		
-				
-				cella = new Listcell();
-				cella.setLabel(String.valueOf(i + 1));
-				riga.appendChild(cella);
+		Integer iniLb = 0;
+		Integer finLb = 0;
+		if (pagina == 1) {
+			iniLb = 0;
+			finLb = listaSize;
+		} else {
+			iniLb = ((pagina - 1) * listaSize);
+		}
+		finLb = iniLb + listaSize;
+		if (finLb > listEffetti.size()) {
+			finLb = listEffetti.size();
+		}
 
-				lbVisura.appendChild(riga);
-			 }
-			inbNpagVis.setValue(pagina);
-			totPagVis = 0;
-			if ((listEffetti.size() % listaSize) == 0) {
-				totPagVis = listEffetti.size() / listaSize;
+		for (int i = iniLb; i < finLb; i++) {
+			Listitem riga = new Listitem();
+			Listcell cella = new Listcell();
+
+			cella = new Listcell();
+			cella.setLabel(listEffetti.get(i).getTipoeffetto());
+			if (listEffetti.get(i).getTipoeffetto().trim().equals("A")) {
+				cella.setLabel("Assegno");
+			}
+			if (listEffetti.get(i).getTipoeffetto().trim().equals("C")) {
+				cella.setLabel("Cambiale");
+			}
+			if (listEffetti.get(i).getTipoeffetto().trim().equals("T")) {
+				cella.setLabel("Tratta");
+			}
+
+			riga.appendChild(cella);
+
+			cella = new Listcell();
+			cella.setLabel(listEffetti.get(i).getDatalevata().substring(6, 8) + "/"
+					+ listEffetti.get(i).getDatalevata().substring(4, 6) + "/"
+					+ listEffetti.get(i).getDatalevata().substring(0, 4));
+			riga.appendChild(cella);
+
+			cella = new Listcell();
+			cella.setLabel(listEffetti.get(i).getDataiscrizione().substring(6, 8) + "/"
+					+ listEffetti.get(i).getDataiscrizione().substring(4, 6) + "/"
+					+ listEffetti.get(i).getDataiscrizione().substring(0, 4));
+			riga.appendChild(cella);
+
+			cella = new Listcell();
+			cella.setLabel(listEffetti.get(i).getCciaapubblicazione());
+			riga.appendChild(cella);
+
+			cella = new Listcell();
+			if (listEffetti.get(i).getCodicevaluta().trim().equals("EU")) {
+				cella.setLabel(String.valueOf(decimalFormat.format(listEffetti.get(i).getImporto())));
 			} else {
-				totPagVis = (listEffetti.size() / listaSize) + 1;
+				cella.setLabel(String.valueOf(decimalFormat.format(listEffetti.get(i).getImportocorrente())));
 			}
-			if (totPagVis == 0) {
-				totPagVis = 1;
-			}
-			lblFoo1Vis.setValue("di " + totPagVis);
-	   }  
+			riga.appendChild(cella);
 
+			cella = new Listcell();
+			cella.setLabel(String.valueOf(i + 1));
+			riga.appendChild(cella);
 
-	public void onClick$btnNewVis(Event event) throws IOException{
+			lbVisura.appendChild(riga);
+		}
+		inbNpagVis.setValue(pagina);
+		totPagVis = 0;
+		if ((listEffetti.size() % listaSize) == 0) {
+			totPagVis = listEffetti.size() / listaSize;
+		} else {
+			totPagVis = (listEffetti.size() / listaSize) + 1;
+		}
+		if (totPagVis == 0) {
+			totPagVis = 1;
+		}
+		lblFoo1Vis.setValue("di " + totPagVis);
+	}
+
+	public void onClick$btnNewVis(Event event) throws IOException {
 		LoadNewPage.loadNewPage("/zulpages/AMlista.zul");
 	}
 
-	
-	
-	public void onClick$btnGoPageVis(Event event) throws IOException{
+	public void onClick$btnGoPageVis(Event event) throws IOException {
 		if (inbNpagVis.getValue() < 1) {
 			inbNpagVis.setValue(1);
 		}
@@ -152,7 +202,7 @@ public class WinAmVisuraController extends GenericForwardComposer {
 		}
 		riempiLbVisura(inbNpagVis.getValue());
 	}
-	
+
 	public void onClick$btnPagPrecVis(Event event) {
 		if ((inbNpagVis.getValue() - 1) < 1) {
 			inbNpagVis.setValue(1);
@@ -171,9 +221,8 @@ public class WinAmVisuraController extends GenericForwardComposer {
 		riempiLbVisura(inbNpagVis.getValue());
 	}
 
-
 	public void onCreate() throws IOException {
 		String albe = null;
-   }
-	
+	}
+
 }

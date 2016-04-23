@@ -1,0 +1,8 @@
+SELECT amedeodateagg.*, infcomuni.denomcomune, infcomuni.codregione, infcomuni.denomregione  FROM amedeodateagg 
+
+INNER JOIN infcomuni on  infcomuni.infcodicecomune = amedeodateagg.cciaa & '999'
+
+WHERE 1 = 1
+and amedeodateagg.cciaa = infcomuni.siglaprovincia
+and infcomuni.infcodicecomune like '%999'
+order by infcomuni.codregione, infcomuni.denomcomune

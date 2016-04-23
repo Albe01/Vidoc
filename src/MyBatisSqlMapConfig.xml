@@ -61,6 +61,7 @@
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrnomiMapperExt.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/AnagraficheMapperExt.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/StrcodcomresMapperExt.xml" />
-		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/ElencodocumentiMapperExt.xml" />		
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/ElencodocumentiMapperExt.xml" />
+		<mapper resource="it/vidoc/mybatis/sqlmapper/ext/AmedeodateaggMapperExt.xml" />		
 	</mappers>
 </configuration>

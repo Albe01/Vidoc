@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import it.vidoc.mybatis.javaclient.AnagraficheMapper;
 import it.vidoc.mybatis.javaclient.InfcomuniMapper;
+import it.vidoc.mybatis.javamodel.Anagrafiche;
 import it.vidoc.mybatis.javamodel.Infcomuni;
 import it.vidoc.mybatis.javamodel.InfcomuniExample;
 import it.vidoc.utils.MyBatisConnectionFactory;
@@ -76,9 +78,18 @@ public class SqlInfComuni implements ISqlGeneric {
 		return list;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T, U> T selectByPrimaryKey(U idOggetto) {
-		return null;
+		Infcomuni object = null;			
+		try {
+			object = MyBatisConnectionFactory.getSqlSession().getMapper(InfcomuniMapper.class).selectByPrimaryKey((String) idOggetto);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}			
+		MyBatisConnectionFactory.closeSqlSession();
+		return (T) object;
+
 	}
 
 

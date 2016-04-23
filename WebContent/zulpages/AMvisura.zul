@@ -1,16 +1,51 @@
 <?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window id="winAMvisura"
-		apply="it.vidoc.win.controller.WinAmVisuraController" border="rounded+"
-		contentStyle="overflow:auto">
+		apply="it.vidoc.win.controller.WinAmVisuraController"
+		border="rounded+" contentStyle="overflow:auto">
 		<include src="/zulpages/styles.zul" />
+		<separator />
+		<grid>
+			<columns>
+				<column width="7%" />
+				<column width="30%" align="left" />
+				<column width="8%" />
+				<column width="11%" align="left" />
+				<column width="5%" />
+				<column width="39%" align="left" />
+			</columns>
+			<rows>
+				<row>
+					<label value="Nominativo:" sclass="label" />
+					<label id="lblNom" />
+					<label value="Codice Fiscale:" sclass="label" />
+					<label id="lblCodFisc" />
+					<label value="Nato a:" sclass="label" />
+					<label id="lblNato" />
+				</row>
+			</rows>
+		</grid>
+		<grid>
+			<columns>
+				<column width="7%"/>
+				<column align="left"/>
+			</columns>
+			<rows>
+				<row>
+					<label value="Indirizzo:" sclass="label" />
+					<label id="lblIndir" />
+				</row>
+			</rows>
+		</grid>
+
+		<separator />
 		<vbox align="center" pack="center">
 			<panel id="pnlAMVisura"
 				title="-- Proetsti AMEDEO - Visura di dettaglio --" width="50%"
 				border="rounded+" style="margin-bottom: 10px" collapsible="false"
 				open="true">
 				<panelchildren style="overflow: auto">
-					<listbox id="lbVisura" span="true" height="335px"
+					<listbox id="lbVisura" span="true" height="250px"
 						sizedByContent="true" emptyMessage="Nessun effetto trovato">
 						<listhead sizable="false">
 							<listheader label="Tipo" align="Center" />

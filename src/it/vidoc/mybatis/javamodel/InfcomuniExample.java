@@ -162,6 +162,76 @@ public class InfcomuniExample {
 			criteria.add(new Criterion(condition, value1, value2));
 		}
 
+		public Criteria andInfcodicecomuneIsNull() {
+			addCriterion("infcodicecomune is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneIsNotNull() {
+			addCriterion("infcodicecomune is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneEqualTo(String value) {
+			addCriterion("infcodicecomune =", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneNotEqualTo(String value) {
+			addCriterion("infcodicecomune <>", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneGreaterThan(String value) {
+			addCriterion("infcodicecomune >", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneGreaterThanOrEqualTo(String value) {
+			addCriterion("infcodicecomune >=", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneLessThan(String value) {
+			addCriterion("infcodicecomune <", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneLessThanOrEqualTo(String value) {
+			addCriterion("infcodicecomune <=", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneLike(String value) {
+			addCriterion("infcodicecomune like", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneNotLike(String value) {
+			addCriterion("infcodicecomune not like", value, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneIn(List<String> values) {
+			addCriterion("infcodicecomune in", values, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneNotIn(List<String> values) {
+			addCriterion("infcodicecomune not in", values, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneBetween(String value1, String value2) {
+			addCriterion("infcodicecomune between", value1, value2, "infcodicecomune");
+			return (Criteria) this;
+		}
+
+		public Criteria andInfcodicecomuneNotBetween(String value1, String value2) {
+			addCriterion("infcodicecomune not between", value1, value2, "infcodicecomune");
+			return (Criteria) this;
+		}
+
 		public Criteria andCodregioneIsNull() {
 			addCriterion("codregione is null");
 			return (Criteria) this;
@@ -509,76 +579,6 @@ public class InfcomuniExample {
 
 		public Criteria andSiglaprovinciaNotBetween(String value1, String value2) {
 			addCriterion("siglaprovincia not between", value1, value2, "siglaprovincia");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneIsNull() {
-			addCriterion("infcodicecomune is null");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneIsNotNull() {
-			addCriterion("infcodicecomune is not null");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneEqualTo(String value) {
-			addCriterion("infcodicecomune =", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneNotEqualTo(String value) {
-			addCriterion("infcodicecomune <>", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneGreaterThan(String value) {
-			addCriterion("infcodicecomune >", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneGreaterThanOrEqualTo(String value) {
-			addCriterion("infcodicecomune >=", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneLessThan(String value) {
-			addCriterion("infcodicecomune <", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneLessThanOrEqualTo(String value) {
-			addCriterion("infcodicecomune <=", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneLike(String value) {
-			addCriterion("infcodicecomune like", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneNotLike(String value) {
-			addCriterion("infcodicecomune not like", value, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneIn(List<String> values) {
-			addCriterion("infcodicecomune in", values, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneNotIn(List<String> values) {
-			addCriterion("infcodicecomune not in", values, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneBetween(String value1, String value2) {
-			addCriterion("infcodicecomune between", value1, value2, "infcodicecomune");
-			return (Criteria) this;
-		}
-
-		public Criteria andInfcodicecomuneNotBetween(String value1, String value2) {
-			addCriterion("infcodicecomune not between", value1, value2, "infcodicecomune");
 			return (Criteria) this;
 		}
 

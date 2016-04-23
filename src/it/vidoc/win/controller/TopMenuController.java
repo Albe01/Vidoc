@@ -55,6 +55,9 @@ public class TopMenuController extends GenericForwardComposer {
 	public void onClick$menuitemAmRic(Event event){
 		LoadNewPage.loadNewPage("/zulpages/AMricerca.zul");		
 	}
+	public void onClick$menuitemAmDtAgg(Event event){
+		LoadNewPage.loadNewPage("/zulpages/AMdateagg.zul");		
+	}
 	public void onClick$menuitemDocRic(Event event){
 		Clients.showNotification("under construction", Clients.NOTIFICATION_TYPE_INFO, null, null, 5000, true);		
 	}

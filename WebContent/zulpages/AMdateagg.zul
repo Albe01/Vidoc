@@ -1,0 +1,28 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winAMdateagg"
+		apply="it.vidoc.win.controller.WinAmDateAggController" border="rounded+"
+		contentStyle="overflow:auto">
+		<include src="/zulpages/styles.zul" />
+		<separator />
+		<panel id="pnlAMDateAgg"
+			title="-- Proetsti AMEDEO - Date di Aggiornamento --" vflex="1"
+			border="rounded+" style="margin-bottom: 5px" collapsible="false"
+			open="true">
+			<panelchildren>
+					<listbox id="lbListaDateAgg" span="true" 
+						mold="paging" pageSize="9"
+						emptyMessage="Nessun soggetto trovato con i dati indicati">
+						<listhead sizable="false">
+							<listheader label="Provincia"  align="left"/>
+							<listheader label="Dal"   />
+							<listheader label="Al" />
+							<listheader label="Provincia"  align="left"/>
+							<listheader label="Dal"  />
+							<listheader label="Al"  />
+						</listhead>
+					</listbox>
+			</panelchildren>
+		</panel>
+	</window>
+</zk>
