@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-04-25T20:35:55 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prova" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1c00074-e876-4d2c-8de7-578e1d9cc77c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Amedeo"/>
+	<queryString>
+		<![CDATA[SELECT nominativo,
+codicefiscale,
+indirizzoresidenza,
+siglaprovinciaresidenza,
+datanascita,
+(select denomcomune from infcomuni where infcodicecomune = anagrafiche.codicecomuneresidenza) as comuneresidenza,
+siglaprovincianascita,
+(select denomcomune from infcomuni where infcodicecomune = anagrafiche.codicecomunenascita) as comunenascita,
+(select denomcomune from infcomuni where siglaprovincia = effetti.cciaapubblicazione  and infcomuni.infcodicecomune like '%999') as cciaapubblicazione,
+(select datamax from amedeodateagg where cciaa = effetti.cciaapubblicazione) as dataagg,
+effetti.dataiscrizione,
+effetti.datalevata,
+effetti.siglaprovincialevata,
+(select denomcomune from infcomuni where infcodicecomune = effetti.codicecomunelevata) as comunelevata,
+effetti.tipoeffetto,
+effetti.importo
+from anagrafiche, effetti, amedeodateagg
+where anagrafiche.kanagra = 7638167
+and anagrafiche.kanagra = effetti.kanagra
+and amedeodateagg.cciaa = effetti.cciaapubblicazione]]>
+	</queryString>
+	<field name="nominativo" class="java.lang.String"/>
+	<field name="codicefiscale" class="java.lang.String"/>
+	<field name="indirizzoresidenza" class="java.lang.String"/>
+	<field name="siglaprovinciaresidenza" class="java.lang.String"/>
+	<field name="datanascita" class="java.lang.String"/>
+	<field name="comuneresidenza" class="java.lang.String"/>
+	<field name="siglaprovincianascita" class="java.lang.String"/>
+	<field name="comunenascita" class="java.lang.String"/>
+	<field name="cciaapubblicazione" class="java.lang.String"/>
+	<field name="dataagg" class="java.lang.String"/>
+	<field name="dataiscrizione" class="java.lang.String"/>
+	<field name="datalevata" class="java.lang.String"/>
+	<field name="siglaprovincialevata" class="java.lang.String"/>
+	<field name="comunelevata" class="java.lang.String"/>
+	<field name="tipoeffetto" class="java.lang.String"/>
+	<field name="importo" class="java.lang.Double"/>
+	<background>
+		<band height="80" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="HH:mm">
+				<reportElement x="90" y="7" width="100" height="30" uuid="e9124fe2-231e-43cc-901f-88f13808418d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MMMMM dd, yyyy">
+				<reportElement x="10" y="7" width="80" height="30" uuid="52420254-f0af-49f4-8a8b-f5c32003fc73"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="187" splitType="Stretch">
+			<rectangle>
+				<reportElement x="190" y="50" width="348" height="132" uuid="442f9344-06ee-4a15-86c3-4da9ae9c1ccf"/>
+			</rectangle>
+			<textField>
+				<reportElement x="196" y="60" width="332" height="14" uuid="c5b69726-9f77-4dc5-92f7-c8ed0c676dd4"/>
+				<textFieldExpression><![CDATA[$F{nominativo}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement key="" mode="Opaque" x="10" y="6" width="541" height="31" backcolor="#0000FF" uuid="83fc2d8a-cc29-49f1-8cec-85835c6e0b40"/>
+				<graphicElement>
+					<pen lineColor="#000000"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="205" y="11" width="150" height="20" forecolor="#FFFFFF" uuid="d6682991-c6a2-4b1f-aece-ccef63bd5bc7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VISURA PROTESTI AMEDEO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="20" y="50" width="170" height="132" backcolor="#F1EEEE" uuid="cb989720-9d87-45cd-8254-aa3da34ab2d3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="57" y="60" width="130" height="14" uuid="f5680c92-8493-403f-871f-392ea9c94235"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nominativo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="57" y="80" width="130" height="14" uuid="bc301527-f1dc-4271-a184-b67008df22c2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codice Fiscale:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="198" y="80" width="332" height="14" uuid="0e8f569f-bcc3-46a0-84d7-20421256af76"/>
+				<textFieldExpression><![CDATA[$F{codicefiscale}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="57" y="100" width="130" height="14" uuid="06210424-e22d-47f5-acb6-eb84b554d6c0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nato a:]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="" positionType="FixRelativeToBottom" x="198" y="100" width="332" height="14" uuid="f2da0710-c368-416a-813f-db0224c23ab9"/>
+				<textFieldExpression><![CDATA[(($F{comunenascita} == null || $F{comunenascita} == "")  ? "" : $F{comunenascita}) +
+				(($F{siglaprovincianascita}.equals("") || $F{siglaprovincianascita} == null)  ? "" : ( (" (" + $F{siglaprovincianascita} + ") " )) ) + 
+				(($F{datanascita}.equals("") || $F{datanascita} == null)  ? "" : 
+				( (" il " + $F{datanascita}.substring(6,8) + '/' + $F{datanascita}.substring(4,6) + '/' + $F{datanascita}.substring(0,4) )) )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="57" y="120" width="130" height="14" uuid="4daf6f1d-dd2b-4104-8804-8e698f3b99c3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[indirizzo:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="198" y="120" width="332" height="14" uuid="4cca916d-2089-4545-8440-8e9f6e4aec1f"/>
+				<textFieldExpression><![CDATA[($F{indirizzoresidenza}.equals("") || $F{indirizzoresidenza} == null) ? "" : $F{indirizzoresidenza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="198" y="140" width="332" height="14" uuid="d79de13b-06a7-4aed-86f7-28e6d5f9a035"/>
+				<textFieldExpression><![CDATA[(($F{comuneresidenza} == null || $F{comuneresidenza}.equals("")) ? "" : $F{comuneresidenza}  + " (" + $F{siglaprovinciaresidenza} + ")")]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="5" width="120" height="15" uuid="b63d17c1-9b96-4dbf-82bb-8ca464fec593"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Protesto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="5" width="60" height="15" uuid="2b5c682b-b59c-45c4-b95c-212b679a6707"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{tipoeffetto}.equals("C") ? "Cambiale" :
+    $F{tipoeffetto}.equals("A") ? "Assegno" :
+    $F{tipoeffetto}.equals("T") ? "Tratta" : "")]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.##;¤-#,##0.##">
+				<reportElement x="333" y="5" width="58" height="15" uuid="51ef282f-6928-4c2a-babc-ec16d9cfa2df"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="23" width="60" height="14" uuid="38478eeb-c09b-4989-94a6-2306ed95c019"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Levato il:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="5" width="73" height="15" uuid="a6c920a4-3403-4106-a6a6-357df9fc03b4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Importo effetto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="260" y="23" width="100" height="14" uuid="002a9542-1ec4-4bd5-90df-c91dab5423e0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{datalevata}.substring(6,8) + '/' + $F{datalevata}.substring(4,6) + '/' + $F{datalevata}.substring(0,4)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="190" y="40" width="60" height="14" uuid="98db8eac-4368-4616-a3cf-dd707276a21d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Iscritto il:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="260" y="40" width="58" height="14" uuid="ee750281-6e28-4df5-b5f9-266b12a646f9"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataiscrizione}.substring(6,8) + '/' + $F{dataiscrizione}.substring(4,6) + '/' + $F{dataiscrizione}.substring(0,4)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="318" y="40" width="83" height="14" uuid="1d6cb195-9281-432a-9ce5-1a9fbdf0e90d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[dalla C.C.I.A.A. di]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="410" y="40" width="90" height="14" uuid="8b16098f-0ee9-4989-9471-dad9daf70232"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cciaapubblicazione}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="260" y="60" width="70" height="14" uuid="8040867c-f452-4d3e-b2a4-7ab1adc99149"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[aggiornata al:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="60" width="100" height="14" uuid="c1b2597b-f0f6-445d-a4f5-d10657a15b58"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dataagg}.substring(6,8) + '/' + $F{dataagg}.substring(4,6) + '/' + $F{dataagg}.substring(0,4)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="20" width="100" height="30" uuid="795b1497-ebc9-4470-b0f5-2bf8ebfe355a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="120" y="20" width="100" height="30" uuid="d0584f12-916f-425a-ba5c-fe5fe9df3a79"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" di " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

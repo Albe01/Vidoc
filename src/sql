@@ -6,3 +6,41 @@ WHERE 1 = 1
 and amedeodateagg.cciaa = infcomuni.siglaprovincia
 and infcomuni.infcodicecomune like '%999'
 order by infcomuni.codregione, infcomuni.denomcomune
+
+
+SELECT anagrafiche.*,	effetti.*, infcomuni.*
+FROM anagrafiche
+	INNER join effetti ON anagrafiche.kanagra = effetti.kanagra 
+	left OUTER join infcomuni ON anagrafiche.codicecomuneresidenza = infcomuni.infcodicecomune    
+WHERE 
+	 anagrafiche.kanagra = 7638167
+
+latin1_general_ci
+
+latin1_swedish_ci
+
+
+
+TRUNCATE anagrafiche;
+TRUNCATE effetti;
+TRUNCATE logelab;
+TRUNCATE strcodcomnas;
+TRUNCATE strcodcomres;
+TRUNCATE strcodfisc;
+TRUNCATE strcodiceregione;
+TRUNCATE strcodprvres;
+TRUNCATE strdatnas;
+TRUNCATE strindir03;
+TRUNCATE strindir06;
+TRUNCATE strindir10;
+TRUNCATE strindir15;
+TRUNCATE strindir20;
+TRUNCATE strnomi03;
+TRUNCATE strnomi04;
+TRUNCATE strnomi05;
+TRUNCATE strnomi06;
+TRUNCATE strnomi07;
+TRUNCATE strnomi08;
+TRUNCATE strnomi10;
+TRUNCATE strnomi15;
+TRUNCATE strnomi20;
