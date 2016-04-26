@@ -3,7 +3,10 @@ package it.vidoc.win.controller;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -21,6 +24,7 @@ import it.vidoc.mybatis.javamodel.ext.AmedeodateaggExt;
 import it.vidoc.mybatis.sqlquery.SqlAmedeodateagg;
 import it.vidoc.mybatis.sqlquery.SqlUser;
 import it.vidoc.mybatis.sqlquery.SqlUserAbilitazioni;
+import it.vidoc.report.GestioneReport;
 import it.vidoc.utils.DatiSessione;
 import it.vidoc.utils.ManageDbWithJDBC;
 import it.vidoc.utils.StringEncrypter;
@@ -35,6 +39,25 @@ public class WinLoginController extends GenericForwardComposer {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		account.setFocus(true);
+		
+		
+		Map<String, Object> parametri = new HashMap<String, Object>();
+		parametri.put("KANAGRA", new Long(975253286));
+		try {
+			GestioneReport rep = new GestioneReport();
+			Map<String, Object> dati = rep.getReportParam("prova", null, parametri);
+			
+			Elencodocumenti elencodocumenti = new Elencodocumenti();
+			elencodocumenti.setProgrrigaaccount(44);
+			elencodocumenti.setTipodocumento("pdf");
+			elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
+			new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+
 		
 		
 //		List<AmedeodateaggExt> lst = new SqlAmedeodateagg().selectDateAgg();

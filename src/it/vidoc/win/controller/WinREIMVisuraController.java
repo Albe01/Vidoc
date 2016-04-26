@@ -56,15 +56,15 @@ public class WinREIMVisuraController extends GenericForwardComposer {
 //   			amedia = new AMedia("", "html", "text/xml;charset=UTF-8", lstElencodocumenti.get(0).getDocumento());	    			
 	    	amedia = new AMedia("", "html", "text/html", lstElencodocumenti.get(0).getDocumento());	
 		} else if (lstElencodocumenti.get(0).getTipodocumento().equalsIgnoreCase("pdf")) {
-//			amedia = new AMedia("", "pdf", "application/pdf", lstElencodocumenti.get(0).getDocumento());
+			amedia = new AMedia("", "pdf", "application/pdf", lstElencodocumenti.get(0).getDocumento());
 			
 			
-			File pdfFile = new File("d:/temp/73016_precompilato_DBLLRT60A17F839C.pdf");
-			byte[] pdfData = new byte[(int) pdfFile.length()];
-			DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
-			dis.readFully(pdfData);  // read from file into byte[] array
-			dis.close();
-			amedia = new AMedia("", "pdf", "application/pdf", pdfData);
+//			File pdfFile = new File("d:/temp/73016_precompilato_DBLLRT60A17F839C.pdf");
+//			byte[] pdfData = new byte[(int) pdfFile.length()];
+//			DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
+//			dis.readFully(pdfData);  // read from file into byte[] array
+//			dis.close();
+//			amedia = new AMedia("", "pdf", "application/pdf", pdfData);
 			
 			
 			
