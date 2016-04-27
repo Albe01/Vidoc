@@ -45,7 +45,7 @@ public class WinLoginController extends GenericForwardComposer {
 //		parametri.put("KANAGRA", new Long(975253286));
 //		try {
 //			GestioneReport rep = new GestioneReport();
-//			Map<String, Object> dati = rep.getReportParam("prova", null, parametri);
+//			Map<String, Object> dati = rep.getReportParam("AMVisura", null, parametri);
 //			
 //			Elencodocumenti elencodocumenti = new Elencodocumenti();
 //			elencodocumenti.setProgrrigaaccount(44);

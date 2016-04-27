@@ -3,7 +3,6 @@ package it.vidoc.contabilizzazione;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
@@ -12,9 +11,6 @@ import it.vidoc.mybatis.javamodel.Listino;
 import it.vidoc.mybatis.sqlquery.SqlAccount;
 import it.vidoc.mybatis.sqlquery.SqlListino;
 import it.vidoc.utils.DatiSessione;
-
-// prova
-
 
 public class Contabilizza {
 	private Session session = null;

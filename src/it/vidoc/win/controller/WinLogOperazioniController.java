@@ -48,6 +48,12 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 		dataDa.setValue(new Date());
 		dataA.setValue(new Date());
 	}
+	
+	public void onCreate() {
+		pnlLogOperazioni.setVisible(false);
+		pnlLogOperazioni.setOpen(false);
+		lbListaLogOper.getItems().clear();
+	}
 
 	public void onClick$btnOk(Event event) {
 		if ("".equals(dataDa.getText()) || dataDa.getText() == null || "".equals(dataA.getText())
@@ -172,25 +178,20 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 
 	public void onSelect$lbListaLogOper(Event event) {
 		Listcell listcell;
-		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(9);
+		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(9); 
 		if (!"".equals(listcell.getLabel()) && listcell.getLabel() != null) {
-			listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(10);
-			datiSessione.setRigaElencoDocumenti(Integer.parseInt(listcell.getLabel()));
+			listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(10); // rigaAccount
+			datiSessione.setRigaAccount(Integer.parseInt(listcell.getLabel()));
 			session.setAttribute("datisessione", datiSessione);
 			// Window dialog = (Window)
-			// Executions.createComponents("/zulpages/REIMVisuraHTML.zul", null, null);
+			// Executions.createComponents("/zulpages/GenericDocument.zul", null, null);
 			// dialog.doModal();
 
 			lbListaLogOper.getSelectedItem().setSelected(false);
-			Executions.getCurrent().sendRedirect("/zulpages/REIMVisura.zul", "_blank");
+			Executions.getCurrent().sendRedirect("/zulpages/GenericDocument.zul", "_blank");
 			// Executions.getCurrent().sendRedirect("D:/temp/73016_precompilato_DBLLRT60A17F839C.pdf", "_blank");
 		}
 	}
 
-	public void onCreate() {
-		pnlLogOperazioni.setVisible(false);
-		pnlLogOperazioni.setOpen(false);
-		lbListaLogOper.getItems().clear();
-	}
 
 }

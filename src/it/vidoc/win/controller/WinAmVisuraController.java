@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
@@ -35,7 +36,7 @@ public class WinAmVisuraController extends GenericForwardComposer {
 	private List<Effetti> listEffetti = null;
 	private Anagrafiche anagrafiche = null;
 	private Integer totPagVis = 0;
-	private int listaSize = 9;
+	private int listaSize = 6;
 
 	private Listbox lbVisura;
 	private Intbox inbNpagVis;
@@ -60,11 +61,12 @@ public class WinAmVisuraController extends GenericForwardComposer {
 		where.setKanagra(datiSessione.getAMkanagraVis());
 		listEffetti = new SqlEffetti().selectByExample(where, "dataiscrizione desc");
 		riempiLbVisura(1);
+	}
 
+	public void onCreate() throws IOException {
 	}
 
 	public void riempiLbVisura(Integer pagina) {
-		
 		anagrafiche = new SqlAnagrafiche().selectByPrimaryKey(datiSessione.getAMkanagraVis());
 		if (anagrafiche != null) {
 			if (anagrafiche.getNominativo() != null) {
@@ -91,7 +93,6 @@ public class WinAmVisuraController extends GenericForwardComposer {
 			}
 			lblNato.setValue(natoA);
 			
-			
 			String indirizzo = "";
 			if (!"".equals(anagrafiche.getIndirizzoresidenza()) && anagrafiche.getIndirizzoresidenza() != null) {
 				indirizzo = anagrafiche.getIndirizzoresidenza(); 
@@ -106,10 +107,6 @@ public class WinAmVisuraController extends GenericForwardComposer {
 					lblIndir.setValue(indirizzo);
 				}
 			}
-
-			
-			
-			
 		}
 
 		lbVisura.getItems().clear();
@@ -189,7 +186,7 @@ public class WinAmVisuraController extends GenericForwardComposer {
 		lblFoo1Vis.setValue("di " + totPagVis);
 	}
 
-	public void onClick$btnNewVis(Event event) throws IOException {
+	public void onClick$btnIndietro(Event event) throws IOException {
 		LoadNewPage.loadNewPage("/zulpages/AMlista.zul");
 	}
 
@@ -221,8 +218,8 @@ public class WinAmVisuraController extends GenericForwardComposer {
 		riempiLbVisura(inbNpagVis.getValue());
 	}
 
-	public void onCreate() throws IOException {
-		String albe = null;
+	public void onClick$iconpdf(Event event) throws IOException {
+		Executions.getCurrent().sendRedirect("/zulpages/GenericDocument.zul", "_blank");
 	}
 
 }

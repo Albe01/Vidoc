@@ -224,7 +224,6 @@ public class WinAmListaController extends GenericForwardComposer {
 					
 					eventQueue.unsubscribe(this);
 					
-					session.setAttribute("datisessione", datiSessione);
 					Contabilizza account = new Contabilizza();
 					Integer rigaAccount = account.registraAccountUtente();
 					
@@ -232,22 +231,23 @@ public class WinAmListaController extends GenericForwardComposer {
 					parametri.put("KANAGRA", datiSessione.getAMkanagraVis());
 					try {
 						GestioneReport rep = new GestioneReport();
-						Map<String, Object> dati = rep.getReportParam("prova", null, parametri);
+						Map<String, Object> dati = rep.getReportParam("AMVisura", null, parametri);
 						
 						Elencodocumenti elencodocumenti = new Elencodocumenti();
 						elencodocumenti.setProgrrigaaccount(rigaAccount);
 						elencodocumenti.setTipodocumento("pdf");
 						new SqlElencoDocumenti().insertReturnID(elencodocumenti);
-						
+						Integer rigaElencoDocumenti =elencodocumenti.getProgrriga(); 
+								
 						elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
 						new ManageDbWithJDBC().updateElencoDocumenti(elencodocumenti);
-			
+						
+						datiSessione.setRigaElencoDocumenti(rigaElencoDocumenti);
+						datiSessione.setRigaAccount(rigaAccount);
+						session.setAttribute("datisessione", datiSessione);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-
-					
-					
 					LoadNewPage.loadNewPage("/zulpages/AMvisura.zul");
 				}
 				try {

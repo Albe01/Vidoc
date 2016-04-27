@@ -23,6 +23,7 @@ public class DatiSessione {
 	private Double prezzo;
 	private String preventivoAccettato;
 	private int rigaListino;
+	private Integer rigaAccount;
 	private Integer rigaElencoDocumenti;
 
 	public String getAMnome() {
@@ -159,6 +160,14 @@ public class DatiSessione {
 
 	public void setRigaElencoDocumenti(Integer rigaElencoDocumenti) {
 		this.rigaElencoDocumenti = rigaElencoDocumenti;
+	}
+
+	public Integer getRigaAccount() {
+		return rigaAccount;
+	}
+
+	public void setRigaAccount(Integer rigaAccount) {
+		this.rigaAccount = rigaAccount;
 	}
 
 }

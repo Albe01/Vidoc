@@ -27,8 +27,8 @@
 		</grid>
 		<grid>
 			<columns>
-				<column width="7%"/>
-				<column align="left"/>
+				<column width="7%" />
+				<column align="left" />
 			</columns>
 			<rows>
 				<row>
@@ -69,13 +69,22 @@
 							</listfooter>
 						</listfoot>
 					</listbox>
-					<div align="Center">
-						<separator />
-						<button id="btnNewVis" label="Indietro" />
-						<separator />
-					</div>
+					<separator />
+					<hbox width="100%" height="100%" align="center"
+						pack="center">
+						<button id="btnIndietro" label="Indietro" />
+						<image id="iconpdf"
+							src="/images/pdf-icon24x24.png"
+							tooltip="DownloadPDFfile, position=before_start">
+						</image>
+					</hbox>
+					<separator />
 				</panelchildren>
 			</panel>
 		</vbox>
+		<popup id="DownloadPDFfile" top="200px" left="350px">
+			<label value="Salva in PDF" />
+		</popup>
+
 	</window>
 </zk>

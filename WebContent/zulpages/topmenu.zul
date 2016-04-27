@@ -33,7 +33,7 @@
 					image="/images/page_full_16x16.png" />
 			</menupopup>
 		</menu>
-		<menuitem id="menuitemDocRic" label="Documenti Richiesti" />
+		<menuitem id="menuitemDownLoad" label="Area Download" />
 		<menuitem id="menuitemlogOper" label="Log Operazioni" />
 		<menuitem id="menuitemHelp" label="Help" />
 		<menuitem label="" disabled="true"/>

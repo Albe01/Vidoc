@@ -1,8 +1,5 @@
 package it.vidoc.win.controller;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -23,14 +20,13 @@ import it.vidoc.mybatis.sqlquery.SqlElencoDocumenti;
 import it.vidoc.utils.DatiSessione;
 
 @SuppressWarnings("rawtypes")
-public class WinREIMVisuraController extends GenericForwardComposer {
+public class WinGenericDocumentController extends GenericForwardComposer {
 	private static final long serialVersionUID = 6204566952879868705L;
 	private Session session = null;
 	private DatiSessione datiSessione = null;
 	private List<Elencodocumenti> lstElencodocumenti;
 
-	private Window winREIMVisuraHTML;
-	private Html ht;
+	private Window winGenericDocument;
 	private Iframe iframe;
 
 	@SuppressWarnings("unchecked")
@@ -40,7 +36,7 @@ public class WinREIMVisuraController extends GenericForwardComposer {
 		datiSessione = (DatiSessione) session.getAttribute("datisessione");
 
 		Elencodocumenti elencodocumenti = new Elencodocumenti();
-		elencodocumenti.setProgrrigaaccount(datiSessione.getRigaElencoDocumenti());
+		elencodocumenti.setProgrrigaaccount(datiSessione.getRigaAccount());
 		lstElencodocumenti = new SqlElencoDocumenti().selectByExampleWithBlobs(elencodocumenti, null);
 
 //		String path = "D:/temp/73016_precompilato_DBLLRT60A17F839C.pdf";
@@ -58,16 +54,12 @@ public class WinREIMVisuraController extends GenericForwardComposer {
 		} else if (lstElencodocumenti.get(0).getTipodocumento().equalsIgnoreCase("pdf")) {
 			amedia = new AMedia("", "pdf", "application/pdf", lstElencodocumenti.get(0).getDocumento());
 			
-			
 //			File pdfFile = new File("d:/temp/73016_precompilato_DBLLRT60A17F839C.pdf");
 //			byte[] pdfData = new byte[(int) pdfFile.length()];
 //			DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
 //			dis.readFully(pdfData);  // read from file into byte[] array
 //			dis.close();
 //			amedia = new AMedia("", "pdf", "application/pdf", pdfData);
-			
-			
-			
 			
 		}
 	    iframe.setContent(amedia);
@@ -77,7 +69,7 @@ public class WinREIMVisuraController extends GenericForwardComposer {
 	public void onClick$iconexit(Event event) throws IOException {
 		EventQueue eventQueue = EventQueues.lookup("interactive", EventQueues.DESKTOP, false);
 		eventQueue.publish(new Event("", null, null));
-		winREIMVisuraHTML.detach();
+		winGenericDocument.detach();
 	}
 
 	public void onClick$icondownload(Event event) throws IOException {

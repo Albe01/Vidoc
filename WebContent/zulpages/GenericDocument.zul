@@ -1,8 +1,8 @@
 <?page title="" contentType="text/html;charset=UTF-8"?>
-<window id="winREIMVisuraHTML" border="none" width="100%" height="100%"
+<window id="winGenericDocument" border="none" width="100%" height="100%"
 	position="center,center" closable="false"
 	action="show: slideDown;hide: slideUp"
-	apply="it.vidoc.win.controller.WinREIMVisuraController"
+	apply="it.vidoc.win.controller.WinGenericDocumentController"
 	contentStyle="overflow:auto">
 	
 	<iframe id="iframe" width="100%" height="100%"> </iframe>
