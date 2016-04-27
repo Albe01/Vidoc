@@ -2,7 +2,9 @@ package it.vidoc.win.controller;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -24,12 +26,16 @@ import org.zkoss.zul.Window;
 
 import it.vidoc.contabilizzazione.Contabilizza;
 import it.vidoc.mybatis.javamodel.Anagrafiche;
+import it.vidoc.mybatis.javamodel.Elencodocumenti;
 import it.vidoc.mybatis.javamodel.Infcomuni;
 import it.vidoc.mybatis.sqlquery.SqlAnagrafiche;
+import it.vidoc.mybatis.sqlquery.SqlElencoDocumenti;
 import it.vidoc.mybatis.sqlquery.SqlInfComuni;
+import it.vidoc.report.GestioneReport;
 import it.vidoc.utils.Costants;
 import it.vidoc.utils.DatiSessione;
 import it.vidoc.utils.LoadNewPage;
+import it.vidoc.utils.ManageDbWithJDBC;
 
 @SuppressWarnings("rawtypes")
 public class WinAmListaController extends GenericForwardComposer {
@@ -215,11 +221,33 @@ public class WinAmListaController extends GenericForwardComposer {
 			public void onEvent(Event event) throws Exception {
 				if (!"".equals(datiSessione.getPreventivoAccettato()) && datiSessione.getPreventivoAccettato() != null
 						&& datiSessione.getPreventivoAccettato().equalsIgnoreCase("S")) {
+					
 					eventQueue.unsubscribe(this);
 					
 					session.setAttribute("datisessione", datiSessione);
 					Contabilizza account = new Contabilizza();
-					account.registraAccountUtente();
+					Integer rigaAccount = account.registraAccountUtente();
+					
+					Map<String, Object> parametri = new HashMap<String, Object>();
+					parametri.put("KANAGRA", datiSessione.getAMkanagraVis());
+					try {
+						GestioneReport rep = new GestioneReport();
+						Map<String, Object> dati = rep.getReportParam("prova", null, parametri);
+						
+						Elencodocumenti elencodocumenti = new Elencodocumenti();
+						elencodocumenti.setProgrrigaaccount(rigaAccount);
+						elencodocumenti.setTipodocumento("pdf");
+						new SqlElencoDocumenti().insertReturnID(elencodocumenti);
+						
+						elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
+						new ManageDbWithJDBC().updateElencoDocumenti(elencodocumenti);
+			
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+
+					
+					
 					LoadNewPage.loadNewPage("/zulpages/AMvisura.zul");
 				}
 				try {
@@ -227,7 +255,6 @@ public class WinAmListaController extends GenericForwardComposer {
 					lbListaAnag.getSelectedItem().setSelected(false);
 				} catch (Exception e) {
 				}
-//				eventQueue.unsubscribe(this);
 			}
 		});
 

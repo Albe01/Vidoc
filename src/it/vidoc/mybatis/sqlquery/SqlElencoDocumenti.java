@@ -1,12 +1,15 @@
 package it.vidoc.mybatis.sqlquery;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import it.vidoc.mybatis.javaclient.ElencodocumentiMapper;
 import it.vidoc.mybatis.javaclient.ext.ElencodocumentiMapperExt;
+import it.vidoc.mybatis.javamodel.Account;
 import it.vidoc.mybatis.javamodel.Elencodocumenti;
 import it.vidoc.mybatis.javamodel.ElencodocumentiExample;
 import it.vidoc.utils.MyBatisConnectionFactory;
@@ -98,6 +101,10 @@ public class SqlElencoDocumenti implements ISqlGeneric {
 	@Override
 	public <T> int insert(T oggetto) {
 		int ret = 0;
+		Elencodocumenti elencodocumenti = (it.vidoc.mybatis.javamodel.Elencodocumenti) oggetto;
+		if (elencodocumenti.getData() == null) {
+			elencodocumenti.setData(new SimpleDateFormat("yyyyMMdd").format(new Date()));
+		}
 		try {
 			ret = MyBatisConnectionFactory.getSqlSession().getMapper(ElencodocumentiMapper.class).insert((Elencodocumenti) oggetto);
 		} catch (Exception e) {
@@ -160,11 +167,15 @@ public class SqlElencoDocumenti implements ISqlGeneric {
 		return ret;
 	}
 
-	public Long insertReturnID(Elencodocumenti oggetto) {
-		long ret = 0;
+	public Integer insertReturnID(Elencodocumenti oggetto) {
+		Integer ret = 0;
+		Elencodocumenti object = (Elencodocumenti) oggetto;
+		if ("".equals(object.getData()) || object.getData() == null) {
+			object.setData(new SimpleDateFormat("yyyyMMdd").format(new Date()));
+		}
+
 		try {
-			ret = MyBatisConnectionFactory.getSqlSession().getMapper(ElencodocumentiMapperExt.class)
-					.insertReturnID((Elencodocumenti) oggetto);
+			ret = MyBatisConnectionFactory.getSqlSession().getMapper(ElencodocumentiMapperExt.class).insertReturnID((Elencodocumenti) object);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

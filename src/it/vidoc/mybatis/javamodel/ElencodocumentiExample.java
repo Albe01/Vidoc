@@ -352,6 +352,76 @@ public class ElencodocumentiExample {
 			return (Criteria) this;
 		}
 
+		public Criteria andRiferimentiIsNull() {
+			addCriterion("riferimenti is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiIsNotNull() {
+			addCriterion("riferimenti is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiEqualTo(String value) {
+			addCriterion("riferimenti =", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiNotEqualTo(String value) {
+			addCriterion("riferimenti <>", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiGreaterThan(String value) {
+			addCriterion("riferimenti >", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiGreaterThanOrEqualTo(String value) {
+			addCriterion("riferimenti >=", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiLessThan(String value) {
+			addCriterion("riferimenti <", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiLessThanOrEqualTo(String value) {
+			addCriterion("riferimenti <=", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiLike(String value) {
+			addCriterion("riferimenti like", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiNotLike(String value) {
+			addCriterion("riferimenti not like", value, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiIn(List<String> values) {
+			addCriterion("riferimenti in", values, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiNotIn(List<String> values) {
+			addCriterion("riferimenti not in", values, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiBetween(String value1, String value2) {
+			addCriterion("riferimenti between", value1, value2, "riferimenti");
+			return (Criteria) this;
+		}
+
+		public Criteria andRiferimentiNotBetween(String value1, String value2) {
+			addCriterion("riferimenti not between", value1, value2, "riferimenti");
+			return (Criteria) this;
+		}
+
 		public Criteria andTipodocumentoIsNull() {
 			addCriterion("tipodocumento is null");
 			return (Criteria) this;

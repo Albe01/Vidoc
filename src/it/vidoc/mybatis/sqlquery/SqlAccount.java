@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import it.vidoc.mybatis.javaclient.AccountMapper;
+import it.vidoc.mybatis.javaclient.ext.AccountMapperExt;
 import it.vidoc.mybatis.javamodel.Account;
 import it.vidoc.mybatis.javamodel.AccountExample;
 import it.vidoc.utils.MyBatisConnectionFactory;
@@ -228,6 +229,20 @@ public class SqlAccount implements ISqlGeneric {
 		}
 		MyBatisConnectionFactory.closeSqlSession();
 		return (List<T>) list;
+	}
+	
+	public Integer insertReturnID(Account oggetto) {
+		Integer ret = 0;
+		Account object = (Account) oggetto;
+		if ("".equals(object.getData()) || object.getData() == null) {
+			object.setData(new SimpleDateFormat("yyyyMMdd").format(new Date()));
+		}
+		try {
+			ret = MyBatisConnectionFactory.getSqlSession().getMapper(AccountMapperExt.class).insertReturnID((Account) object);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return ret;
 	}
 
 }

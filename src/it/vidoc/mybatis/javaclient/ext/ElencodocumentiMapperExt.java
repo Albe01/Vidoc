@@ -8,5 +8,5 @@ public interface ElencodocumentiMapperExt {
 	 * QUERY PERSONALIZZATE
 	 */
 	
-	Long insertReturnID(Elencodocumenti elencodocumenti);
+	Integer insertReturnID(Elencodocumenti object);
 }

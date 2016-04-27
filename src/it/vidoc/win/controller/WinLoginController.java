@@ -41,21 +41,21 @@ public class WinLoginController extends GenericForwardComposer {
 		account.setFocus(true);
 		
 		
-		Map<String, Object> parametri = new HashMap<String, Object>();
-		parametri.put("KANAGRA", new Long(975253286));
-		try {
-			GestioneReport rep = new GestioneReport();
-			Map<String, Object> dati = rep.getReportParam("prova", null, parametri);
-			
-			Elencodocumenti elencodocumenti = new Elencodocumenti();
-			elencodocumenti.setProgrrigaaccount(44);
-			elencodocumenti.setTipodocumento("pdf");
-			elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
-			new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		Map<String, Object> parametri = new HashMap<String, Object>();
+//		parametri.put("KANAGRA", new Long(975253286));
+//		try {
+//			GestioneReport rep = new GestioneReport();
+//			Map<String, Object> dati = rep.getReportParam("prova", null, parametri);
+//			
+//			Elencodocumenti elencodocumenti = new Elencodocumenti();
+//			elencodocumenti.setProgrrigaaccount(44);
+//			elencodocumenti.setTipodocumento("pdf");
+//			elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
+//			new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 
 		

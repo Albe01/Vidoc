@@ -60,19 +60,23 @@ public class Contabilizza {
 		return prezzo;
 	}
 
-	public void registraAccountUtente() {
-		if (calcolaPrezzoUtente() > 0) {
-			registraAccount();
-		}
+	public Integer registraAccountUtente() {
+//		if (calcolaPrezzoUtente() > 0) {
+//			registraAccount();
+//		}
+		calcolaPrezzoUtente();
+		return registraAccount();
 	}
 
-	public void registraAccountAzienda() {
-		if (calcolaPrezzoAzienda() > 0) {
-			registraAccount();	
-		}
+	public Integer registraAccountAzienda() {
+//		if (calcolaPrezzoAzienda() > 0) {
+//			registraAccount();	
+//		}
+		calcolaPrezzoAzienda();
+		return registraAccount();
 	}
 	
-	private void registraAccount() {
+	private Integer registraAccount() {
 		it.vidoc.mybatis.javamodel.Account account = new it.vidoc.mybatis.javamodel.Account();
 		account.setProgrrigalistino(datiSessione.getRigaListino());
 		account.setUsername(datiSessione.getUser().getUsername());
@@ -80,7 +84,9 @@ public class Contabilizza {
 		account.setDirittisegreteria(getDirittiOperazione());
 		account.setData(sdfData.format(new Date()));
 		account.setTime(sdfTime.format(new Date()));
-		new SqlAccount().insert(account);
+//		new SqlAccount().insert(account);
+		new SqlAccount().insertReturnID(account);
+		return account.getProgrriga();
 	}
 
 	private Double getPrezzoOperazione() {
