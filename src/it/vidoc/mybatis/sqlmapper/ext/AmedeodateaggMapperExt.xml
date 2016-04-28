@@ -14,8 +14,8 @@
     <select id="selectDateAgg" resultMap="BaseResultMap">
     
 			SELECT amedeodateagg.cciaa, amedeodateagg.datamin, amedeodateagg.datamax, infcomuni.denomcomune, infcomuni.codregione, infcomuni.denomregione  
-				FROM AMEDEODATEAGG 
-			INNER JOIN INFCOMUNI on infcomuni.siglaprovincia = amedeodateagg.cciaa
+				FROM amedeodateagg 
+			INNER JOIN infcomuni on infcomuni.siglaprovincia = amedeodateagg.cciaa
 			WHERE 1 = 1
 				and amedeodateagg.cciaa = infcomuni.siglaprovincia
 				and infcomuni.infcodicecomune like '%999'

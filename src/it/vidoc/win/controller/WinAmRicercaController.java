@@ -47,50 +47,6 @@ public class WinAmRicercaController extends GenericForwardComposer {
 		datiSessione = (DatiSessione) session.getAttribute("datisessione");
 	}
 
-
-	@SuppressWarnings("unchecked")
-	public void onClick$imgIniRic(Event event) throws IOException{		
-		if (txbNom.getValue().length() < 2) {
-			Clients.showNotification("Nominativo obbligatorio", Clients.NOTIFICATION_TYPE_WARNING, null, null, 5000, true);			
-			return;
-		}
-		if (txbSprv.getValue().toString().length() > 0) {
-			List<Infcomuni> lstPrv = new SqlInfComuni().selectComuniOfPrv(txbSprv.getValue().toString());
-			if (lstPrv.size() < 1) {
-				Clients.showNotification("Sigla provincia errata o omessa", Clients.NOTIFICATION_TYPE_WARNING, null, null, 5000, true);
-				return;
-			}
-		}
-		
-		eventQueue = EventQueues.lookup("interactive", EventQueues.DESKTOP, true);
- 		eventQueue.subscribe(new EventListener() {
-            public void onEvent(Event event) throws Exception {
-                if (!"".equals(datiSessione.getPreventivoAccettato()) &&
-                		datiSessione.getPreventivoAccettato() != null &&
-                		datiSessione.getPreventivoAccettato().equalsIgnoreCase("S")) {
-                	eventQueue.unsubscribe(this);
-                	ricercaSoggetto();
-                }
-//              eventQueue.unsubscribe(this);
-            }
-        });
-		
-		datiSessione.setCodiceBancaDati(Costants.AMEDcodiceBancaDati);
-		datiSessione.setCodiceRichiesta(Costants.AMEDcodiceRichiestaLista);
-		datiSessione.setCodiceRisposta(Costants.AMEDcodiceRispostaLista);
-		datiSessione.setOnlDiff(Costants.RequestOnLine);
-		session.setAttribute("datisessione", datiSessione);
-		Contabilizza account = new Contabilizza();
-		if (account.calcolaPrezzoUtente() > 0) {
-			datiSessione.setPrezzo(account.calcolaPrezzoUtente());
-			session.setAttribute("datisessione", datiSessione);
-			Window dialog = (Window)Executions.createComponents("/zulpages/Preventivo.zul", null, null);
-			dialog.doModal();
-		} else {
-			ricercaSoggetto();
-		}
-	}
-
 	public void onCreate() throws IOException {
         Infcomuni infcomuni = new Infcomuni();
         infcomuni.setCodicecomune("999");
@@ -144,7 +100,51 @@ public class WinAmRicercaController extends GenericForwardComposer {
 			}
 		}
    }
-	
+
+
+	@SuppressWarnings("unchecked")
+	public void onClick$imgIniRic(Event event) throws IOException{		
+		if (txbNom.getValue().length() < 2) {
+			Clients.showNotification("Nominativo obbligatorio", Clients.NOTIFICATION_TYPE_WARNING, null, null, 5000, true);			
+			return;
+		}
+		if (txbSprv.getValue().toString().length() > 0) {
+			List<Infcomuni> lstPrv = new SqlInfComuni().selectComuniOfPrv(txbSprv.getValue().toString());
+			if (lstPrv.size() < 1) {
+				Clients.showNotification("Sigla provincia errata o omessa", Clients.NOTIFICATION_TYPE_WARNING, null, null, 5000, true);
+				return;
+			}
+		}
+		
+		eventQueue = EventQueues.lookup("interactive", EventQueues.DESKTOP, true);
+ 		eventQueue.subscribe(new EventListener() {
+            public void onEvent(Event event) throws Exception {
+                if (!"".equals(datiSessione.getPreventivoAccettato()) &&
+                		datiSessione.getPreventivoAccettato() != null &&
+                		datiSessione.getPreventivoAccettato().equalsIgnoreCase("S")) {
+                	eventQueue.unsubscribe(this);
+                	ricercaSoggetto();
+                }
+//              eventQueue.unsubscribe(this);
+            }
+        });
+		
+		datiSessione.setCodiceBancaDati(Costants.AMEDcodiceBancaDati);
+		datiSessione.setCodiceRichiesta(Costants.AMEDcodiceRichiestaLista);
+		datiSessione.setCodiceRisposta(Costants.AMEDcodiceRispostaLista);
+		datiSessione.setOnlDiff(Costants.RequestOnLine);
+		session.setAttribute("datisessione", datiSessione);
+		Contabilizza account = new Contabilizza();
+		if (account.calcolaPrezzoUtente() > 0) {
+			datiSessione.setPrezzo(account.calcolaPrezzoUtente());
+			session.setAttribute("datisessione", datiSessione);
+			Window dialog = (Window)Executions.createComponents("/zulpages/Preventivo.zul", null, null);
+			dialog.doModal();
+		} else {
+			ricercaSoggetto();
+		}
+	}
+
    public void onChanging$txbNom(Event event) {
    }
    

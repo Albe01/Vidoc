@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 
 import it.vidoc.mybatis.javaclient.ElencodocumentiMapper;
 import it.vidoc.mybatis.javaclient.ext.ElencodocumentiMapperExt;
-import it.vidoc.mybatis.javamodel.Account;
 import it.vidoc.mybatis.javamodel.Elencodocumenti;
 import it.vidoc.mybatis.javamodel.ElencodocumentiExample;
 import it.vidoc.utils.MyBatisConnectionFactory;

@@ -5,9 +5,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import it.vidoc.mybatis.javaclient.AnagraficheMapper;
 import it.vidoc.mybatis.javaclient.InfcomuniMapper;
-import it.vidoc.mybatis.javamodel.Anagrafiche;
 import it.vidoc.mybatis.javamodel.Infcomuni;
 import it.vidoc.mybatis.javamodel.InfcomuniExample;
 import it.vidoc.utils.MyBatisConnectionFactory;
@@ -65,7 +63,9 @@ public class SqlInfComuni implements ISqlGeneric {
 				criteria.andInfcodicecomuneEqualTo(object.getInfcodicecomune());
 			}
 		}
-
+		if (!"".equals(orderBy) && orderBy != null) {
+			where.setOrderByClause(orderBy);
+		}
 		return (T) where;
 	}
 
