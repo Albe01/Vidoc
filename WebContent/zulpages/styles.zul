@@ -2,6 +2,13 @@
 <zk>
 
 <style>
+	<!-- ZK-Gritter notifications -->
+	.gritter-red .gritter-top { background-image: url(./images/gritter-red.png); }<!--  -->
+	.gritter-red .gritter-item { background-image: url(./images/gritter-red.png);}<!--  -->
+	.gritter-red .gritter-bottom {background-image: url(./images/gritter-red.png);}<!--  -->
+</style>
+
+<style>
 .myname1.z-panel .z-panel-children {
     background-image: url('./images/abc_logo.jpg'); 
 	background-position : 0px 0px;

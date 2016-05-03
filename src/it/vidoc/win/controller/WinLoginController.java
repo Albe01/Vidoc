@@ -1,12 +1,8 @@
 package it.vidoc.win.controller;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -17,16 +13,12 @@ import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Textbox;
 
-import it.vidoc.mybatis.javamodel.Elencodocumenti;
+import fi.jawsy.jawwa.zk.gritter.Gritter;
 import it.vidoc.mybatis.javamodel.User;
 import it.vidoc.mybatis.javamodel.Userabilitazioni;
-import it.vidoc.mybatis.javamodel.ext.AmedeodateaggExt;
-import it.vidoc.mybatis.sqlquery.SqlAmedeodateagg;
 import it.vidoc.mybatis.sqlquery.SqlUser;
 import it.vidoc.mybatis.sqlquery.SqlUserAbilitazioni;
-import it.vidoc.report.GestioneReport;
 import it.vidoc.utils.DatiSessione;
-import it.vidoc.utils.ManageDbWithJDBC;
 import it.vidoc.utils.StringEncrypter;
 
 @SuppressWarnings("rawtypes")
@@ -40,52 +32,9 @@ public class WinLoginController extends GenericForwardComposer {
 		super.doAfterCompose(comp);
 		account.setFocus(true);
 		
-		
-//		Map<String, Object> parametri = new HashMap<String, Object>();
-//		parametri.put("KANAGRA", new Long(975253286));
-//		try {
-//			GestioneReport rep = new GestioneReport();
-//			Map<String, Object> dati = rep.getReportParam("AMVisura", null, parametri);
-//			
-//			Elencodocumenti elencodocumenti = new Elencodocumenti();
-//			elencodocumenti.setProgrrigaaccount(44);
-//			elencodocumenti.setTipodocumento("pdf");
-//			elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
-//			new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-
-
+		prove();
 		
 		
-//		List<AmedeodateaggExt> lst = new SqlAmedeodateagg().selectDateAgg();
-//		
-//		String albe = null;
-		
-//		File file = new File("d:/temp/20160420_094643.jpg");
-//		byte[] dataByte = new byte[(int) file.length()];
-//		DataInputStream dis = new DataInputStream(new FileInputStream(file));
-//		dis.readFully(dataByte);  // read from file into byte[] array
-//		dis.close();
-//		Elencodocumenti elencodocumenti = new Elencodocumenti();
-//		elencodocumenti.setProgrrigaaccount(44);
-//		elencodocumenti.setTipodocumento("pdf");
-//		elencodocumenti.setDocumento(dataByte);
-//		new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
-		
-		
-//		File pdfFile = new File("d:/temp/elencodocumenti.sql");
-//		byte[] pdfData = new byte[(int) pdfFile.length()];
-//		DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
-//		dis.readFully(pdfData);  // read from file into byte[] array
-//		dis.close();
-//		Elencodocumenti elencodocumenti = new Elencodocumenti();
-//		elencodocumenti.setProgrrigaaccount(99);
-//		elencodocumenti.setTipodocumento("pdf");
-//		elencodocumenti.setDocumento(pdfData);
-//		new SqlElencoDocumenti().insert(elencodocumenti);
 	}
 
 	public void onClick$pwdDimenticata(Event event) {
@@ -165,6 +114,107 @@ public class WinLoginController extends GenericForwardComposer {
 		
 		
 		Executions.sendRedirect("/zulpages/home.zul");
+		
+	}
+	
+	
+	private void prove () {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("title", "Zksample1 Notification");
+		map.put("message", "<br>Hello i'm a notification based on ZK-Gritter.<br><br>Many thanks to gekkio for writting the implementation.");
+		map.put("autoClosing", false);
+		
+		String title = "title is missing";
+		String message = "msg is missing";
+		String image = null;
+		boolean autoClosing = false;
+		int delayTime = new Integer(6000);
+
+		if (map.containsKey("title"))
+			title = (String) map.get("title");
+		if (map.containsKey("message"))
+			message = (String) map.get("message");
+		if (map.containsKey("image"))
+			image = (String) map.get("image");
+		if (map.containsKey("autoClosing"))
+			autoClosing = (Boolean) map.get("autoClosing");
+		if (map.containsKey("delayTime"))
+			delayTime = (Integer) map.get("delayTime");
+
+		// show notification
+		if (image != null)
+			Gritter.notification().withTitle(title).withText(message).withSticky(autoClosing).withTime(delayTime).withSclass("gritter-red").withImage(image).show();
+		else
+			Gritter.notification().withTitle(title).withText(message).withSticky(autoClosing).withTime(delayTime).withSclass("gritter-red").show();
+		
+		map.put("title", "Zksample2 Notification");
+		map.put("message", "<br>Hello i'm a notification based on ZK-Gritter.<br><br>Many thanks to gekkio for writting the implementation.");
+		map.put("autoClosing", false);
+		
+		if (map.containsKey("title"))
+			title = (String) map.get("title");
+		if (map.containsKey("message"))
+			message = (String) map.get("message");
+		if (map.containsKey("image"))
+			image = (String) map.get("image");
+		if (map.containsKey("autoClosing"))
+			autoClosing = (Boolean) map.get("autoClosing");
+		if (map.containsKey("delayTime"))
+			delayTime = (Integer) map.get("delayTime");
+
+		// show notification
+		if (image != null)
+			Gritter.notification().withTitle(title).withText(message).withSticky(autoClosing).withTime(delayTime).withSclass("gritter-red").withImage(image).show();
+		else
+			Gritter.notification().withTitle(title).withText(message).withSticky(autoClosing).withTime(delayTime).withSclass("gritter-red").show();
+		
+		
+//		Map<String, Object> parametri = new HashMap<String, Object>();
+//		parametri.put("KANAGRA", new Long(975253286));
+//		try {
+//			GestioneReport rep = new GestioneReport();
+//			Map<String, Object> dati = rep.getReportParam("AMVisura", null, parametri);
+//			
+//			Elencodocumenti elencodocumenti = new Elencodocumenti();
+//			elencodocumenti.setProgrrigaaccount(44);
+//			elencodocumenti.setTipodocumento("pdf");
+//			elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
+//			new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+
+
+		
+		
+//		List<AmedeodateaggExt> lst = new SqlAmedeodateagg().selectDateAgg();
+//		
+//		String albe = null;
+		
+//		File file = new File("d:/temp/20160420_094643.jpg");
+//		byte[] dataByte = new byte[(int) file.length()];
+//		DataInputStream dis = new DataInputStream(new FileInputStream(file));
+//		dis.readFully(dataByte);  // read from file into byte[] array
+//		dis.close();
+//		Elencodocumenti elencodocumenti = new Elencodocumenti();
+//		elencodocumenti.setProgrrigaaccount(44);
+//		elencodocumenti.setTipodocumento("pdf");
+//		elencodocumenti.setDocumento(dataByte);
+//		new ManageDbWithJDBC().insertElencoDocumenti(elencodocumenti);
+		
+		
+//		File pdfFile = new File("d:/temp/elencodocumenti.sql");
+//		byte[] pdfData = new byte[(int) pdfFile.length()];
+//		DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
+//		dis.readFully(pdfData);  // read from file into byte[] array
+//		dis.close();
+//		Elencodocumenti elencodocumenti = new Elencodocumenti();
+//		elencodocumenti.setProgrrigaaccount(99);
+//		elencodocumenti.setTipodocumento("pdf");
+//		elencodocumenti.setDocumento(pdfData);
+//		new SqlElencoDocumenti().insert(elencodocumenti);
+
 		
 	}
 }

@@ -9,14 +9,12 @@ import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
-import org.zkoss.zk.ui.event.EventListener;
-import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
-import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
+import org.zkoss.zul.Window;
 
 import it.vidoc.mybatis.javamodel.Anagrafiche;
 import it.vidoc.mybatis.javamodel.Effetti;
@@ -35,12 +33,9 @@ public class WinAmVisuraController extends GenericForwardComposer {
 
 	private List<Effetti> listEffetti = null;
 	private Anagrafiche anagrafiche = null;
-	private Integer totPagVis = 0;
-	private int listaSize = 6;
 
 	private Listbox lbVisura;
-	private Intbox inbNpagVis;
-	private Label lblFoo1Vis, lblNom, lblCodFisc, lblNato, lblIndir;
+	private Label lblNom, lblCodFisc, lblNato, lblIndir;
 
 	@SuppressWarnings("unchecked")
 	public void doAfterCompose(Component comp) throws Exception {
@@ -48,25 +43,16 @@ public class WinAmVisuraController extends GenericForwardComposer {
 		session = Sessions.getCurrent();
 		datiSessione = (DatiSessione) session.getAttribute("datisessione");
 
-		inbNpagVis.addEventListener(Events.ON_OK, new EventListener() {
-			public void onEvent(Event iEvent) throws Exception {
-				try {
-					onClick$btnGoPageVis(null);
-				} catch (Exception e) {
-				}
-			}
-		});
-
 		Effetti where = new Effetti();
 		where.setKanagra(datiSessione.getAMkanagraVis());
 		listEffetti = new SqlEffetti().selectByExample(where, "dataiscrizione desc");
-		riempiLbVisura(1);
+		riempiLbVisura(listEffetti);
 	}
 
 	public void onCreate() throws IOException {
 	}
 
-	public void riempiLbVisura(Integer pagina) {
+	public void riempiLbVisura(List<Effetti> listEffetti) {
 		anagrafiche = new SqlAnagrafiche().selectByPrimaryKey(datiSessione.getAMkanagraVis());
 		if (anagrafiche != null) {
 			if (anagrafiche.getNominativo() != null) {
@@ -112,20 +98,7 @@ public class WinAmVisuraController extends GenericForwardComposer {
 		lbVisura.getItems().clear();
 		DecimalFormat decimalFormat = new DecimalFormat("#,###,###,##0.00");
 
-		Integer iniLb = 0;
-		Integer finLb = 0;
-		if (pagina == 1) {
-			iniLb = 0;
-			finLb = listaSize;
-		} else {
-			iniLb = ((pagina - 1) * listaSize);
-		}
-		finLb = iniLb + listaSize;
-		if (finLb > listEffetti.size()) {
-			finLb = listEffetti.size();
-		}
-
-		for (int i = iniLb; i < finLb; i++) {
+		for (int i = 0; i < listEffetti.size(); i++) {
 			Listitem riga = new Listitem();
 			Listcell cella = new Listcell();
 
@@ -173,53 +146,17 @@ public class WinAmVisuraController extends GenericForwardComposer {
 
 			lbVisura.appendChild(riga);
 		}
-		inbNpagVis.setValue(pagina);
-		totPagVis = 0;
-		if ((listEffetti.size() % listaSize) == 0) {
-			totPagVis = listEffetti.size() / listaSize;
-		} else {
-			totPagVis = (listEffetti.size() / listaSize) + 1;
-		}
-		if (totPagVis == 0) {
-			totPagVis = 1;
-		}
-		lblFoo1Vis.setValue("di " + totPagVis);
 	}
 
 	public void onClick$btnIndietro(Event event) throws IOException {
 		LoadNewPage.loadNewPage("/zulpages/AMlista.zul");
 	}
 
-	public void onClick$btnGoPageVis(Event event) throws IOException {
-		if (inbNpagVis.getValue() < 1) {
-			inbNpagVis.setValue(1);
-		}
-		if (inbNpagVis.getValue() > totPagVis) {
-			inbNpagVis.setValue(totPagVis);
-		}
-		riempiLbVisura(inbNpagVis.getValue());
-	}
-
-	public void onClick$btnPagPrecVis(Event event) {
-		if ((inbNpagVis.getValue() - 1) < 1) {
-			inbNpagVis.setValue(1);
-		} else {
-			inbNpagVis.setValue((inbNpagVis.getValue() - 1));
-		}
-		riempiLbVisura(inbNpagVis.getValue());
-	}
-
-	public void onClick$btnPagSuccVis(Event event) {
-		if ((inbNpagVis.getValue() + 1) > totPagVis) {
-			inbNpagVis.setValue(totPagVis);
-		} else {
-			inbNpagVis.setValue((inbNpagVis.getValue() + 1));
-		}
-		riempiLbVisura(inbNpagVis.getValue());
-	}
-
-	public void onClick$iconpdf(Event event) throws IOException {
-		Executions.getCurrent().sendRedirect("/zulpages/GenericDocument.zul", "_blank");
+//	public void onClick$iconpdf(Event event) throws IOException {
+	public void onClick$btnPdf(Event event) throws IOException {		
+//		Executions.getCurrent().sendRedirect("/zulpages/GenericDocument.zul", "_blank");
+		Window dialog = (Window) Executions.createComponents("/zulpages/GenericDocument.zul", null, null);
+		dialog.doModal();
 	}
 
 }

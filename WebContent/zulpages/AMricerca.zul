@@ -37,7 +37,7 @@
 									<rows>
 										<row>
 											<combobox id="cmbPrv"
-												readonly="false" autodrop="false" autocomplete="true"
+												readonly="false" autodrop="true" autocomplete="true"
 												width="99%" />
 											<label value="Comune:"
 												sclass="label" />
@@ -78,11 +78,12 @@
 					</div>
 					<separator />
 					<div align="Center">
-						<!-- 				
-							<button id="btnIniRic" label="Inizia Ricerca" />
-						-->
-						<image id="imgIniRic" tooltip="popup01"
+						<button id="btnIniRic" label=""
+							image="/images/View_Document.png" tooltiptext="Inizia ricerca" />
+						<!-- 
+							<image id="imgIniRic" tooltip="popup01"
 							src="/images/search_32x32.png" />
+						-->
 					</div>
 					<separator />
 					<div align="Center">

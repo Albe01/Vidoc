@@ -103,7 +103,8 @@ public class WinAmRicercaController extends GenericForwardComposer {
 
 
 	@SuppressWarnings("unchecked")
-	public void onClick$imgIniRic(Event event) throws IOException{		
+//	public void onClick$imgIniRic(Event event) throws IOException{
+	public void onClick$btnIniRic(Event event) throws IOException{		
 		if (txbNom.getValue().length() < 2) {
 			Clients.showNotification("Nominativo obbligatorio", Clients.NOTIFICATION_TYPE_WARNING, null, null, 5000, true);			
 			return;
@@ -159,7 +160,6 @@ public class WinAmRicercaController extends GenericForwardComposer {
 			txbSprv.setValue("");
 	   } else {
 		   	riempiCbComuni(cmbPrv.getSelectedItem().getValue().toString());
-		   
 			txbSprv.setValue(cmbPrv.getSelectedItem().getValue().toString());
 	   }
    }

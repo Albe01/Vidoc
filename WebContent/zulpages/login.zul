@@ -7,7 +7,8 @@
 				<vlayout>
 					<window id="loginWin"
 						apply="it.vidoc.win.controller.WinLoginController" title="Login"
-						border="normal" hflex="min">
+						border="normal" hflex="min" >
+						<include src="/zulpages/styles.zul" />
 						<vbox hflex="min" align="center">
 							<grid hflex="min">
 								<columns>

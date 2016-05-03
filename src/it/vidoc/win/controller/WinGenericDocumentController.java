@@ -67,8 +67,8 @@ public class WinGenericDocumentController extends GenericForwardComposer {
 
 	@SuppressWarnings("unchecked")
 	public void onClick$iconexit(Event event) throws IOException {
-		EventQueue eventQueue = EventQueues.lookup("interactive", EventQueues.DESKTOP, false);
-		eventQueue.publish(new Event("", null, null));
+//		EventQueue eventQueue = EventQueues.lookup("interactive", EventQueues.DESKTOP, false);
+//		eventQueue.publish(new Event("", null, null));
 		winGenericDocument.detach();
 	}
 

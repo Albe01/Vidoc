@@ -18,6 +18,7 @@ import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Listcell;
 import org.zkoss.zul.Listitem;
 import org.zkoss.zul.Panel;
+import org.zkoss.zul.Window;
 
 import it.vidoc.mybatis.javamodel.Account;
 import it.vidoc.mybatis.javamodel.Elencodocumenti;
@@ -48,7 +49,7 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 		dataDa.setValue(new Date());
 		dataA.setValue(new Date());
 	}
-	
+
 	public void onCreate() {
 		pnlLogOperazioni.setVisible(false);
 		pnlLogOperazioni.setOpen(false);
@@ -74,7 +75,8 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 
 		Account account = new Account();
 		account.setUsername(datiSessione.getUser().getUsername());
-		List<Account> lstAccount = new SqlAccount().selectByExample(account, dt1.format(dataDa.getValue()), dt1.format(dataA.getValue()), "data, time");
+		List<Account> lstAccount = new SqlAccount().selectByExample(account, dt1.format(dataDa.getValue()),
+				dt1.format(dataA.getValue()), "data, time");
 		riempiLbLogOper(lstAccount);
 	}
 
@@ -178,20 +180,18 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 
 	public void onSelect$lbListaLogOper(Event event) {
 		Listcell listcell;
-		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(9); 
+		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(9);
 		if (!"".equals(listcell.getLabel()) && listcell.getLabel() != null) {
 			listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(10); // rigaAccount
 			datiSessione.setRigaAccount(Integer.parseInt(listcell.getLabel()));
 			session.setAttribute("datisessione", datiSessione);
-			// Window dialog = (Window)
-			// Executions.createComponents("/zulpages/GenericDocument.zul", null, null);
-			// dialog.doModal();
+			Window dialog = (Window) Executions.createComponents("/zulpages/GenericDocument.zul", null, null);
+			dialog.doModal();
 
 			lbListaLogOper.getSelectedItem().setSelected(false);
-			Executions.getCurrent().sendRedirect("/zulpages/GenericDocument.zul", "_blank");
+//			Executions.getCurrent().sendRedirect("/zulpages/GenericDocument.zul", "_blank");
 			// Executions.getCurrent().sendRedirect("D:/temp/73016_precompilato_DBLLRT60A17F839C.pdf", "_blank");
 		}
 	}
-
 
 }

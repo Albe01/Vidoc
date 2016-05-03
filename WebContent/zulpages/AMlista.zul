@@ -5,12 +5,12 @@
 		contentStyle="overflow:auto">
 		<include src="/zulpages/styles.zul" />
 		<separator />
-		<panel id="pnlAMLista"
+		<panel id="pnlAMLista" vflex="1"
 			title="-- Proetsti AMEDEO - Lista soggetti protestati --"
-			height="700px" border="rounded+" style="margin-bottom: 5px"
-			collapsible="false" open="true">
+			border="rounded+" style="margin-bottom: 5px" collapsible="false"
+			open="true">
 			<panelchildren>
-				<listbox id="lbListaAnag" span="true" height="290px"
+				<listbox id="lbListaAnag" span="true" height="280px"
 					emptyMessage="Nessun soggetto trovato con i dati indicati">
 					<listhead sizable="false">
 						<listheader label="Nome" hflex="min" />
@@ -27,11 +27,12 @@
 						<listheader label="Key" hflex="min"
 							visible="false" />
 					</listhead>
-					<listfoot id="listfoot">
+					<listfoot id="listfoot" hflex="1">
 						<listfooter id="listfooter" span="9">
 							<button id="btnGoPageLis"
 								label="Vai a Pag." />
-							<intbox id="inbNpagLis" width="4%" />
+							<intbox id="inbNpagLis" width="4%"
+								height="20px" />
 							<label id="lblFoo1Lis" value="" />
 							<button id="btnPagPrecLis" label="&lt;" />
 							<button id="btnPagSuccLis" label="&gt;" />
@@ -40,7 +41,8 @@
 				</listbox>
 				<separator />
 				<div align="Center">
-					<button id="btnIndietro" label="Indietro" />
+					<button id="btnIndietro" image="/images/Go_back.png"
+						tooltiptext="Indietro" />
 				</div>
 				<separator />
 				<div align="Center">
