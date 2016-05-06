@@ -2,6 +2,7 @@ package it.vidoc.report;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,7 +11,10 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.zkoss.util.media.AMedia;
+import org.zkoss.zk.ui.Execution;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Sessions;
 
 import it.vidoc.utils.MyBatisConnectionFactory;
@@ -24,6 +28,7 @@ import net.sf.jasperreports.engine.JasperRunManager;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 public class GestioneReport {
+	private final Logger logger = Logger.getLogger(getClass());
 	private final String PATH_WEBCONTENT = Sessions.getCurrent().getWebApp().getRealPath("/");
 	private final String JASPER_REPORT_FOLDER = PATH_WEBCONTENT + "report";
 	
@@ -54,15 +59,34 @@ public class GestioneReport {
 		JasperReport jasperReport = null;
 		JasperPrint jasperPrint = null;
 		
+		
+		String fileBuild = "//it//vidoc//report//source//" + JASPER_FILENAME + ".jasper";
+		InputStream inBuild = getClass().getResourceAsStream(fileBuild);
+		if (inBuild != null) {
+			jasperReport = (JasperReport) JRLoader.loadObject(inBuild);
+		} else {
+			String fileSource = "//it//vidoc//report//source//" + JASPER_FILENAME + ".jrxml";
+			InputStream inSource = getClass().getResourceAsStream(fileSource);
+			jasperReport = JasperCompileManager.compileReport(inSource);
+		}
+		
+		
+		
 		//Compilazione report
-		JasperCompileManager.compileReportToFile(JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jrxml");
+//		JasperCompileManager.compileReportToFile(JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jrxml");
+//		String fileJasper = JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jasper";
+//		logger.info("Jasper - fileJasper=" + fileJasper);
 //		boolean exist = (new File(JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jasper")).exists();
 //		if (!exist) {
+//			logger.info("Jasper - fileJasper non esiste compilo");
 //			//jasperReport = JasperCompileManager.compileReport(JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jrxml");
 //			JasperCompileManager.compileReportToFile(JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jrxml");
+//			logger.info("Jasper - dopo compila Jasper");
+//		} else {
+//			logger.info("Jasper - fileJasper gia' esiste");
 //		}
-
-		jasperReport = (JasperReport) JRLoader.loadObjectFromFile(JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jasper");
+//
+//		jasperReport = (JasperReport) JRLoader.loadObjectFromFile(JASPER_REPORT_FOLDER + File.separator + JASPER_FILENAME + ".jasper");
 
 		AMedia aMedia = null;
 		HashMap<String, Object> parameterMap = new HashMap<String, Object>();

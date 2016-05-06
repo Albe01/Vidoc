@@ -1,5 +1,6 @@
 package it.vidoc.win.controller;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +19,10 @@ import it.vidoc.mybatis.javamodel.User;
 import it.vidoc.mybatis.javamodel.Userabilitazioni;
 import it.vidoc.mybatis.sqlquery.SqlUser;
 import it.vidoc.mybatis.sqlquery.SqlUserAbilitazioni;
+import it.vidoc.report.GestioneReport;
 import it.vidoc.utils.DatiSessione;
 import it.vidoc.utils.StringEncrypter;
+import net.sf.jasperreports.engine.JRException;
 
 @SuppressWarnings("rawtypes")
 public class WinLoginController extends GenericForwardComposer {
@@ -32,7 +35,7 @@ public class WinLoginController extends GenericForwardComposer {
 		super.doAfterCompose(comp);
 		account.setFocus(true);
 		
-		prove();
+//		prove();
 		
 		
 	}
@@ -119,6 +122,25 @@ public class WinLoginController extends GenericForwardComposer {
 	
 	
 	private void prove () {
+		
+		Map<String, Object> parametri = new HashMap<String, Object>();
+		parametri.put("KANAGRA", 1);
+		GestioneReport rep = new GestioneReport();
+		try {
+			Map<String, Object> dati = rep.getReportParam("AMVisura", null, parametri);
+		} catch (JRException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+		
+		
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("title", "Zksample1 Notification");
 		map.put("message", "<br>Hello i'm a notification based on ZK-Gritter.<br><br>Many thanks to gekkio for writting the implementation.");

@@ -126,7 +126,6 @@ public class WinAmRicercaController extends GenericForwardComposer {
                 	eventQueue.unsubscribe(this);
                 	ricercaSoggetto();
                 }
-//              eventQueue.unsubscribe(this);
             }
         });
 		
@@ -219,6 +218,7 @@ public class WinAmRicercaController extends GenericForwardComposer {
 			datiSessione.setAMsiglaProvincia(siglaProvincia);
 			datiSessione.setAMcodiceComune(codiceComune);
 			datiSessione.setAMLstKanagra(result);
+			datiSessione.setAMnumPagLis(1);
 			session.setAttribute("datisessione", datiSessione);
 			LoadNewPage.loadNewPage("/zulpages/AMlista.zul");
 		} else {
