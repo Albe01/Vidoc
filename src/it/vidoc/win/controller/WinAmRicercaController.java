@@ -1,7 +1,11 @@
 package it.vidoc.win.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -19,12 +23,18 @@ import org.zkoss.zul.Textbox;
 import org.zkoss.zul.Window;
 
 import it.vidoc.contabilizzazione.Contabilizza;
+import it.vidoc.mybatis.javamodel.Elencodocumenti;
 import it.vidoc.mybatis.javamodel.Infcomuni;
+import it.vidoc.mybatis.sqlquery.SqlElencoDocumenti;
 import it.vidoc.mybatis.sqlquery.SqlInfComuni;
+import it.vidoc.report.GestioneReport;
 import it.vidoc.utils.AmCercaSoggetto;
 import it.vidoc.utils.Costants;
 import it.vidoc.utils.DatiSessione;
 import it.vidoc.utils.LoadNewPage;
+import it.vidoc.utils.ManageDbWithJDBC;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperPrint;
 
 @SuppressWarnings("rawtypes")
 public class WinAmRicercaController extends GenericForwardComposer {
@@ -210,7 +220,7 @@ public class WinAmRicercaController extends GenericForwardComposer {
 		result = new AmCercaSoggetto().amCercaSoggetto(nome, indirizzo, siglaProvincia, codiceComune);
 		
 		Contabilizza account = new Contabilizza();
-		account.registraAccountUtente();
+		Integer rigaAccount = account.registraAccountUtente();
 		
 		if (result.size() > 0) {
 			datiSessione.setAMnome(nome);
@@ -221,6 +231,30 @@ public class WinAmRicercaController extends GenericForwardComposer {
 			datiSessione.setAMnumPagLis(1);
 			session.setAttribute("datisessione", datiSessione);
 			LoadNewPage.loadNewPage("/zulpages/AMlista.zul");
+			
+//			Map<String, Object> parametri = new HashMap<String, Object>();
+//			parametri.put("lstKanagra", result);
+//			GestioneReport rep = new GestioneReport();
+//			try {
+//				Map<String, Object> dati = rep.getReportParam("AMLista", null, parametri);
+//				ByteArrayOutputStream bos = rep.exportReportToHtml((JasperPrint) dati.get("jasperPrint"));
+//				Elencodocumenti elencodocumenti = new Elencodocumenti();
+//				elencodocumenti.setProgrrigaaccount(rigaAccount);
+//				elencodocumenti.setTipodocumento("html");
+//				new SqlElencoDocumenti().insertReturnID(elencodocumenti);
+//				Integer rigaElencoDocumenti =elencodocumenti.getProgrriga(); 
+//				elencodocumenti.setDocumento(bos.toByteArray());
+//				new ManageDbWithJDBC().updateElencoDocumenti(elencodocumenti);
+//				datiSessione.setRigaElencoDocumenti(rigaElencoDocumenti);
+//				datiSessione.setRigaAccount(rigaAccount);
+//				session.setAttribute("datisessione", datiSessione);
+//				Window dialog = (Window) Executions.createComponents("/zulpages/GenericDocument.zul", null, null);
+//				dialog.doModal();
+//			} catch (JRException e) {
+//				e.printStackTrace();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
 		} else {
 			Clients.showNotification("Nessun soggeto trovato con i dati indicati", Clients.NOTIFICATION_TYPE_INFO, null, null, 5000, true);
 		}

@@ -5,7 +5,7 @@
 	<include src="/zulpages/styles.zul" />
 	<hbox align="center" pack="center" height="100%" width="100%">
 		<panel title="Vi.Do.C. - Viure Documenti Camerali"
-			border="rounded+" height="610px" width="1300px">
+			border="rounded+" height="640px" width="1300px">
 			<panelchildren>
 				<borderlayout id="blayout" height="100%" width="100%">
 					<north size="15%" vflex="1" hflex="1">

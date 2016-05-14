@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
-<!-- 2016-05-02T17:18:45 -->
+<!-- 2016-05-09T12:26:57 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AMVisura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="d1c00074-e876-4d2c-8de7-578e1d9cc77c">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Amedeo"/>
@@ -176,26 +176,26 @@ order by effetti.datalevata desc]]>
 				<textFieldExpression><![CDATA[$F{numtoteff}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="310" y="170" width="97" height="14" uuid="88c9a6a8-dc86-4f6f-aef8-b8eb2a6b6d7d"/>
+				<reportElement x="310" y="170" width="107" height="14" uuid="88c9a6a8-dc86-4f6f-aef8-b8eb2a6b6d7d"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Data Ultimo Effetto:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="407" y="170" width="100" height="14" uuid="ab79627f-d86d-4b92-bc1d-30e5fbb42c4d"/>
+				<reportElement x="417" y="170" width="100" height="14" uuid="ab79627f-d86d-4b92-bc1d-30e5fbb42c4d"/>
 				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{dataulteff}.substring(6,8) + '/' + $F{dataulteff}.substring(4,6) + '/' + $F{dataulteff}.substring(0,4)]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="198" y="184" width="114" height="14" uuid="49690a2a-0478-4767-bd73-139874dcf643"/>
+				<reportElement x="198" y="184" width="124" height="14" uuid="49690a2a-0478-4767-bd73-139874dcf643"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Importo Totale Effetti:]]></text>
 			</staticText>
 			<textField pattern="¤#,##0.##;¤-#,##0.##">
-				<reportElement x="312" y="184" width="100" height="14" uuid="316f1490-d144-4edd-a8e2-b78d4de0a38a"/>
+				<reportElement x="322" y="184" width="100" height="14" uuid="316f1490-d144-4edd-a8e2-b78d4de0a38a"/>
 				<textFieldExpression><![CDATA[$F{imptoteff}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -247,21 +247,21 @@ order by effetti.datalevata desc]]>
 				<text><![CDATA[Iscritto il:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="260" y="40" width="58" height="14" uuid="ee750281-6e28-4df5-b5f9-266b12a646f9"/>
+				<reportElement x="260" y="40" width="72" height="14" uuid="ee750281-6e28-4df5-b5f9-266b12a646f9"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dataiscrizione}.substring(6,8) + '/' + $F{dataiscrizione}.substring(4,6) + '/' + $F{dataiscrizione}.substring(0,4)]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="318" y="40" width="83" height="14" uuid="1d6cb195-9281-432a-9ce5-1a9fbdf0e90d"/>
+				<reportElement x="332" y="40" width="98" height="14" uuid="1d6cb195-9281-432a-9ce5-1a9fbdf0e90d"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[dalla C.C.I.A.A. di]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="410" y="40" width="90" height="14" uuid="8b16098f-0ee9-4989-9471-dad9daf70232"/>
+				<reportElement x="430" y="40" width="90" height="14" uuid="8b16098f-0ee9-4989-9471-dad9daf70232"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>

@@ -1,10 +1,5 @@
 package it.vidoc.win.controller;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Session;
@@ -47,8 +42,8 @@ public class WinMainController extends GenericForwardComposer {
 		}
 
 		user.setValue(datiSessione.getUser().getCognome());
-		for (int i = 0; i < datiSessione.getLstUserabilitazioni().size(); i++) {
-			user.setValue(datiSessione.getUser().getCognome() +  " (" + datiSessione.getLstUserabilitazioni().get(0).getAbilitazione() + ")");
+		for (int i = 0; i < datiSessione.getLstUserrole().size(); i++) {
+			user.setValue(datiSessione.getUser().getCognome() +  " (" + datiSessione.getLstUserrole().get(0).getRole() + ")");
 		}
 		
 		try {

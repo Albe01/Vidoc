@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-05-08T19:02:57 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AMLista" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4698033-b22a-4aa0-92c0-85076cc06b23">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Amedeo"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="lstKanagra" class="java.util.Collection" nestedType="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT kanagra,
+	nominativo
+FROM anagrafiche
+WHERE $X{IN, kanagra, lstKanagra}]]>
+	</queryString>
+	<field name="kanagra" class="java.lang.Long"/>
+	<field name="nominativo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="39" width="100" height="30" uuid="03e51e82-b8ca-4dc3-8871-fa19576ea212"/>
+				<textFieldExpression><![CDATA[$F{kanagra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="39" width="100" height="30" uuid="7a698a87-e95b-4153-8560-6de8edc52a95"/>
+				<textFieldExpression><![CDATA[$F{nominativo}]]></textFieldExpression>
+			</textField>
+			<textField hyperlinkType="Reference" hyperlinkTarget="Blank">
+				<reportElement x="240" y="39" width="300" height="30" uuid="23369802-a621-4711-bb0c-74fbbc206592"/>
+				<textFieldExpression><![CDATA["Visura"]]></textFieldExpression>
+				<hyperlinkReferenceExpression><![CDATA["http://localhost:7074/Vidoc/zulpages/AMvisura.zul?kanagra=" + $F{kanagra}]]></hyperlinkReferenceExpression>
+				<hyperlinkTooltipExpression><![CDATA["Chiedi Visura"]]></hyperlinkTooltipExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

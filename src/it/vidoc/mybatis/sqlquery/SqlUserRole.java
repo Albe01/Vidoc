@@ -5,23 +5,23 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import it.vidoc.mybatis.javaclient.UserabilitazioniMapper;
-import it.vidoc.mybatis.javamodel.Userabilitazioni;
-import it.vidoc.mybatis.javamodel.UserabilitazioniExample;
+import it.vidoc.mybatis.javaclient.UserroleMapper;
+import it.vidoc.mybatis.javamodel.Userrole;
+import it.vidoc.mybatis.javamodel.UserroleExample;
 import it.vidoc.utils.MyBatisConnectionFactory;
-public class SqlUserAbilitazioni implements ISqlGeneric {
+public class SqlUserRole implements ISqlGeneric {
 	
 	
 	private final Logger logger = Logger.getLogger(getClass());
 
-	public SqlUserAbilitazioni() {
+	public SqlUserRole() {
 	}
 
 	@SuppressWarnings("unchecked")
 	public <T, U> T setWhereCondition(U oggetto, String orderBy) {
-		Userabilitazioni object = (Userabilitazioni) oggetto;
-		UserabilitazioniExample where = new UserabilitazioniExample();
-		it.vidoc.mybatis.javamodel.UserabilitazioniExample.Criteria criteria = where.createCriteria();
+		Userrole object = (Userrole) oggetto;
+		UserroleExample where = new UserroleExample();
+		it.vidoc.mybatis.javamodel.UserroleExample.Criteria criteria = where.createCriteria();
 		
 		if (object.getUsername() != null) {
 			criteria.andUsernameEqualTo(object.getUsername());
@@ -36,8 +36,8 @@ public class SqlUserAbilitazioni implements ISqlGeneric {
 	public <T> List<T> selectByExample(T oggetto, String orderBy) {
 		List<T> list = new ArrayList<T>();
 		try {
-			UserabilitazioniExample exampleWhere = setWhereCondition((Userabilitazioni) oggetto, orderBy);
-			list = (List<T>) MyBatisConnectionFactory.getSqlSession().getMapper(UserabilitazioniMapper.class).selectByExample(exampleWhere);			
+			UserroleExample exampleWhere = setWhereCondition((Userrole) oggetto, orderBy);
+			list = (List<T>) MyBatisConnectionFactory.getSqlSession().getMapper(UserroleMapper.class).selectByExample(exampleWhere);			
 		} catch (Exception e) {
 			logger.error(e.getMessage());
 		}

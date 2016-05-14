@@ -16,9 +16,10 @@ import org.zkoss.zul.Textbox;
 
 import fi.jawsy.jawwa.zk.gritter.Gritter;
 import it.vidoc.mybatis.javamodel.User;
-import it.vidoc.mybatis.javamodel.Userabilitazioni;
+import it.vidoc.mybatis.javamodel.Userrole;
+import it.vidoc.mybatis.sqlquery.SqlElencoListini;
 import it.vidoc.mybatis.sqlquery.SqlUser;
-import it.vidoc.mybatis.sqlquery.SqlUserAbilitazioni;
+import it.vidoc.mybatis.sqlquery.SqlUserRole;
 import it.vidoc.report.GestioneReport;
 import it.vidoc.utils.DatiSessione;
 import it.vidoc.utils.StringEncrypter;
@@ -91,10 +92,10 @@ public class WinLoginController extends GenericForwardComposer {
 		if (lockUser == true) {
 			return;
 		}
-		Userabilitazioni userabilitazioni = new Userabilitazioni();
-		userabilitazioni.setUsername(nm);
-		List<Userabilitazioni> lstUserabilitazioni = new SqlUserAbilitazioni().selectByExample(userabilitazioni, null);
-		if (lstUserabilitazioni.size() == 0) {
+		Userrole Userrole = new Userrole();
+		Userrole.setUsername(nm);
+		List<Userrole> lstUserarole = new SqlUserRole().selectByExample(Userrole, null);
+		if (lstUserarole.size() == 0) {
 			Clients.showNotification("Utente privo di abilitazioni.", Clients.NOTIFICATION_TYPE_INFO, null, null, 5000, true);
 			return;
 		}
@@ -102,7 +103,9 @@ public class WinLoginController extends GenericForwardComposer {
 		Session sess = Sessions.getCurrent();
 		DatiSessione datiSessione = new DatiSessione();
 		datiSessione.setUser(user);
-		datiSessione.setLstUserabilitazioni(lstUserabilitazioni);
+		datiSessione.setLstUserrole(lstUserarole);
+		datiSessione.setListinoUtentiAttivo(new SqlElencoListini().selectNumListinoAttivo("UTENTE"));
+		datiSessione.setListinoInternoAttivo(new SqlElencoListini().selectNumListinoAttivo("INTERNO"));
 		sess.setAttribute("datisessione",datiSessione);
 		
 		
@@ -123,6 +126,10 @@ public class WinLoginController extends GenericForwardComposer {
 	
 	private void prove () {
 		
+		
+		
+		Integer xx = new SqlElencoListini().selectNumListinoAttivo("UTENTE");
+		
 		Map<String, Object> parametri = new HashMap<String, Object>();
 		parametri.put("KANAGRA", 1);
 		GestioneReport rep = new GestioneReport();
@@ -136,10 +143,6 @@ public class WinLoginController extends GenericForwardComposer {
 			e.printStackTrace();
 		}
 
-		
-		
-		
-		
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("title", "Zksample1 Notification");

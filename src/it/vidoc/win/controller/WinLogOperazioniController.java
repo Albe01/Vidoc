@@ -100,6 +100,9 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 
 		for (int i = 0; i < lstAccount.size(); i++) {
 			Listino listino = new SqlListino().selectByPrimaryKey(lstAccount.get(i).getProgrrigalistino());
+			Elencodocumenti elencodocumenti = new Elencodocumenti();
+			elencodocumenti.setProgrrigaaccount(lstAccount.get(i).getProgrriga());
+			List<Elencodocumenti> lstElencodocumenti = new SqlElencoDocumenti().selectByExampleWithBlobs(elencodocumenti, null);
 
 			Listitem riga = new Listitem();
 			Listcell cella = new Listcell();
@@ -111,7 +114,15 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 					" " + lstAccount.get(i).getTime());
 			cella.setStyle("white-space:nowrap;overflow:hidden");
 			riga.appendChild(cella);
-
+			
+			cella = new Listcell();
+			cella.setLabel("");
+			if (lstElencodocumenti.size() > 0) {
+				cella.setLabel(lstElencodocumenti.get(0).getRiferimenti());
+				cella.setStyle("white-space:nowrap;overflow:hidden");
+			}
+			riga.appendChild(cella);
+			
 			cella = new Listcell();
 			cella.setLabel(BANCA_DATI.valueOf(listino.getCodicebancadati()).value());
 			cella.setStyle("white-space:nowrap;overflow:hidden");
@@ -147,10 +158,6 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 			cella.setStyle("white-space:nowrap;overflow:hidden");
 			riga.appendChild(cella);
 
-			Elencodocumenti elencodocumenti = new Elencodocumenti();
-			elencodocumenti.setProgrrigaaccount(lstAccount.get(i).getProgrriga());
-			List<Elencodocumenti> lstElencodocumenti = new SqlElencoDocumenti()
-					.selectByExampleWithBlobs(elencodocumenti, null);
 			if (lstElencodocumenti.size() > 0) {
 				cella = new Listcell();
 				Image img = new Image();
@@ -180,9 +187,9 @@ public class WinLogOperazioniController extends GenericForwardComposer {
 
 	public void onSelect$lbListaLogOper(Event event) {
 		Listcell listcell;
-		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(9);
+		listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(11);
 		if (!"".equals(listcell.getLabel()) && listcell.getLabel() != null) {
-			listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(10); // rigaAccount
+			listcell = (Listcell) lbListaLogOper.getSelectedItem().getChildren().get(11); // rigaAccount
 			datiSessione.setRigaAccount(Integer.parseInt(listcell.getLabel()));
 			session.setAttribute("datisessione", datiSessione);
 			Window dialog = (Window) Executions.createComponents("/zulpages/GenericDocument.zul", null, null);

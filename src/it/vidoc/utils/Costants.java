@@ -40,6 +40,9 @@ public class Costants {
 		AMLI01("Ricerca Anagrafica"), 
 		AMVI01("Visura Protesti"),
 		VATTU("Visura Ordinaria"),
+		VSTOR("Visura Storica"),
+		FATTU("Fscicolo"),
+		FSTOR("Fascicolo Storico"),
 		;
 
 	    private String name;
@@ -60,6 +63,9 @@ public class Costants {
 		AMLI01("Ricerca Anagrafica"), 
 		AMVI01("Visura Protesti"), 
 		VATTU("Visura Ordinaria"),
+		VSTOR("Visura Storica"),
+		FATTU("Fscicolo"),
+		FSTOR("Fascicolo Storico"),
 		;
 
 	    private String name;

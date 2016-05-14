@@ -3,11 +3,11 @@ package it.vidoc.utils;
 import java.util.List;
 
 import it.vidoc.mybatis.javamodel.User;
-import it.vidoc.mybatis.javamodel.Userabilitazioni;
+import it.vidoc.mybatis.javamodel.Userrole;
 
 public class DatiSessione {
 	private User user = null;
-	private List<Userabilitazioni> lstUserabilitazioni = null;
+	private List<Userrole> lstUserrole = null;
 	private List<Long> AMLstKanagra = null;
 	private String AMnome = null;
 	private String AMindirizzo = null;
@@ -25,6 +25,8 @@ public class DatiSessione {
 	private int rigaListino;
 	private Integer rigaAccount;
 	private Integer rigaElencoDocumenti;
+	private Integer ListinoUtentiAttivo;
+	private Integer ListinoInternoAttivo;	
 
 	public String getAMnome() {
 		return AMnome;
@@ -66,12 +68,12 @@ public class DatiSessione {
 		this.user = user;
 	}
 
-	public List<Userabilitazioni> getLstUserabilitazioni() {
-		return lstUserabilitazioni;
+	public List<Userrole> getLstUserrole() {
+		return lstUserrole;
 	}
 
-	public void setLstUserabilitazioni(List<Userabilitazioni> lstUserabilitazioni) {
-		this.lstUserabilitazioni = lstUserabilitazioni;
+	public void setLstUserrole(List<Userrole> lstUserrole) {
+		this.lstUserrole = lstUserrole;
 	}
 
 	public List<Long> getAMLstKanagra() {
@@ -168,6 +170,22 @@ public class DatiSessione {
 
 	public void setRigaAccount(Integer rigaAccount) {
 		this.rigaAccount = rigaAccount;
+	}
+
+	public Integer getListinoUtentiAttivo() {
+		return ListinoUtentiAttivo;
+	}
+
+	public void setListinoUtentiAttivo(Integer listinoUtentiAttivo) {
+		ListinoUtentiAttivo = listinoUtentiAttivo;
+	}
+
+	public Integer getListinoInternoAttivo() {
+		return ListinoInternoAttivo;
+	}
+
+	public void setListinoInternoAttivo(Integer listinoInternoAttivo) {
+		ListinoInternoAttivo = listinoInternoAttivo;
 	}
 
 }

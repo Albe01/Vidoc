@@ -1,8 +1,7 @@
 package it.vidoc.report;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,8 +12,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.zkoss.util.media.AMedia;
-import org.zkoss.zk.ui.Execution;
-import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Sessions;
 
 import it.vidoc.utils.MyBatisConnectionFactory;
@@ -25,7 +22,11 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
+import net.sf.jasperreports.engine.export.HtmlExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.export.Exporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
 
 public class GestioneReport {
 	private final Logger logger = Logger.getLogger(getClass());
@@ -102,6 +103,11 @@ public class GestioneReport {
 		    	Long value = (Long) entry.getValue();
 		    	parameterMap.put(key, value);
 			}
+		    if (entry.getValue() instanceof java.util.List) {
+		    	java.util.List value = (java.util.List) entry.getValue();
+		    	parameterMap.put(key, value);
+			}
+
 		}
 		parameterMap.put("PATH_WEBCONTENT", PATH_WEBCONTENT);
 		
@@ -135,4 +141,19 @@ public class GestioneReport {
 		ret.put("documentByte", buf);
 		return ret;
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ByteArrayOutputStream exportReportToHtml(JasperPrint jasperPrint) {
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		Exporter exporter = new HtmlExporter();;
+        exporter.setExporterOutput(new SimpleHtmlExporterOutput(out));
+        exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+        try {
+			exporter.exportReport();
+		} catch (JRException e) {
+			e.printStackTrace();
+		}
+		return out;
+	}
+
 }

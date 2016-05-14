@@ -8,7 +8,8 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/amedeo" userId="root"
+			connectionURL="jdbc:mysql://localhost:3306/amedeo" 
+			userId="root"
 			password="" />
 		<javaModelGenerator targetPackage="it.vidoc.mybatis.javamodel"
 			targetProject="Vidoc" />
@@ -46,12 +47,14 @@
 		<table schema="amedeo" tableName="strcodcomnas" />
 		<table schema="amedeo" tableName="logelab" />
 		<table schema="amedeo" tableName="infcomuni" />
-		<table schema="user" tableName="user" />
-		<table schema="user" tableName="userabilitazioni" />
-		<table schema="user" tableName="listino" />
-		<table schema="user" tableName="account" />
-		<table schema="user" tableName="elencodocumenti" />		
+		<table schema="amedeo" tableName="user" />
+		<table schema="amedeo" tableName="userrole" />
+		<table schema="amedeo" tableName="listino" />
+		<table schema="amedeo" tableName="account" />
+		<table schema="amedeo" tableName="elencodocumenti" />		
 		<table schema="amedeo" tableName="amedeodateagg" />		
+		<table schema="amedeo" tableName="elencolistini" />
+		<table schema="amedeo" tableName="matrixabilitazioni" />				
 
 	</context>
 </generatorConfiguration>

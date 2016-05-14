@@ -39,23 +39,16 @@
 							emptyMessage="Nessun operazione trovata con i dati indicati">
 							<listhead sizable="false">
 								<listheader label="Data" hflex="min" />
-								<listheader label="Banca Dati"
-									hflex="min" />
-								<listheader label="Richiesta"
-									hflex="min" />
-								<listheader label="Risposta"
-									hflex="min" />
-								<listheader label="Esito" hflex="min"
-									align="center" />
-								<listheader label="Onl./Diff."
-									hflex="min" align="center" />
-								<listheader label="Prezzo" hflex="min"
-									align="Right" />
-								<listheader label="Diritti Segreteria"
-									hflex="min" align="Right" />
-								<listheader 
-									hflex="min" align="Center" />
-								<listheader visible="false"/>
+								<listheader label="Rif." hflex="min" />
+								<listheader label="Banca Dati" hflex="min" />
+								<listheader label="Richiesta" hflex="min" />
+								<listheader label="Risposta" hflex="min" />
+								<listheader label="Esito" hflex="min" align="center" />
+								<listheader label="Onl./Diff." hflex="min" align="center" />
+								<listheader label="Prezzo" hflex="min" align="Right" />
+								<listheader label="Diritti Segreteria" hflex="min" align="Right" />
+								<listheader hflex="min" align="Center" />
+								<listheader label="img" visible="false"/>
 								<listheader label="rigaAccount" visible="false"/>
 							</listhead>
 						</listbox>

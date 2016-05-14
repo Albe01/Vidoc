@@ -235,9 +235,19 @@ public class WinAmListaController extends GenericForwardComposer {
 						
 						Elencodocumenti elencodocumenti = new Elencodocumenti();
 						elencodocumenti.setProgrrigaaccount(rigaAccount);
+						String rif = "";
+						String tmpCel = ((Listcell) lbListaAnag.getSelectedItem().getChildren().get(0)).getLabel();
+						if ( !"".equals(tmpCel) && tmpCel != null) {
+							rif = rif + tmpCel;
+						}
+//						tmpCel =((Listcell) lbListaAnag.getSelectedItem().getChildren().get(1)).getLabel();
+//						if ( !"".equals(tmpCel) && tmpCel != null) {
+//							rif = rif + tmpCel;
+//						}
+						elencodocumenti.setRiferimenti(rif);
 						elencodocumenti.setTipodocumento("pdf");
 						new SqlElencoDocumenti().insertReturnID(elencodocumenti);
-						Integer rigaElencoDocumenti =elencodocumenti.getProgrriga(); 
+						Integer rigaElencoDocumenti = elencodocumenti.getProgrriga(); 
 								
 						elencodocumenti.setDocumento((byte[]) dati.get("documentByte"));
 						new ManageDbWithJDBC().updateElencoDocumenti(elencodocumenti);

@@ -5,14 +5,14 @@
 	<insert id="insertReturnID"
 		parameterType="it.vidoc.mybatis.javamodel.Elencodocumenti"
 		useGeneratedKeys="true" keyProperty="progrriga" keyColumn="progrriga">
-
+		
 	    insert into elencodocumenti (data, progrrigaaccount, 
 	      riferimenti, tipodocumento, documento
 	      )
 	    values (#{data,jdbcType=VARCHAR}, #{progrrigaaccount,jdbcType=INTEGER}, 
 	      #{riferimenti,jdbcType=VARCHAR}, #{tipodocumento,jdbcType=VARCHAR}, #{documento,jdbcType=LONGVARBINARY}
 	      )
-
+ 
 	</insert>
 
 </mapper>

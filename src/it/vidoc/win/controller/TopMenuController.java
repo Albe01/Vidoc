@@ -10,6 +10,7 @@ import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Menuitem;
 
 @SuppressWarnings("rawtypes")
 public class TopMenuController extends GenericForwardComposer {
@@ -17,12 +18,17 @@ public class TopMenuController extends GenericForwardComposer {
 	private Session session = null;
 	private DatiSessione datiSessione = null;
 	
+	private Menuitem menuitemAreaRis;
+	
 	@SuppressWarnings("unchecked")
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 		try {
 			session = Sessions.getCurrent();
 			datiSessione = (DatiSessione) session.getAttribute("datisessione");
+			if (datiSessione.getLstUserrole().get(0).getRole().equalsIgnoreCase("SUSER")) {
+				menuitemAreaRis.setDisabled(false);
+			}
 		} catch (Exception e) {
 			Clients.showNotification("Errore. Mancano dati sessione.", Clients.NOTIFICATION_TYPE_ERROR, null, null, 10000, true);
 			Executions.sendRedirect("/index.zul");
@@ -63,6 +69,9 @@ public class TopMenuController extends GenericForwardComposer {
 	}
 	public void onClick$menuitemlogOper(Event event){
 		LoadNewPage.loadNewPage("/zulpages/LogOperazioni.zul");		
+	}
+	public void onClick$menuitemAreaRis(Event event){
+		LoadNewPage.loadNewPage("/zulpages/BackEnd.zul");		
 	}
 	public void onClick$menuitemHelp(Event event){
 		Clients.showNotification("under construction", Clients.NOTIFICATION_TYPE_INFO, null, null, 5000, true);		

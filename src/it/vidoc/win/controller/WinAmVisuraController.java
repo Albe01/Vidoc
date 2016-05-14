@@ -40,10 +40,19 @@ public class WinAmVisuraController extends GenericForwardComposer {
 	@SuppressWarnings("unchecked")
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
+		
+//		String parm = execution.getParameter("kanagra");
+		
 		session = Sessions.getCurrent();
 		datiSessione = (DatiSessione) session.getAttribute("datisessione");
 
 		Effetti where = new Effetti();
+		
+//		if (!"".equals(param) && param != null) {
+//			where.setKanagra(Long.parseLong(parm));
+//		} else {
+//			where.setKanagra(datiSessione.getAMkanagraVis());
+//		}
 		where.setKanagra(datiSessione.getAMkanagraVis());
 		listEffetti = new SqlEffetti().selectByExample(where, "dataiscrizione desc");
 		riempiLbVisura(listEffetti);

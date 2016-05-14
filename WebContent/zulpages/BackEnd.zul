@@ -1,0 +1,161 @@
+<?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winBackEnd" border="rounded+" contentStyle="overflow:auto" hflex="1">
+		<include src="/zulpages/styles.zul" />
+		<tabbox id="tabbox" width="99%" height="96%">
+			<tabs id="tabs">
+				<tab id="tabContratti" label="Contratti" />
+				<tab id="tabUtenti" label="Utenti" />
+			</tabs>
+			<tabpanels id="tabpanels">
+				<tabpanel id="tabpanelContratti"
+					apply="it.vidoc.win.controller.WinContrattiController">
+					<separator></separator>
+					<hbox align="start" pack="center" vflex="min" width="100%">
+						<button id="btnNewContr" label="Nuovo"></button>
+						<button id="btnCopiaContr" label="Copia contratto da:"></button>
+						<combobox id="cmbContr" readonly="false" autodrop="false"
+							autocomplete="true" width="99%" />
+					</hbox>
+					<separator></separator>
+					<hbox align="center" pack="start" vflex="min" width="100%">
+						<label value="-- Dati Contratto --" sclass="label" />
+					</hbox>
+					<hbox align="start" pack="center" vflex="min" width="100%">
+						<grid>
+							<columns>
+								<column width="7%" />
+								<column width="45%" />
+								<column width="6%" />
+								<column width="18%" />
+								<column width="6%" />
+								<column width="27%" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Contratto N." sclass="label" />
+									<textbox id="txbContratto" width="50%" />
+									<label value="Attivaz." sclass="label" />
+									<datebox id="dataDa" cols="10" format="dd/MM/yyyy" />
+									<label value="Cessaz." sclass="label" />
+									<datebox id="dataA" cols="10" format="dd/MM/yyyy " />
+								</row>
+								<row>
+									<label value="Nominativo:" sclass="label" />
+									<textbox id="txbNom" width="100%" />
+									<label value="Cod.Fisc." sclass="label" />
+									<textbox id="txbCF" width="100%" />
+									<label value="Tel." sclass="label" />
+									<textbox id="txbTel" width="100%" />
+								</row>
+								<row>
+									<label value="Indirizzo" sclass="label" />
+									<textbox id="txbIndir" width="100%" />
+									<label value="Comune" sclass="label" />
+									<textbox id="txbComune" width="100%" />
+									<label value="Prov." sclass="label" width="20%" />
+									<textbox id="txbProvincia" width="25%" />
+								</row>
+								<row spans="1,1,1,3">
+									<label value="Riferimento" sclass="label" />
+									<textbox id="txbRif" width="100%" />
+									<label value="EMail" sclass="label" />
+									<textbox id="txbEmail" width="100%" />
+								</row>
+							</rows>
+						</grid>
+					</hbox>
+					<separator></separator>
+					<separator></separator>
+
+					<listbox id="lbAbilContratto" span="true" height="280px">
+						<listhead sizable="false">
+							<listheader label="Banca Dati" hflex="min" />
+							<listheader label="Richiesta On-Line" hflex="min" />
+							<listheader label="Prezzo Listino" hflex="min" />
+							<listheader label="Sconto %" hflex="min" />
+							<listheader label="Prezzo Scontato" hflex="min" />
+							<listheader label="Richiesta Differita" hflex="min" />
+							<listheader label="Prezzo Listino" hflex="min" />
+							<listheader label="Sconto %" hflex="min" />
+							<listheader label="Prezzo Scontato" hflex="min" />
+							<listheader label="Abilita" hflex="min" />
+						</listhead>
+					</listbox>
+
+
+
+
+<!-- 
+					<hbox align="center" pack="start" vflex="min" width="100%">
+						<label value=" Abilitazioni Banche Dati " sclass="label" />
+					</hbox>
+					<hbox align="center" pack="center" vflex="min" width="100%" height="100%">
+						<grid id="grdAbilitazioni" width="100%" height="170px">
+							<columns>
+								<column label="Banca Dati" />
+								<column label="Tipo Richiesta" />
+								<column label="Prezzo Listino" />
+								<column label="Sconto %" />
+								<column label="Prezzo Scontato" />
+								<column label=" " />
+							</columns>
+							<rows>
+								<row>
+									<label value="Registro Imprese" sclass="label" />
+									<label value="Ricerca" sclass="label" />
+									<label value=" " />
+									<doublebox id="dbbSconto01" format="00.0000" value="00.0000" />
+									<label value=" " />
+									<checkbox id="chb01" checked="true" />
+								</row>
+								<row>
+									<label value=" " sclass="label" />
+									<label value="Visura Attuale" sclass="label" />
+									<label value=" " />
+									<doublebox id="dbbSconto02" format="00.0000" value="00.0000" />
+									<label value=" " />
+									<checkbox id="chb02" checked="true" />
+								</row>
+								<row>
+									<label value=" " sclass="label" />
+									<label value="Visura Storica" sclass="label" />
+									<label value=" " />
+									<doublebox id="dbbSconto03" format="00.0000" value="00.0000" />
+									<label value=" " />
+									<checkbox id="chb03" checked="true" />
+								</row>
+								<row>
+									<label value="Protesti Amedeo" sclass="label" />
+									<label value="Ricerca" sclass="label" />
+									<label id="lblPrzListino04" />
+									<doublebox id="dbbSconto04" format="00.0000" value="00.0000" />
+									<label id="lblPrzScontato04" />
+									<checkbox id="chb04" checked="true" />
+								</row>
+								<row>
+									<label value=" " sclass="label" />
+									<label value="Visura" sclass="label" />
+									<label value=" " />
+									<doublebox id="dbbSconto05" format="00.0000" value="00.0000" />
+									<label value=" " />
+									<checkbox id="chb05" checked="true" />
+								</row>
+							</rows>
+						</grid>
+					</hbox>
+ -->					
+
+				</tabpanel>
+				<tabpanel id="tabpanelUtenti" apply="it.vidoc.win.controller.WinUtentiController">
+					<hbox align="start" pack="center" height="100%" width="100%">
+						<button id="btnNewUser" label="Nuovo"></button>
+						<button id="btnCopiaUtente" label="Copia utente da:"></button>
+						<combobox id="cmbUtenti" readonly="false" autodrop="false"
+							autocomplete="true" width="99%" />
+					</hbox>
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+	</window>
+</zk>

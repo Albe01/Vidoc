@@ -14,7 +14,7 @@ public class CheckLogin {
 		Boolean ret = true;
 		sess = Sessions.getCurrent();
 		datiSessione = (DatiSessione) sess.getAttribute("datisessione");
-		if (datiSessione == null || datiSessione.getUser() == null || datiSessione.getLstUserabilitazioni() == null) {
+		if (datiSessione == null || datiSessione.getUser() == null || datiSessione.getLstUserrole() == null) {
 			Executions.sendRedirect("/zulpages/login.zul");
 			ret = false;
 		}
