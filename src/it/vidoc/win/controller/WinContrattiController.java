@@ -12,6 +12,7 @@ import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zul.Checkbox;
 import org.zkoss.zul.Doublebox;
 import org.zkoss.zul.Image;
 import org.zkoss.zul.Label;
@@ -54,32 +55,36 @@ public class WinContrattiController extends GenericForwardComposer {
 
 	public void riempiLbAbilContratto() {
 		lbAbilContratto.getItems().clear();
-		DecimalFormat decimalFormat = new DecimalFormat("#,###,###,##0.00");
+		String bancaDati = "";
+		Double przScontato;
+		Doublebox db;
+		DecimalFormat decimalFormat = new DecimalFormat("#,#00.0000");
 		Listino where = new Listino();
 		List<Listino> lstListino = new ArrayList<Listino>();
 		Matrixabilitazioni matrixabilitazioni = new Matrixabilitazioni();
-		List<Matrixabilitazioni> lstAbil = new SqlMatrixAbilitazioni().selectByExample(matrixabilitazioni, "progrriga");
+		List<Matrixabilitazioni> lstAbil = new SqlMatrixAbilitazioni().selectByExample(matrixabilitazioni, "codicebancadati, codicerichiesta");
 		
-//		Listino where = new Listino();
-//		where.setNumerolistino(datiSessione.getListinoUtentiAttivo());
-//		where.setCodicelistino("UTENTE");
-//		where.setOnldiff("O");
-//		where.setPosneg("+");
-//		List<Listino> lstListino = new SqlListino().selectByExample(where, null);
-//		Map<String, Double> mapPrz = new HashMap<String, Double>();
-//		for (int i = 0; i < lstListino.size(); i++) {
-//			mapPrz.put(lstListino.get(i).getCodicerichiesta(), lstListino.get(i).getPrezzo());
-//			
-//		}
-
 		for (int i = 0; i < lstAbil.size(); i++) {
 			Listitem riga = new Listitem();
 			Listcell cella = new Listcell();
 
-			cella = new Listcell();
-			cella.setLabel(BANCA_DATI.valueOf(lstAbil.get(i).getCodicebancadati()).value());
-			cella.setStyle("white-space:nowrap;overflow:hidden");
-			riga.appendChild(cella);
+			if (lstAbil.get(i).getCodicebancadati().equalsIgnoreCase(bancaDati)) {
+				cella = new Listcell();
+				cella.setLabel("");
+				cella.setStyle("white-space:nowrap;overflow:hidden");
+				riga.appendChild(cella);
+			} else {
+				bancaDati = lstAbil.get(i).getCodicebancadati();
+				cella = new Listcell();
+				cella.setLabel(BANCA_DATI.valueOf(bancaDati).value());
+				cella.setStyle("white-space:nowrap;overflow:hidden;font-weight:bold");
+				riga.appendChild(cella);
+			}
+			
+//			cella = new Listcell();
+//			cella.setLabel(BANCA_DATI.valueOf(bancaDati).value());
+//			cella.setStyle("white-space:nowrap;overflow:hidden");
+//			riga.appendChild(cella);
 			
 			cella = new Listcell();
 			cella.setLabel("");
@@ -97,19 +102,70 @@ public class WinContrattiController extends GenericForwardComposer {
 			}
 			riga.appendChild(cella);
 			
+// On-Line			
 			cella = new Listcell();
 			if (lstListino.size() > 0) {
 				cella.setLabel(decimalFormat.format(lstListino.get(0).getPrezzo()));
-				cella.setStyle("white-space:nowrap;overflow:hidden");
+			} else {
+				cella.setLabel(decimalFormat.format(new Double(000.0000)));
 			}
+			cella.setStyle("white-space:nowrap;overflow:hidden");
 			riga.appendChild(cella);
 
 			cella = new Listcell();
-			Doublebox db = new Doublebox();
+			db = new Doublebox();
+			db.setFormat("#,#00.0000");
 			db.setValue(new Double(000.0000));
 			cella.appendChild(db);
 			riga.appendChild(cella);
+			
+			cella = new Listcell();
+			przScontato = (lstListino.get(0).getPrezzo()) - (lstListino.get(0).getPrezzo() * new Double(000.0000) / 100);
+			cella.setLabel(decimalFormat.format(przScontato));
+			riga.appendChild(cella);
+			
 
+// Differita			
+			cella = new Listcell();
+			where = new Listino();
+			where.setNumerolistino(datiSessione.getListinoUtentiAttivo());
+			where.setCodicelistino("UTENTE");
+			where.setCodicebancadati(lstAbil.get(i).getCodicebancadati());
+			where.setCodicerichiesta(lstAbil.get(i).getCodicerichiesta());
+			where.setOnldiff("D");
+			where.setPosneg("+");
+			lstListino = new SqlListino().selectByExample(where, null);
+			if (lstListino.size() > 0) {
+				cella.setLabel(decimalFormat.format(lstListino.get(0).getPrezzo()));
+			} else {
+				cella.setLabel(decimalFormat.format(new Double(000.0000)));
+			}
+			cella.setStyle("white-space:nowrap;overflow:hidden");
+			riga.appendChild(cella);
+
+			cella = new Listcell();
+			db = new Doublebox();
+			db.setFormat("#,#00.0000");
+			db.setValue(new Double(000.0000));
+			cella.appendChild(db);
+			riga.appendChild(cella);
+			
+			cella = new Listcell();
+			przScontato = new Double(000.0000);
+			if (lstListino.size() > 0) {
+				przScontato = (lstListino.get(0).getPrezzo()) - (lstListino.get(0).getPrezzo() * new Double(000.0000) / 100);
+			}
+			cella.setLabel(decimalFormat.format(przScontato));
+			riga.appendChild(cella);
+			
+			
+			
+			cella = new Listcell();
+			Checkbox chb = new Checkbox();
+			chb.setChecked(true);
+			cella.appendChild(chb);
+			riga.appendChild(cella);
+			
 			lbAbilContratto.appendChild(riga);
 		}
 	}

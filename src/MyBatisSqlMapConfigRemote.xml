@@ -10,32 +10,13 @@
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="${jdbc.driverClassName}" />
-				<property name="url" value="${jdbc.url}" />
-				<property name="username" value="${jdbc.username}" />
-				<property name="password" value="${jdbc.password}" />
+				<property name="driver" value="${jdbc.driverClassNameRemote}" />
+				<property name="url" value="${jdbc.urlRemote}" />
+				<property name="username" value="${jdbc.usernameRemote}" />
+				<property name="password" value="${jdbc.passwordRemote}" />
 			</dataSource>
 		</environment>
 	</environments>
-<!-- 
-	<environments default="development">
-		<environment id="development">
-			<transactionManager type="JDBC" />
-			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/amedeo" />
-				<property name="username" value="root" />
-				<property name="password" value="" />
-			</dataSource>
-		</environment>
-	</environments>
- -->
-
-	<!-- <environments default="development"> <environment id="development"> 
-		<transactionManager type="JDBC" /> <dataSource type="POOLED"> <property name="driver" 
-		value="com.mysql.jdbc.Driver" /> <property name="url" value="jdbc:mysql://127.13.149.130:3306/amedeo" 
-		/> <property name="username" value="adminpXETltI" /> <property name="password" 
-		value="6I-X3D2a9m3_" /> </dataSource> </environment> </environments> -->
 	<mappers>
 		<mapper resource="it/vidoc/mybatis/sqlmapper/AnagraficheMapper.xml" />
 		<mapper resource="it/vidoc/mybatis/sqlmapper/EffettiMapper.xml" />

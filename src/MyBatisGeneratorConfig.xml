@@ -7,14 +7,11 @@
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
 
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/amedeo" 
-			userId="root"
-			password="" />
-		<javaModelGenerator targetPackage="it.vidoc.mybatis.javamodel"
-			targetProject="Vidoc" />
-		<sqlMapGenerator targetPackage="it.vidoc.mybatis.sqlmapper"
-			targetProject="Vidoc" />
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://localhost:3306/amedeo"
+			userId="root" password="" />
+		<javaModelGenerator targetPackage="it.vidoc.mybatis.javamodel" targetProject="Vidoc" />
+		<sqlMapGenerator targetPackage="it.vidoc.mybatis.sqlmapper" targetProject="Vidoc" />
 		<javaClientGenerator targetPackage="it.vidoc.mybatis.javaclient"
 			targetProject="Vidoc" type="XMLMAPPER" />
 
@@ -51,10 +48,10 @@
 		<table schema="amedeo" tableName="userrole" />
 		<table schema="amedeo" tableName="listino" />
 		<table schema="amedeo" tableName="account" />
-		<table schema="amedeo" tableName="elencodocumenti" />		
-		<table schema="amedeo" tableName="amedeodateagg" />		
+		<table schema="amedeo" tableName="elencodocumenti" />
+		<table schema="amedeo" tableName="amedeodateagg" />
 		<table schema="amedeo" tableName="elencolistini" />
-		<table schema="amedeo" tableName="matrixabilitazioni" />				
+		<table schema="amedeo" tableName="matrixabilitazioni" />
 
 	</context>
 </generatorConfiguration>

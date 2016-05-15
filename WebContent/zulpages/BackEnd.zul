@@ -35,9 +35,9 @@
 								<row>
 									<label value="Contratto N." sclass="label" />
 									<textbox id="txbContratto" width="50%" />
-									<label value="Attivaz." sclass="label" />
+									<label value="Valido dal" sclass="label" />
 									<datebox id="dataDa" cols="10" format="dd/MM/yyyy" />
-									<label value="Cessaz." sclass="label" />
+									<label value="al" sclass="label" />
 									<datebox id="dataA" cols="10" format="dd/MM/yyyy " />
 								</row>
 								<row>
@@ -66,16 +66,19 @@
 						</grid>
 					</hbox>
 					<separator></separator>
-					<separator></separator>
-
-					<listbox id="lbAbilContratto" span="true" height="280px">
+					<listbox id="lbAbilContratto" span="true"   rows="5" >
+						<auxhead>
+							<auxheader colspan="2"/>
+							<auxheader label="Richieste On-Line" colspan="3"  align="center"/>
+							<auxheader label="Richieste Differite" colspan="3" align="center"/>
+							<auxheader />
+						</auxhead>
 						<listhead sizable="false">
 							<listheader label="Banca Dati" hflex="min" />
-							<listheader label="Richiesta On-Line" hflex="min" />
+							<listheader label="Richiesta" hflex="min" />
 							<listheader label="Prezzo Listino" hflex="min" />
 							<listheader label="Sconto %" hflex="min" />
 							<listheader label="Prezzo Scontato" hflex="min" />
-							<listheader label="Richiesta Differita" hflex="min" />
 							<listheader label="Prezzo Listino" hflex="min" />
 							<listheader label="Sconto %" hflex="min" />
 							<listheader label="Prezzo Scontato" hflex="min" />
@@ -86,65 +89,65 @@
 
 
 
-<!-- 
-					<hbox align="center" pack="start" vflex="min" width="100%">
+					<!-- 
+						<hbox align="center" pack="start" vflex="min" width="100%">
 						<label value=" Abilitazioni Banche Dati " sclass="label" />
-					</hbox>
-					<hbox align="center" pack="center" vflex="min" width="100%" height="100%">
+						</hbox>
+						<hbox align="center" pack="center" vflex="min" width="100%" height="100%">
 						<grid id="grdAbilitazioni" width="100%" height="170px">
-							<columns>
-								<column label="Banca Dati" />
-								<column label="Tipo Richiesta" />
-								<column label="Prezzo Listino" />
-								<column label="Sconto %" />
-								<column label="Prezzo Scontato" />
-								<column label=" " />
-							</columns>
-							<rows>
-								<row>
-									<label value="Registro Imprese" sclass="label" />
-									<label value="Ricerca" sclass="label" />
-									<label value=" " />
-									<doublebox id="dbbSconto01" format="00.0000" value="00.0000" />
-									<label value=" " />
-									<checkbox id="chb01" checked="true" />
-								</row>
-								<row>
-									<label value=" " sclass="label" />
-									<label value="Visura Attuale" sclass="label" />
-									<label value=" " />
-									<doublebox id="dbbSconto02" format="00.0000" value="00.0000" />
-									<label value=" " />
-									<checkbox id="chb02" checked="true" />
-								</row>
-								<row>
-									<label value=" " sclass="label" />
-									<label value="Visura Storica" sclass="label" />
-									<label value=" " />
-									<doublebox id="dbbSconto03" format="00.0000" value="00.0000" />
-									<label value=" " />
-									<checkbox id="chb03" checked="true" />
-								</row>
-								<row>
-									<label value="Protesti Amedeo" sclass="label" />
-									<label value="Ricerca" sclass="label" />
-									<label id="lblPrzListino04" />
-									<doublebox id="dbbSconto04" format="00.0000" value="00.0000" />
-									<label id="lblPrzScontato04" />
-									<checkbox id="chb04" checked="true" />
-								</row>
-								<row>
-									<label value=" " sclass="label" />
-									<label value="Visura" sclass="label" />
-									<label value=" " />
-									<doublebox id="dbbSconto05" format="00.0000" value="00.0000" />
-									<label value=" " />
-									<checkbox id="chb05" checked="true" />
-								</row>
-							</rows>
+						<columns>
+						<column label="Banca Dati" />
+						<column label="Tipo Richiesta" />
+						<column label="Prezzo Listino" />
+						<column label="Sconto %" />
+						<column label="Prezzo Scontato" />
+						<column label=" " />
+						</columns>
+						<rows>
+						<row>
+						<label value="Registro Imprese" sclass="label" />
+						<label value="Ricerca" sclass="label" />
+						<label value=" " />
+						<doublebox id="dbbSconto01" format="00.0000" value="00.0000" />
+						<label value=" " />
+						<checkbox id="chb01" checked="true" />
+						</row>
+						<row>
+						<label value=" " sclass="label" />
+						<label value="Visura Attuale" sclass="label" />
+						<label value=" " />
+						<doublebox id="dbbSconto02" format="00.0000" value="00.0000" />
+						<label value=" " />
+						<checkbox id="chb02" checked="true" />
+						</row>
+						<row>
+						<label value=" " sclass="label" />
+						<label value="Visura Storica" sclass="label" />
+						<label value=" " />
+						<doublebox id="dbbSconto03" format="00.0000" value="00.0000" />
+						<label value=" " />
+						<checkbox id="chb03" checked="true" />
+						</row>
+						<row>
+						<label value="Protesti Amedeo" sclass="label" />
+						<label value="Ricerca" sclass="label" />
+						<label id="lblPrzListino04" />
+						<doublebox id="dbbSconto04" format="00.0000" value="00.0000" />
+						<label id="lblPrzScontato04" />
+						<checkbox id="chb04" checked="true" />
+						</row>
+						<row>
+						<label value=" " sclass="label" />
+						<label value="Visura" sclass="label" />
+						<label value=" " />
+						<doublebox id="dbbSconto05" format="00.0000" value="00.0000" />
+						<label value=" " />
+						<checkbox id="chb05" checked="true" />
+						</row>
+						</rows>
 						</grid>
-					</hbox>
- -->					
+						</hbox>
+					-->
 
 				</tabpanel>
 				<tabpanel id="tabpanelUtenti" apply="it.vidoc.win.controller.WinUtentiController">
