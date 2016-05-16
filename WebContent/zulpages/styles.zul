@@ -1,5 +1,15 @@
 <?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
 <zk>
+	<style>
+   <!--for height row in grid --> 
+    .MyGridRowHeight
+        tr.z-row td.z-row-inner div.z-row-content{
+            border:1px solid white;
+            border-right:1px solid transparent;
+            padding:0px;
+            margin:0px;
+     }
+</style>
 
 <style>
 	<!-- ZK-Gritter notifications -->

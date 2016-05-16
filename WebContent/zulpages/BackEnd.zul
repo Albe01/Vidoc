@@ -2,27 +2,27 @@
 <zk>
 	<window id="winBackEnd" border="rounded+" contentStyle="overflow:auto" hflex="1">
 		<include src="/zulpages/styles.zul" />
+		<separator></separator>
 		<tabbox id="tabbox" width="99%" height="96%">
 			<tabs id="tabs">
 				<tab id="tabContratti" label="Contratti" />
 				<tab id="tabUtenti" label="Utenti" />
 			</tabs>
 			<tabpanels id="tabpanels">
+			
 				<tabpanel id="tabpanelContratti"
-					apply="it.vidoc.win.controller.WinContrattiController">
+					apply="it.vidoc.win.controller.WinContrattiController" width="99%">
 					<separator></separator>
 					<hbox align="start" pack="center" vflex="min" width="100%">
-						<button id="btnNewContr" label="Nuovo"></button>
-						<button id="btnCopiaContr" label="Copia contratto da:"></button>
+						<button id="btnNewContr" label="Nuovo Contratto"></button>
+						<button id="btnCopiaContr" label="Copia contratto"></button>
+						<button id="btnEditContr" label="Visualizza contratto"></button>
 						<combobox id="cmbContr" readonly="false" autodrop="false"
 							autocomplete="true" width="99%" />
 					</hbox>
 					<separator></separator>
-					<hbox align="center" pack="start" vflex="min" width="100%">
-						<label value="-- Dati Contratto --" sclass="label" />
-					</hbox>
 					<hbox align="start" pack="center" vflex="min" width="100%">
-						<grid>
+						<grid visible="false">
 							<columns>
 								<column width="7%" />
 								<column width="45%" />
@@ -66,12 +66,11 @@
 						</grid>
 					</hbox>
 					<separator></separator>
-					<listbox id="lbAbilContratto" span="true"   rows="5" >
+					<listbox id="lbAbilContratto" span="true" rows="6" visible="true" multiple="true" checkmark="true">
 						<auxhead>
-							<auxheader colspan="2"/>
-							<auxheader label="Richieste On-Line" colspan="3"  align="center"/>
-							<auxheader label="Richieste Differite" colspan="3" align="center"/>
-							<auxheader />
+							<auxheader label="Abilitazioni" colspan="2" align="center" />
+							<auxheader label="Richieste On-Line" colspan="3" align="center" />
+							<auxheader label="Richieste Differite" colspan="3" align="center" />
 						</auxhead>
 						<listhead sizable="false">
 							<listheader label="Banca Dati" hflex="min" />
@@ -82,74 +81,10 @@
 							<listheader label="Prezzo Listino" hflex="min" />
 							<listheader label="Sconto %" hflex="min" />
 							<listheader label="Prezzo Scontato" hflex="min" />
-							<listheader label="Abilita" hflex="min" />
 						</listhead>
 					</listbox>
-
-
-
-
-					<!-- 
-						<hbox align="center" pack="start" vflex="min" width="100%">
-						<label value=" Abilitazioni Banche Dati " sclass="label" />
-						</hbox>
-						<hbox align="center" pack="center" vflex="min" width="100%" height="100%">
-						<grid id="grdAbilitazioni" width="100%" height="170px">
-						<columns>
-						<column label="Banca Dati" />
-						<column label="Tipo Richiesta" />
-						<column label="Prezzo Listino" />
-						<column label="Sconto %" />
-						<column label="Prezzo Scontato" />
-						<column label=" " />
-						</columns>
-						<rows>
-						<row>
-						<label value="Registro Imprese" sclass="label" />
-						<label value="Ricerca" sclass="label" />
-						<label value=" " />
-						<doublebox id="dbbSconto01" format="00.0000" value="00.0000" />
-						<label value=" " />
-						<checkbox id="chb01" checked="true" />
-						</row>
-						<row>
-						<label value=" " sclass="label" />
-						<label value="Visura Attuale" sclass="label" />
-						<label value=" " />
-						<doublebox id="dbbSconto02" format="00.0000" value="00.0000" />
-						<label value=" " />
-						<checkbox id="chb02" checked="true" />
-						</row>
-						<row>
-						<label value=" " sclass="label" />
-						<label value="Visura Storica" sclass="label" />
-						<label value=" " />
-						<doublebox id="dbbSconto03" format="00.0000" value="00.0000" />
-						<label value=" " />
-						<checkbox id="chb03" checked="true" />
-						</row>
-						<row>
-						<label value="Protesti Amedeo" sclass="label" />
-						<label value="Ricerca" sclass="label" />
-						<label id="lblPrzListino04" />
-						<doublebox id="dbbSconto04" format="00.0000" value="00.0000" />
-						<label id="lblPrzScontato04" />
-						<checkbox id="chb04" checked="true" />
-						</row>
-						<row>
-						<label value=" " sclass="label" />
-						<label value="Visura" sclass="label" />
-						<label value=" " />
-						<doublebox id="dbbSconto05" format="00.0000" value="00.0000" />
-						<label value=" " />
-						<checkbox id="chb05" checked="true" />
-						</row>
-						</rows>
-						</grid>
-						</hbox>
-					-->
-
 				</tabpanel>
+				
 				<tabpanel id="tabpanelUtenti" apply="it.vidoc.win.controller.WinUtentiController">
 					<hbox align="start" pack="center" height="100%" width="100%">
 						<button id="btnNewUser" label="Nuovo"></button>
