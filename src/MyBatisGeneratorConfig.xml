@@ -52,6 +52,7 @@
 		<table schema="amedeo" tableName="amedeodateagg" />
 		<table schema="amedeo" tableName="elencolistini" />
 		<table schema="amedeo" tableName="matrixabilitazioni" />
+		<table schema="amedeo" tableName="contratto" />		
 
 	</context>
 </generatorConfiguration>

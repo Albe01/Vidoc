@@ -22,9 +22,21 @@ public class SqlUser implements ISqlGeneric {
 		UserExample where = new UserExample();
 		it.vidoc.mybatis.javamodel.UserExample.Criteria criteria = where.createCriteria();
 		
-		if (object.getUsername() != null) {
-			criteria.andUsernameEqualTo(object.getUsername());
+		if (object.getUsername() != null && !"".equals(object.getUsername())) {
+			if (object.getUsername().contains("%")) {
+				criteria.andUsernameLike(object.getUsername());				
+			} else {
+				criteria.andUsernameEqualTo(object.getUsername());
+			}
 		}
+		if (object.getCodcontratto() != null && !"".equals(object.getCodcontratto())) {
+			if (object.getCodcontratto().contains("%")) {
+				criteria.andCodcontrattoLike(object.getCodcontratto());				
+			} else {
+				criteria.andCodcontrattoEqualTo(object.getCodcontratto());
+			}
+		}
+
 		return (T) where;
 	}
 

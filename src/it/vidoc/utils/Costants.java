@@ -3,6 +3,9 @@ package it.vidoc.utils;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Costants {
 
@@ -19,7 +22,9 @@ public class Costants {
 	
 	public enum BANCA_DATI {      
 		AMED("Protesti Amedeo"), 
-		REIM("Registro Imprese"), 
+		REIM("Registro Imprese"),
+		REGP("Registro Protesti"),
+		BOND("Bilanci Ottici"),
 		;
 
 	    private String name;
@@ -43,6 +48,12 @@ public class Costants {
 		VSTOR("Visura Storica"),
 		FATTU("Fscicolo"),
 		FSTOR("Fascicolo Storico"),
+		PRLIS1("Ricerca Anagrafica"),
+		PRVIS1("Visura Protesti"),
+		BDLST1("Ricerca Anagrafica"),
+		BDLST2("Lista Prospetti di Bilancio"),
+		BDPAG("Pagina di Bilancio"),
+		BDRICH("Bilancio Ottico"),
 		;
 
 	    private String name;
@@ -66,6 +77,12 @@ public class Costants {
 		VSTOR("Visura Storica"),
 		FATTU("Fscicolo"),
 		FSTOR("Fascicolo Storico"),
+		PRLIS1("Ricerca Anagrafica"),
+		PRVIS1("Visura Protesti"),
+		BDLST1("Ricerca Anagrafica"),
+		BDLST2("Lista Prospetti di Bilancio"),
+		BDPAG("Pagina di Bilancio"),
+		BDRICH("Bilancio Ottico"),
 		;
 
 	    private String name;
@@ -125,4 +142,14 @@ public class Costants {
 		return false;
 	}
 
+	public static synchronized Date parseDate(String date, String format) {
+		Date data = null;
+	    SimpleDateFormat formatter = new SimpleDateFormat(format);
+	    try {
+	    	data =  formatter.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	    return data;
+	}
 }

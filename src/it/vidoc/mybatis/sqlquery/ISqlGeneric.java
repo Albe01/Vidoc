@@ -18,4 +18,13 @@ public interface ISqlGeneric {
 	public <T>   int     updateByPrimaryKeyWithBlobs(T oggetto);
 	public <T,Z> int     updateByExampleWithBlobs(T oggetto, Z whereCondition);
 	public <T,Z> int     updateByExampleSelective(T oggetto, Z whereCondition);
+	
+//	if(object.getXXX()!=null&&!"".equals(object.getXXX())) {
+//		if (object.getXXX().contains("%")) {
+//			criteria.andXXXLike(object.getXXX());
+//		} else {
+//			criteria.andXXXEqualTo(object.getXXX());
+//		}
+//	}
+
 }

@@ -442,6 +442,76 @@ public class UserExample {
 			return (Criteria) this;
 		}
 
+		public Criteria andCodcontrattoIsNull() {
+			addCriterion("codcontratto is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoIsNotNull() {
+			addCriterion("codcontratto is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoEqualTo(String value) {
+			addCriterion("codcontratto =", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoNotEqualTo(String value) {
+			addCriterion("codcontratto <>", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoGreaterThan(String value) {
+			addCriterion("codcontratto >", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoGreaterThanOrEqualTo(String value) {
+			addCriterion("codcontratto >=", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoLessThan(String value) {
+			addCriterion("codcontratto <", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoLessThanOrEqualTo(String value) {
+			addCriterion("codcontratto <=", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoLike(String value) {
+			addCriterion("codcontratto like", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoNotLike(String value) {
+			addCriterion("codcontratto not like", value, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoIn(List<String> values) {
+			addCriterion("codcontratto in", values, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoNotIn(List<String> values) {
+			addCriterion("codcontratto not in", values, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoBetween(String value1, String value2) {
+			addCriterion("codcontratto between", value1, value2, "codcontratto");
+			return (Criteria) this;
+		}
+
+		public Criteria andCodcontrattoNotBetween(String value1, String value2) {
+			addCriterion("codcontratto not between", value1, value2, "codcontratto");
+			return (Criteria) this;
+		}
+
 		public Criteria andPasswordIsNull() {
 			addCriterion("password is null");
 			return (Criteria) this;
