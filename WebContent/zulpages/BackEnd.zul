@@ -1,109 +1,104 @@
 <?page title="Vi.Do.C." contentType="text/html;charset=UTF-8"?>
 <zk>
-	<window id="winBackEnd" border="rounded+" contentStyle="overflow:auto" height="100%"
-		width="100%">
+	<window id="winBackEnd" border="rounded+" height="100%" width="100%">
 		<include src="/zulpages/styles.zul" />
-		<tabbox id="tabbox" width="99%" height="99%" hflex="min" vflex="min">
+		<tabbox id="tabbox">
 			<tabs id="tabs">
 				<tab id="tabContratti" label="Contratti" />
 				<tab id="tabUtenti" label="Utenti" />
 			</tabs>
-			<tabpanels id="tabpanels" height="100%" width="100%">
 
-				<tabpanel id="tabpanelContratti" width="100%"
+			<tabpanels id="tabpanels" height="99%" width="99%">
+				<tabpanel id="tabpanelContratti" width="99%"
 					apply="it.vidoc.win.controller.WinContrattiController">
-					<div height="500px" width="99%" hflex="1" style="overflow:auto">
-						<borderlayout vflex="min" hflex="min">
-							<north size="6%" vflex="1" hflex="1" border="none">
-								<hbox align="center" pack="center" vflex="min" hflex="1"
-									width="100%" height="100%">
-									<button id="btnNewContr" label="Nuovo Contratto"></button>
-									<button id="btnCopiaContr" label="Copia contratto"></button>
-									<button id="btnEditContr" label="Modifica contratto"></button>
-									<combobox id="cmbContr" readonly="false" autodrop="false"
+					<hbox align="center" pack="center" width="99%">
+						<button id="btnNewContr" label="Nuovo Contratto"></button>
+						<!-- 
+							<button id="btnCopiaContr" label="Copia contratto"></button>
+						-->
+						<button id="btnEditContr" label="Modifica contratto"></button>
+						<combobox id="cmbContr" readonly="false" autodrop="false"
+							autocomplete="true" />
+					</hbox>
+					<groupbox id="grbContratto" closable="false">
+						<caption>Dati Contratto</caption>
+						<grid id="gridContratto" visible="true" height="300px">
+							<columns>
+								<column width="10%" />
+								<column width="45%" />
+								<column width="12%" />
+								<column width="30%" />
+								<column width="10%" />
+								<column width="18%" />
+								<column width="6%" />
+								<column width="15%" />
+							</columns>
+							<rows>
+								<row>
+									<label value="Contratto" sclass="label" />
+									<textbox id="txbContratto" width="98%" />
+									<label value="Tipo Contratto" sclass="label" />
+									<combobox id="cmbTipoContr" readonly="false" autodrop="false"
 										autocomplete="true" />
-								</hbox>
-							</north>
-							<center border="none">
-								<vbox align="center" pack="center" vflex="min" hflex="1" width="99%"
-									height="99%">
-									<hbox align="center" pack="center" vflex="min" hflex="min"
-										width="99%" height="99%">
-										<grid visible="true">
-											<columns>
-												<column width="10%" />
-												<column width="45%" />
-												<column width="12%" />
-												<column width="30%" />
-												<column width="8%" />
-												<column width="18%" />
-												<column width="6%" />
-												<column width="27%" />
-											</columns>
-											<rows>
-												<row>
-													<label value="Contratto" sclass="label" />
-													<textbox id="txbContratto" width="98%" />
-													<label value="Tipo Contratto" sclass="label" />
-													<combobox id="cmbTipoContr" readonly="false" autodrop="false" autocomplete="true" />
-													<label value="Valido dal" sclass="label" />
-													<datebox id="dataDa" cols="10" format="dd/MM/yyyy" />
-													<label value="al" sclass="label" />
-													<datebox id="dataA" cols="10" format="dd/MM/yyyy " />
-												</row>
-												<row spans="1,1,1,1,1,3">
-													<label value="Nominativo:" sclass="label" />
-													<textbox id="txbNom" width="98%" />
-													<label value="Cod.Fisc." sclass="label" />
-													<textbox id="txbCF" width="98%" />
-													<label value="Tel." sclass="label" />
-													<textbox id="txbTel" width="98%" />
-												</row>
-												<row spans="1,1,1,1,1,3">
-													<label value="Indirizzo" sclass="label" />
-													<textbox id="txbIndir" width="98%" />
-													<label value="Comune" sclass="label" />
-													<textbox id="txbComune" width="98%" />
-													<label value="Prov." sclass="label" width="20%" />
-													<textbox id="txbProvincia" width="10%" />
-												</row>
-												<row spans="1,1,1,5">
-													<label value="Riferimento" sclass="label" />
-													<textbox id="txbRif" width="98%" />
-													<label value="EMail" sclass="label" />
-													<textbox id="txbEmail" width="98%" />
-												</row>
-											</rows>
-										</grid>
-									</hbox>
-									<hbox align="center" pack="center" vflex="min" width="100%"
-										height="100%">
-										<listbox id="lbAbilContratto" span="true" rows="8"
-											visible="true" multiple="true" checkmark="true" vflex="1">
-											<auxhead>
-												<auxheader label="Abilitazioni" colspan="2"
-													align="center" />
-												<auxheader label="Richieste On-Line" colspan="3"
-													align="center" />
-												<auxheader label="Richieste Differite" colspan="3"
-													align="center" />
-											</auxhead>
-											<listhead sizable="false">
-												<listheader label="Banca Dati" hflex="min" />
-												<listheader label="Richiesta" hflex="min" />
-												<listheader label="Prezzo Listino" hflex="min" />
-												<listheader label="Sconto %" hflex="min" />
-												<listheader label="Prezzo Scontato" hflex="min" />
-												<listheader label="Prezzo Listino" hflex="min" />
-												<listheader label="Sconto %" hflex="min" />
-												<listheader label="Prezzo Scontato" hflex="min" />
-											</listhead>
-										</listbox>
-									</hbox>
-								</vbox>
-							</center>
-						</borderlayout>
-					</div>
+									<label value="Valido dal" sclass="label" />
+									<datebox id="dataDa" cols="10" format="dd/MM/yyyy" />
+									<label value="al" sclass="label" />
+									<datebox id="dataA" cols="10" format="dd/MM/yyyy " />
+								</row>
+								<row spans="1,1,1,1,1,3">
+									<label value="Nominativo:" sclass="label" />
+									<textbox id="txbNom" width="98%" />
+									<label value="Cod.Fisc." sclass="label" />
+									<textbox id="txbCF" width="98%" />
+									<label value="Tel." sclass="label" />
+									<textbox id="txbTel" width="98%" />
+								</row>
+								<row spans="1,1,1,1,1,3">
+									<label value="Indirizzo" sclass="label" />
+									<textbox id="txbIndir" width="98%" />
+									<label value="Provincia" sclass="label" width="20%" />
+									<combobox id="cmbProvincia" readonly="false" autodrop="false"
+										autocomplete="true" />
+									<label value="Comune" sclass="label" />
+									<combobox id="cmbComune" readonly="false" autodrop="false"
+										autocomplete="true" />
+								</row>
+								<row spans="1,1,1,5">
+									<label value="Riferimento" sclass="label" />
+									<textbox id="txbRif" width="98%" />
+									<label value="EMail" sclass="label" />
+									<textbox id="txbEmail" width="99%" />
+								</row>
+							</rows>
+						</grid>
+					</groupbox>
+					<groupbox id="grbAbilContratto" closable="false">
+						<caption>Abilitazioni Contratto</caption>
+						<listbox id="lbAbilContratto" span="true" visible="true" rows="8"
+							multiple="true" checkmark="true" vflex="1">
+							<auxhead>
+								<auxheader label="Abilitazioni" colspan="2" align="center" />
+								<auxheader label="Richieste On-Line" colspan="3" align="center" />
+								<auxheader label="Richieste Differite" colspan="3" align="center" />
+							</auxhead>
+							<listhead sizable="false">
+								<listheader label="Banca Dati" hflex="min" />
+								<listheader label="Richiesta" hflex="min" />
+								<listheader label="Prezzo Listino" hflex="min" />
+								<listheader label="Sconto %" hflex="min" />
+								<listheader label="Prezzo Scontato" hflex="min" />
+								<listheader label="Prezzo Listino" hflex="min" />
+								<listheader label="Sconto %" hflex="min" />
+								<listheader label="Prezzo Scontato" hflex="min" />
+							</listhead>
+						</listbox>
+					</groupbox>
+					<separator></separator>
+					<hbox align="start" pack="center" height="99%" width="99%">
+						<button id="btnPrev" label="Indietro"></button>
+						<button id="btnNext" label="Continua"></button>
+						<button id="btnSave" label="Salva"></button>
+					</hbox>
 				</tabpanel>
 
 				<tabpanel id="tabpanelUtenti" apply="it.vidoc.win.controller.WinUtentiController"

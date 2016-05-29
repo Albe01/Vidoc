@@ -69,15 +69,6 @@ public class SqlInfComuni implements ISqlGeneric {
 		return (T) where;
 	}
 
-	public List<Infcomuni> selectComuniOfPrv(String siglaPrv) {
-		InfcomuniExample infcomuniExample = new InfcomuniExample();
-		infcomuniExample.createCriteria().andSiglaprovinciaEqualTo(siglaPrv).andCodicecomuneNotEqualTo("999");
-		infcomuniExample.setOrderByClause("denomcomune");
-		List<Infcomuni> list = MyBatisConnectionFactory.getSqlSession().getMapper(InfcomuniMapper.class).selectByExample(infcomuniExample);
-		MyBatisConnectionFactory.closeSqlSession();
-		return list;
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T, U> T selectByPrimaryKey(U idOggetto) {
@@ -177,6 +168,15 @@ public class SqlInfComuni implements ISqlGeneric {
 	@Override
 	public <T, Z> int updateByExampleSelective(T oggetto, Z whereCondition) {
 		return 0;
+	}
+	
+	public List<Infcomuni> selectComuniOfPrv(String siglaPrv) {
+		InfcomuniExample infcomuniExample = new InfcomuniExample();
+		infcomuniExample.createCriteria().andSiglaprovinciaEqualTo(siglaPrv).andCodicecomuneNotEqualTo("999");
+		infcomuniExample.setOrderByClause("denomcomune");
+		List<Infcomuni> list = MyBatisConnectionFactory.getSqlSession().getMapper(InfcomuniMapper.class).selectByExample(infcomuniExample);
+		MyBatisConnectionFactory.closeSqlSession();
+		return list;
 	}
 }
 	

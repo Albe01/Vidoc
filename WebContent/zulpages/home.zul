@@ -59,7 +59,7 @@
 						</vbox>
 					</north>
 					<center border="none"></center>
-					<south size="10%" vflex="1" hflex="1">
+					<south size="6%" vflex="1" hflex="1">
 						<hbox height="100%" width="100%">
 							<hbox pack="start" align="center"
 								height="100%" width="100%" hflex="1" vflex="1">

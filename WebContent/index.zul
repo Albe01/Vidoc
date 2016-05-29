@@ -16,7 +16,7 @@
 			<center id="center" border="none">
 				<include src="/zulpages/login.zul" />
 			</center>
-			<south size="10%">
+			<south size="6%">
 				<hbox height="100%" width="100%" vflex="1" hflex="1">
 					<hbox pack="start" align="center" height="100%"
 						width="100%" hflex="1" vflex="1">
